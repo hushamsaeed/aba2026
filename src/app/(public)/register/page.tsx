@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { getPricingConfig, isEarlyBird } from "@/lib/pricing";
 import { SectionHeading } from "@/components/shared/SectionHeading";

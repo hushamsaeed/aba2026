@@ -7,6 +7,8 @@ import { ProgramTabs } from "./ProgramTabs";
 import { SpeakerGrid } from "./SpeakerGrid";
 import { ActivitiesSection } from "./ActivitiesSection";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Program | 42nd ABA Conference",
   description:
