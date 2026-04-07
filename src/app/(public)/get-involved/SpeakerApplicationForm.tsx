@@ -7,10 +7,6 @@ import {
   speakerApplicationSchema,
   type SpeakerApplicationInput,
 } from "@/lib/validations";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 
 export function SpeakerApplicationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,26 +25,17 @@ export function SpeakerApplicationForm() {
   const onSubmit = async (data: SpeakerApplicationInput) => {
     setIsSubmitting(true);
     setError(null);
-
     try {
       const response = await fetch("/api/apply-speaker", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit application. Please try again.");
-      }
-
+      if (!response.ok) throw new Error("Failed to submit application.");
       setSubmitted(true);
       reset();
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "An unexpected error occurred. Please try again."
-      );
+      setError(err instanceof Error ? err.message : "An unexpected error occurred.");
     } finally {
       setIsSubmitting(false);
     }
@@ -57,141 +44,76 @@ export function SpeakerApplicationForm() {
   if (submitted) {
     return (
       <div className="text-center py-8">
-        <div className="w-16 h-16 rounded-full bg-palm-green/10 flex items-center justify-center mx-auto mb-4">
-          <svg
-            className="w-8 h-8 text-palm-green"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5 13l4 4L19 7"
-            />
+        <div className="w-14 h-14 bg-aba-gold/10 flex items-center justify-center mx-auto mb-4">
+          <svg className="w-7 h-7 text-aba-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="font-heading text-xl font-bold text-deep-blue mb-2">
-          Application Submitted
-        </h3>
-        <p className="text-muted-foreground">
-          Thank you for your interest in speaking at the 42nd ABA Conference.
-          Our programme committee will review your proposal and respond within
-          two weeks.
+        <h3 className="font-heading text-xl font-semibold text-white mb-2">Application Submitted</h3>
+        <p className="text-white/50 text-sm">
+          Our programme committee will review your proposal and respond within two weeks.
         </p>
-        <button
-          onClick={() => setSubmitted(false)}
-          className="mt-4 text-ocean-teal hover:text-ocean-teal-dark text-sm font-medium underline underline-offset-2"
-        >
-          Submit another application
+        <button onClick={() => setSubmitted(false)} className="mt-4 text-aba-gold hover:text-white text-editorial text-[10px] underline underline-offset-4">
+          Submit another
         </button>
       </div>
     );
   }
 
+  const inputClass = "w-full bg-dark-surface border border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold focus:outline-none px-4 py-3 text-sm";
+  const labelClass = "text-editorial text-white/60 text-[10px]";
+  const errorClass = "text-xs text-red-400 mt-1";
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {error && (
-        <div className="rounded-lg bg-bml-red/5 border border-bml-red/20 p-4 text-sm text-bml-red">
-          {error}
-        </div>
+        <div className="bg-red-500/10 border border-red-500/20 p-4 text-sm text-red-400">{error}</div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label htmlFor="name">Full Name *</Label>
-          <Input
-            id="name"
-            placeholder="Your full name"
-            {...register("name")}
-          />
-          {errors.name && (
-            <p className="text-xs text-bml-red">{errors.name.message}</p>
-          )}
+        <div>
+          <label htmlFor="name" className={labelClass}>Full Name *</label>
+          <input id="name" placeholder="Your full name" {...register("name")} className={inputClass} />
+          {errors.name && <p className={errorClass}>{errors.name.message}</p>}
         </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="email">Email Address *</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="your.email@organization.com"
-            {...register("email")}
-          />
-          {errors.email && (
-            <p className="text-xs text-bml-red">{errors.email.message}</p>
-          )}
+        <div>
+          <label htmlFor="email" className={labelClass}>Email *</label>
+          <input id="email" type="email" placeholder="your@organization.com" {...register("email")} className={inputClass} />
+          {errors.email && <p className={errorClass}>{errors.email.message}</p>}
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label htmlFor="organization">Organization *</Label>
-          <Input
-            id="organization"
-            placeholder="Your organization"
-            {...register("organization")}
-          />
-          {errors.organization && (
-            <p className="text-xs text-bml-red">
-              {errors.organization.message}
-            </p>
-          )}
+        <div>
+          <label htmlFor="organization" className={labelClass}>Organization *</label>
+          <input id="organization" placeholder="Your organization" {...register("organization")} className={inputClass} />
+          {errors.organization && <p className={errorClass}>{errors.organization.message}</p>}
         </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="title">Job Title *</Label>
-          <Input
-            id="title"
-            placeholder="Your position or title"
-            {...register("title")}
-          />
-          {errors.title && (
-            <p className="text-xs text-bml-red">{errors.title.message}</p>
-          )}
+        <div>
+          <label htmlFor="title" className={labelClass}>Job Title *</label>
+          <input id="title" placeholder="Your position" {...register("title")} className={inputClass} />
+          {errors.title && <p className={errorClass}>{errors.title.message}</p>}
         </div>
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="bio">Professional Bio *</Label>
-        <Textarea
-          id="bio"
-          rows={4}
-          placeholder="Please provide a brief professional biography (minimum 50 characters)"
-          {...register("bio")}
-        />
-        {errors.bio && (
-          <p className="text-xs text-bml-red">{errors.bio.message}</p>
-        )}
+      <div>
+        <label htmlFor="bio" className={labelClass}>Professional Bio *</label>
+        <textarea id="bio" rows={4} placeholder="Brief professional biography (min 50 characters)" {...register("bio")} className={inputClass} />
+        {errors.bio && <p className={errorClass}>{errors.bio.message}</p>}
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="topicProposal">Topic Proposal *</Label>
-        <Textarea
-          id="topicProposal"
-          rows={4}
-          placeholder="Describe your proposed topic, its relevance to the Asian banking industry, and key takeaways for the audience (minimum 50 characters)"
-          {...register("topicProposal")}
-        />
-        {errors.topicProposal && (
-          <p className="text-xs text-bml-red">
-            {errors.topicProposal.message}
-          </p>
-        )}
+      <div>
+        <label htmlFor="topicProposal" className={labelClass}>Topic Proposal *</label>
+        <textarea id="topicProposal" rows={4} placeholder="Describe your proposed topic and key takeaways (min 50 characters)" {...register("topicProposal")} className={inputClass} />
+        {errors.topicProposal && <p className={errorClass}>{errors.topicProposal.message}</p>}
       </div>
 
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-ocean-teal hover:bg-ocean-teal-dark text-white py-3"
-      >
+      <button type="submit" disabled={isSubmitting} className="w-full gradient-gold text-black py-4 btn-sharp text-sm font-bold tracking-widest uppercase hover:opacity-90 transition-opacity disabled:opacity-50">
         {isSubmitting ? "Submitting..." : "Submit Application"}
-      </Button>
+      </button>
 
-      <p className="text-xs text-muted-foreground text-center">
-        All fields marked with * are required. Applications are reviewed by the
-        programme committee on a rolling basis.
+      <p className="text-white/30 text-[10px] text-center text-editorial">
+        All fields marked * are required. Applications reviewed on a rolling basis.
       </p>
     </form>
   );
