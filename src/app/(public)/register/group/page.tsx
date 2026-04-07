@@ -6,18 +6,10 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Link from "next/link";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { IslamicPattern } from "@/components/shared/IslamicPattern";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
 import {
   ArrowLeft,
   ArrowRight,
@@ -32,6 +24,7 @@ import {
   ChevronUp,
   CreditCard,
   CheckCircle2,
+  ArrowUpRight,
 } from "lucide-react";
 
 const SALUTATIONS = ["Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "Hon.", "H.E."];
@@ -277,28 +270,29 @@ export default function GroupRegistrationPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-deep-blue py-14 md:py-20 overflow-hidden">
-        <IslamicPattern color="#bf9436" opacity={0.06} />
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-black pt-32 md:pt-40 pb-16 md:pb-24">
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
           <Link
             href="/register"
-            className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-1.5 text-white/40 hover:text-aba-gold text-sm mb-6 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Registration Options
           </Link>
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <p className="text-editorial text-aba-gold mb-4">Group</p>
+          <h1 className="text-display text-3xl md:text-4xl lg:text-5xl text-white">
             Group Registration
           </h1>
-          <p className="mt-3 text-lg text-white/70 max-w-2xl">
+          <p className="mt-3 text-lg text-white/50 max-w-2xl">
             Register multiple delegates from your organization
           </p>
         </div>
       </section>
 
       {/* Step Indicator */}
-      <div className="bg-white border-b">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-4">
+      <div className="bg-dark-card border-b border-white/10">
+        <div className="w-[90%] max-w-[800px] mx-auto py-4">
           <div className="flex items-center justify-between">
             {STEPS.map((step, i) => {
               const Icon = step.icon;
@@ -313,19 +307,19 @@ export default function GroupRegistrationPage() {
                     }}
                     className={`flex items-center gap-2 text-sm font-medium transition-colors ${
                       isActive
-                        ? "text-deep-blue"
+                        ? "text-aba-gold"
                         : isComplete
-                        ? "text-ocean-teal cursor-pointer hover:text-deep-blue"
-                        : "text-muted-foreground"
+                        ? "text-aba-gold/60 cursor-pointer hover:text-aba-gold"
+                        : "text-white/20"
                     }`}
                   >
                     <div
-                      className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-colors ${
+                      className={`flex h-8 w-8 items-center justify-center text-xs font-bold transition-colors ${
                         isActive
-                          ? "bg-deep-blue text-white"
+                          ? "bg-aba-gold text-black"
                           : isComplete
-                          ? "bg-ocean-teal text-white"
-                          : "bg-muted text-muted-foreground"
+                          ? "bg-aba-gold/20 text-aba-gold"
+                          : "bg-white/5 text-white/20"
                       }`}
                     >
                       {isComplete ? (
@@ -339,7 +333,7 @@ export default function GroupRegistrationPage() {
                   {i < STEPS.length - 1 && (
                     <div
                       className={`mx-3 h-px w-12 sm:w-20 md:w-32 ${
-                        isComplete ? "bg-ocean-teal" : "bg-muted"
+                        isComplete ? "bg-aba-gold/40" : "bg-white/10"
                       }`}
                     />
                   )}
@@ -351,105 +345,106 @@ export default function GroupRegistrationPage() {
       </div>
 
       {/* Form */}
-      <section className="py-12 md:py-16 bg-coral-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16 bg-dark-surface">
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Main Form Area */}
               <div className="lg:col-span-2 space-y-6">
                 {/* Step 1: Organization Details */}
                 {currentStep === 0 && (
-                  <Card>
-                    <CardHeader className="border-b">
-                      <CardTitle className="flex items-center gap-2 text-deep-blue">
-                        <Building2 className="h-5 w-5" />
+                  <div className="bg-dark-card border border-white/10">
+                    <div className="border-b border-white/10 p-6">
+                      <h2 className="flex items-center gap-2 text-white font-bold">
+                        <Building2 className="h-5 w-5 text-aba-gold" />
                         Organization Details
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6 space-y-6">
+                      </h2>
+                    </div>
+                    <div className="p-6 space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="md:col-span-2">
-                          <Label htmlFor="organizationName">
+                          <Label htmlFor="organizationName" className="text-white/50">
                             Organization Name{" "}
-                            <span className="text-bml-red">*</span>
+                            <span className="text-aba-gold">*</span>
                           </Label>
                           <Input
                             id="organizationName"
                             {...register("organizationName")}
-                            className="mt-1.5"
+                            className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                             aria-invalid={!!errors.organizationName}
                           />
                           {errors.organizationName && (
-                            <p className="mt-1 text-xs text-bml-red">
+                            <p className="mt-1 text-xs text-red-400">
                               {errors.organizationName.message}
                             </p>
                           )}
                         </div>
                         <div className="md:col-span-2">
-                          <Label htmlFor="organizationUrl">Website URL</Label>
+                          <Label htmlFor="organizationUrl" className="text-white/50">Website URL</Label>
                           <Input
                             id="organizationUrl"
                             type="url"
                             {...register("organizationUrl")}
-                            className="mt-1.5"
+                            className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                             placeholder="https://..."
                           />
                           {errors.organizationUrl && (
-                            <p className="mt-1 text-xs text-bml-red">
+                            <p className="mt-1 text-xs text-red-400">
                               {errors.organizationUrl.message}
                             </p>
                           )}
                         </div>
                         <div>
-                          <Label htmlFor="contactName">
+                          <Label htmlFor="contactName" className="text-white/50">
                             Contact Person Name{" "}
-                            <span className="text-bml-red">*</span>
+                            <span className="text-aba-gold">*</span>
                           </Label>
                           <Input
                             id="contactName"
                             {...register("contactName")}
-                            className="mt-1.5"
+                            className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                             aria-invalid={!!errors.contactName}
                           />
                           {errors.contactName && (
-                            <p className="mt-1 text-xs text-bml-red">
+                            <p className="mt-1 text-xs text-red-400">
                               {errors.contactName.message}
                             </p>
                           )}
                         </div>
                         <div>
-                          <Label htmlFor="contactEmail">
+                          <Label htmlFor="contactEmail" className="text-white/50">
                             Contact Email{" "}
-                            <span className="text-bml-red">*</span>
+                            <span className="text-aba-gold">*</span>
                           </Label>
                           <Input
                             id="contactEmail"
                             type="email"
                             {...register("contactEmail")}
-                            className="mt-1.5"
+                            className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                             aria-invalid={!!errors.contactEmail}
                           />
                           {errors.contactEmail && (
-                            <p className="mt-1 text-xs text-bml-red">
+                            <p className="mt-1 text-xs text-red-400">
                               {errors.contactEmail.message}
                             </p>
                           )}
                         </div>
                         <div>
-                          <Label htmlFor="contactPhone">Contact Phone</Label>
+                          <Label htmlFor="contactPhone" className="text-white/50">Contact Phone</Label>
                           <Input
                             id="contactPhone"
                             type="tel"
                             {...register("contactPhone")}
-                            className="mt-1.5"
+                            className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                           />
                         </div>
                         <div>
-                          <Label htmlFor="country">Country</Label>
+                          <Label htmlFor="country" className="text-white/50">Country</Label>
                           <select
                             id="country"
                             {...register("country")}
-                            className="mt-1.5 h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                            className="mt-1.5 h-10 w-full bg-dark-card border border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold px-3 text-sm outline-none"
                           >
                             <option value="">Select your country...</option>
                             {COUNTRIES.map((c) =>
@@ -469,12 +464,12 @@ export default function GroupRegistrationPage() {
 
                       {/* Membership Type */}
                       <div>
-                        <Label className="mb-3">
+                        <Label className="mb-3 text-white/50">
                           Membership Type{" "}
-                          <span className="text-bml-red">*</span>
+                          <span className="text-aba-gold">*</span>
                         </Label>
                         <div className="space-y-3">
-                          <label className="flex items-start gap-3 rounded-lg border p-4 cursor-pointer has-[:checked]:border-aba-gold has-[:checked]:bg-aba-gold/5 transition-colors">
+                          <label className="flex items-start gap-3 border border-white/10 p-4 cursor-pointer has-[:checked]:border-aba-gold has-[:checked]:bg-aba-gold/5 transition-colors">
                             <input
                               type="radio"
                               value="MEMBER"
@@ -483,25 +478,25 @@ export default function GroupRegistrationPage() {
                             />
                             <div className="flex-1">
                               <div className="flex items-center justify-between">
-                                <span className="font-medium text-deep-blue">
+                                <span className="font-medium text-white">
                                   ABA Member
                                 </span>
-                                <span className="font-bold text-deep-blue">
+                                <span className="font-bold gradient-gold-text">
                                   {formatCurrency(
                                     getPerPersonPrice("MEMBER")
                                   )}{" "}
-                                  <span className="text-xs font-normal text-muted-foreground">
+                                  <span className="text-xs font-normal text-white/40">
                                     /person
                                   </span>
                                 </span>
                               </div>
-                              <p className="text-sm text-muted-foreground mt-0.5">
+                              <p className="text-sm text-white/40 mt-0.5">
                                 Member bank or institution of the Asian Bankers
                                 Association
                               </p>
                             </div>
                           </label>
-                          <label className="flex items-start gap-3 rounded-lg border p-4 cursor-pointer has-[:checked]:border-aba-gold has-[:checked]:bg-aba-gold/5 transition-colors">
+                          <label className="flex items-start gap-3 border border-white/10 p-4 cursor-pointer has-[:checked]:border-aba-gold has-[:checked]:bg-aba-gold/5 transition-colors">
                             <input
                               type="radio"
                               value="NON_MEMBER"
@@ -510,26 +505,26 @@ export default function GroupRegistrationPage() {
                             />
                             <div className="flex-1">
                               <div className="flex items-center justify-between">
-                                <span className="font-medium text-deep-blue">
+                                <span className="font-medium text-white">
                                   Non-Member
                                 </span>
-                                <span className="font-bold text-deep-blue">
+                                <span className="font-bold gradient-gold-text">
                                   {formatCurrency(
                                     getPerPersonPrice("NON_MEMBER")
                                   )}{" "}
-                                  <span className="text-xs font-normal text-muted-foreground">
+                                  <span className="text-xs font-normal text-white/40">
                                     /person
                                   </span>
                                 </span>
                               </div>
-                              <p className="text-sm text-muted-foreground mt-0.5">
+                              <p className="text-sm text-white/40 mt-0.5">
                                 Non-member organization
                               </p>
                             </div>
                           </label>
                         </div>
                         {errors.membershipType && (
-                          <p className="mt-2 text-xs text-bml-red">
+                          <p className="mt-2 text-xs text-red-400">
                             {errors.membershipType.message}
                           </p>
                         )}
@@ -540,45 +535,42 @@ export default function GroupRegistrationPage() {
                         <button
                           type="button"
                           onClick={() => goToStep(1)}
-                          className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-deep-blue px-6 text-sm font-medium text-white transition-colors hover:bg-deep-blue/90"
+                          className="btn-sharp gradient-gold inline-flex h-10 items-center justify-center gap-2 px-6 text-sm font-medium text-white"
                         >
                           Next: Add Delegates
                           <ArrowRight className="h-4 w-4" />
                         </button>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 )}
 
                 {/* Step 2: Delegates */}
                 {currentStep === 1 && (
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <h3 className="font-heading text-lg font-semibold text-deep-blue">
+                      <h3 className="text-display text-lg text-white">
                         Delegates ({fields.length})
                       </h3>
                       {fields.length < groupMinimum && (
-                        <Badge
-                          variant="outline"
-                          className="text-bml-red border-bml-red/30"
-                        >
+                        <span className="gradient-red text-white text-xs px-2 py-1 font-medium">
                           Minimum {groupMinimum} required
-                        </Badge>
+                        </span>
                       )}
                     </div>
 
                     {fields.map((field, index) => (
-                      <Card key={field.id}>
-                        <CardHeader className="border-b py-3">
+                      <div key={field.id} className="bg-dark-card border border-white/10">
+                        <div className="border-b border-white/10 px-6 py-3">
                           <div className="flex items-center justify-between">
-                            <CardTitle className="text-base text-deep-blue">
+                            <h4 className="text-base font-bold text-white">
                               Delegate {index + 1}
-                            </CardTitle>
+                            </h4>
                             <div className="flex items-center gap-2">
                               <button
                                 type="button"
                                 onClick={() => toggleDelegateExpanded(index)}
-                                className="text-muted-foreground hover:text-deep-blue p-1"
+                                className="text-white/40 hover:text-aba-gold p-1"
                               >
                                 {expandedDelegates.has(index) ? (
                                   <ChevronUp className="h-4 w-4" />
@@ -590,7 +582,7 @@ export default function GroupRegistrationPage() {
                                 <button
                                   type="button"
                                   onClick={() => remove(index)}
-                                  className="text-muted-foreground hover:text-bml-red p-1"
+                                  className="text-white/40 hover:text-red-400 p-1"
                                   title="Remove delegate"
                                 >
                                   <Trash2 className="h-4 w-4" />
@@ -598,16 +590,16 @@ export default function GroupRegistrationPage() {
                               )}
                             </div>
                           </div>
-                        </CardHeader>
-                        <CardContent className="pt-4">
+                        </div>
+                        <div className="p-6">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                              <Label>Salutation</Label>
+                              <Label className="text-white/50">Salutation</Label>
                               <select
                                 {...register(
                                   `delegates.${index}.salutation`
                                 )}
-                                className="mt-1.5 h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                                className="mt-1.5 h-10 w-full bg-dark-card border border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold px-3 text-sm outline-none"
                               >
                                 <option value="">Select...</option>
                                 {SALUTATIONS.map((s) => (
@@ -618,21 +610,21 @@ export default function GroupRegistrationPage() {
                               </select>
                             </div>
                             <div>
-                              <Label>
+                              <Label className="text-white/50">
                                 First Name{" "}
-                                <span className="text-bml-red">*</span>
+                                <span className="text-aba-gold">*</span>
                               </Label>
                               <Input
                                 {...register(
                                   `delegates.${index}.firstName`
                                 )}
-                                className="mt-1.5"
+                                className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                                 aria-invalid={
                                   !!errors.delegates?.[index]?.firstName
                                 }
                               />
                               {errors.delegates?.[index]?.firstName && (
-                                <p className="mt-1 text-xs text-bml-red">
+                                <p className="mt-1 text-xs text-red-400">
                                   {
                                     errors.delegates[index].firstName
                                       ?.message
@@ -641,21 +633,21 @@ export default function GroupRegistrationPage() {
                               )}
                             </div>
                             <div>
-                              <Label>
+                              <Label className="text-white/50">
                                 Last Name{" "}
-                                <span className="text-bml-red">*</span>
+                                <span className="text-aba-gold">*</span>
                               </Label>
                               <Input
                                 {...register(
                                   `delegates.${index}.lastName`
                                 )}
-                                className="mt-1.5"
+                                className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                                 aria-invalid={
                                   !!errors.delegates?.[index]?.lastName
                                 }
                               />
                               {errors.delegates?.[index]?.lastName && (
-                                <p className="mt-1 text-xs text-bml-red">
+                                <p className="mt-1 text-xs text-red-400">
                                   {
                                     errors.delegates[index].lastName
                                       ?.message
@@ -664,66 +656,66 @@ export default function GroupRegistrationPage() {
                               )}
                             </div>
                             <div>
-                              <Label>
+                              <Label className="text-white/50">
                                 Email{" "}
-                                <span className="text-bml-red">*</span>
+                                <span className="text-aba-gold">*</span>
                               </Label>
                               <Input
                                 type="email"
                                 {...register(
                                   `delegates.${index}.email`
                                 )}
-                                className="mt-1.5"
+                                className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                                 aria-invalid={
                                   !!errors.delegates?.[index]?.email
                                 }
                               />
                               {errors.delegates?.[index]?.email && (
-                                <p className="mt-1 text-xs text-bml-red">
+                                <p className="mt-1 text-xs text-red-400">
                                   {errors.delegates[index].email?.message}
                                 </p>
                               )}
                             </div>
                             <div>
-                              <Label>Job Title</Label>
+                              <Label className="text-white/50">Job Title</Label>
                               <Input
                                 {...register(
                                   `delegates.${index}.jobTitle`
                                 )}
-                                className="mt-1.5"
+                                className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                               />
                             </div>
                           </div>
 
                           {/* Expandable dietary/special */}
                           {expandedDelegates.has(index) && (
-                            <div className="mt-4 pt-4 border-t space-y-4">
+                            <div className="mt-4 pt-4 border-t border-white/10 space-y-4">
                               <div>
-                                <Label>Dietary Requirements</Label>
+                                <Label className="text-white/50">Dietary Requirements</Label>
                                 <Textarea
                                   {...register(
                                     `delegates.${index}.dietaryRequirements`
                                   )}
-                                  className="mt-1.5"
+                                  className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                                   placeholder="e.g., Vegetarian, Halal, Allergies..."
                                   rows={2}
                                 />
                               </div>
                               <div>
-                                <Label>Special Requests</Label>
+                                <Label className="text-white/50">Special Requests</Label>
                                 <Textarea
                                   {...register(
                                     `delegates.${index}.specialRequests`
                                   )}
-                                  className="mt-1.5"
+                                  className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                                   placeholder="Accessibility needs or other requests..."
                                   rows={2}
                                 />
                               </div>
                             </div>
                           )}
-                        </CardContent>
-                      </Card>
+                        </div>
+                      </div>
                     ))}
 
                     <button
@@ -737,7 +729,7 @@ export default function GroupRegistrationPage() {
                           jobTitle: "",
                         })
                       }
-                      className="w-full h-12 rounded-lg border-2 border-dashed border-deep-blue/20 text-deep-blue text-sm font-medium hover:border-deep-blue/40 hover:bg-deep-blue/5 transition-colors flex items-center justify-center gap-2"
+                      className="w-full h-12 border-2 border-dashed border-white/10 text-white/50 text-sm font-medium hover:border-aba-gold/40 hover:text-aba-gold transition-colors flex items-center justify-center gap-2"
                     >
                       <Plus className="h-4 w-4" />
                       Add Delegate
@@ -748,7 +740,7 @@ export default function GroupRegistrationPage() {
                       <button
                         type="button"
                         onClick={() => goToStep(0)}
-                        className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-deep-blue/20 px-6 text-sm font-medium text-deep-blue transition-colors hover:bg-deep-blue/5"
+                        className="btn-sharp inline-flex h-10 items-center justify-center gap-2 border border-white/10 bg-dark-card px-6 text-sm font-medium text-white transition-colors hover:border-aba-gold/40"
                       >
                         <ArrowLeft className="h-4 w-4" />
                         Back
@@ -756,7 +748,7 @@ export default function GroupRegistrationPage() {
                       <button
                         type="button"
                         onClick={() => goToStep(2)}
-                        className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-deep-blue px-6 text-sm font-medium text-white transition-colors hover:bg-deep-blue/90"
+                        className="btn-sharp gradient-gold inline-flex h-10 items-center justify-center gap-2 px-6 text-sm font-medium text-white"
                       >
                         Review &amp; Submit
                         <ArrowRight className="h-4 w-4" />
@@ -769,51 +761,51 @@ export default function GroupRegistrationPage() {
                 {currentStep === 2 && (
                   <div className="space-y-6">
                     {/* Organization Summary */}
-                    <Card>
-                      <CardHeader className="border-b">
+                    <div className="bg-dark-card border border-white/10">
+                      <div className="border-b border-white/10 p-6">
                         <div className="flex items-center justify-between">
-                          <CardTitle className="flex items-center gap-2 text-deep-blue">
-                            <Building2 className="h-5 w-5" />
+                          <h2 className="flex items-center gap-2 text-white font-bold">
+                            <Building2 className="h-5 w-5 text-aba-gold" />
                             Organization
-                          </CardTitle>
+                          </h2>
                           <button
                             type="button"
                             onClick={() => goToStep(0)}
-                            className="text-xs text-ocean-teal hover:underline"
+                            className="text-xs text-aba-gold hover:underline"
                           >
                             Edit
                           </button>
                         </div>
-                      </CardHeader>
-                      <CardContent className="pt-4">
+                      </div>
+                      <div className="p-6">
                         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
                           <div>
-                            <dt className="text-muted-foreground">
+                            <dt className="text-white/40">
                               Organization
                             </dt>
-                            <dd className="font-medium">
+                            <dd className="font-medium text-white">
                               {getValues("organizationName")}
                             </dd>
                           </div>
                           <div>
-                            <dt className="text-muted-foreground">
+                            <dt className="text-white/40">
                               Contact Person
                             </dt>
-                            <dd className="font-medium">
+                            <dd className="font-medium text-white">
                               {getValues("contactName")}
                             </dd>
                           </div>
                           <div>
-                            <dt className="text-muted-foreground">Email</dt>
-                            <dd className="font-medium">
+                            <dt className="text-white/40">Email</dt>
+                            <dd className="font-medium text-white">
                               {getValues("contactEmail")}
                             </dd>
                           </div>
                           <div>
-                            <dt className="text-muted-foreground">
+                            <dt className="text-white/40">
                               Membership
                             </dt>
-                            <dd className="font-medium">
+                            <dd className="font-medium text-white">
                               {getValues("membershipType") === "MEMBER"
                                 ? "ABA Member"
                                 : "Non-Member"}
@@ -821,37 +813,37 @@ export default function GroupRegistrationPage() {
                           </div>
                           {getValues("country") && (
                             <div>
-                              <dt className="text-muted-foreground">
+                              <dt className="text-white/40">
                                 Country
                               </dt>
-                              <dd className="font-medium">
+                              <dd className="font-medium text-white">
                                 {getValues("country")}
                               </dd>
                             </div>
                           )}
                         </dl>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
 
                     {/* Delegates Summary */}
-                    <Card>
-                      <CardHeader className="border-b">
+                    <div className="bg-dark-card border border-white/10">
+                      <div className="border-b border-white/10 p-6">
                         <div className="flex items-center justify-between">
-                          <CardTitle className="flex items-center gap-2 text-deep-blue">
-                            <Users className="h-5 w-5" />
+                          <h2 className="flex items-center gap-2 text-white font-bold">
+                            <Users className="h-5 w-5 text-aba-gold" />
                             Delegates ({fields.length})
-                          </CardTitle>
+                          </h2>
                           <button
                             type="button"
                             onClick={() => goToStep(1)}
-                            className="text-xs text-ocean-teal hover:underline"
+                            className="text-xs text-aba-gold hover:underline"
                           >
                             Edit
                           </button>
                         </div>
-                      </CardHeader>
-                      <CardContent className="pt-4">
-                        <div className="divide-y">
+                      </div>
+                      <div className="p-6">
+                        <div className="divide-y divide-white/10">
                           {delegates?.map((d, i) => (
                             <div
                               key={i}
@@ -859,110 +851,108 @@ export default function GroupRegistrationPage() {
                             >
                               <div className="flex items-center justify-between">
                                 <div>
-                                  <p className="font-medium text-sm">
+                                  <p className="font-medium text-sm text-white">
                                     {d.salutation && `${d.salutation} `}
                                     {d.firstName} {d.lastName}
                                   </p>
-                                  <p className="text-xs text-muted-foreground">
+                                  <p className="text-xs text-white/40">
                                     {d.email}
                                     {d.jobTitle && ` - ${d.jobTitle}`}
                                   </p>
                                 </div>
-                                <span className="text-sm font-medium text-deep-blue">
+                                <span className="text-sm font-medium gradient-gold-text">
                                   {formatCurrency(perPerson)}
                                 </span>
                               </div>
                             </div>
                           ))}
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
 
                     {/* Pricing Breakdown */}
-                    <Card>
-                      <CardHeader className="border-b">
-                        <CardTitle className="flex items-center gap-2 text-deep-blue">
-                          <CreditCard className="h-5 w-5" />
+                    <div className="bg-dark-card border border-white/10">
+                      <div className="border-b border-white/10 p-6">
+                        <h2 className="flex items-center gap-2 text-white font-bold">
+                          <CreditCard className="h-5 w-5 text-aba-gold" />
                           Pricing Breakdown
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="pt-4 space-y-3">
+                        </h2>
+                      </div>
+                      <div className="p-6 space-y-3">
                         <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">
+                          <span className="text-white/40">
                             Rate per delegate
                           </span>
-                          <span>{formatCurrency(perPerson)}</span>
+                          <span className="text-white">{formatCurrency(perPerson)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">
+                          <span className="text-white/40">
                             Number of delegates
                           </span>
-                          <span>{delegates?.length ?? 0}</span>
+                          <span className="text-white">{delegates?.length ?? 0}</span>
                         </div>
                         {pricing?.earlyBird && (
                           <div className="flex justify-between text-sm">
-                            <span className="text-muted-foreground">
+                            <span className="text-white/40">
                               Discount
                             </span>
-                            <Badge className="bg-green-50 text-green-700 text-xs">
-                              <Clock className="h-3 w-3 mr-1" />
+                            <span className="gradient-red text-white text-xs px-2 py-0.5 font-medium inline-flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
                               Early Bird
-                            </Badge>
+                            </span>
                           </div>
                         )}
-                        <div className="border-t pt-3 flex justify-between">
-                          <span className="font-semibold text-deep-blue">
+                        <div className="border-t border-white/10 pt-3 flex justify-between">
+                          <span className="font-semibold text-white">
                             Total
                           </span>
-                          <span className="text-xl font-bold text-deep-blue">
+                          <span className="text-xl font-bold gradient-gold-text">
                             {formatCurrency(total)}
                           </span>
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
 
                     {/* Terms */}
-                    <Card>
-                      <CardContent className="pt-6">
-                        <label className="flex items-start gap-3 cursor-pointer">
-                          <input
-                            type="checkbox"
-                            {...register("termsAccepted")}
-                            className="mt-0.5 h-4 w-4 rounded accent-deep-blue"
-                          />
-                          <span className="text-sm text-muted-foreground">
-                            I confirm that the above information is correct and
-                            agree to the{" "}
-                            <Link
-                              href="/terms"
-                              className="text-deep-blue underline hover:text-aba-gold"
-                              target="_blank"
-                            >
-                              terms and conditions
-                            </Link>{" "}
-                            and{" "}
-                            <Link
-                              href="/privacy"
-                              className="text-deep-blue underline hover:text-aba-gold"
-                              target="_blank"
-                            >
-                              privacy policy
-                            </Link>
-                            .{" "}
-                            <span className="text-bml-red">*</span>
-                          </span>
-                        </label>
-                        {errors.termsAccepted && (
-                          <p className="mt-2 text-xs text-bml-red">
-                            {errors.termsAccepted.message}
-                          </p>
-                        )}
-                      </CardContent>
-                    </Card>
+                    <div className="bg-dark-card border border-white/10 p-6">
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          {...register("termsAccepted")}
+                          className="mt-0.5 h-4 w-4 rounded accent-aba-gold"
+                        />
+                        <span className="text-sm text-white/50">
+                          I confirm that the above information is correct and
+                          agree to the{" "}
+                          <Link
+                            href="/terms"
+                            className="text-aba-gold underline hover:text-aba-gold/80"
+                            target="_blank"
+                          >
+                            terms and conditions
+                          </Link>{" "}
+                          and{" "}
+                          <Link
+                            href="/privacy"
+                            className="text-aba-gold underline hover:text-aba-gold/80"
+                            target="_blank"
+                          >
+                            privacy policy
+                          </Link>
+                          .{" "}
+                          <span className="text-aba-gold">*</span>
+                        </span>
+                      </label>
+                      {errors.termsAccepted && (
+                        <p className="mt-2 text-xs text-red-400">
+                          {errors.termsAccepted.message}
+                        </p>
+                      )}
+                    </div>
 
                     {submitError && (
-                      <div className="rounded-lg bg-bml-red/10 border border-bml-red/20 p-4">
-                        <p className="text-sm text-bml-red">{submitError}</p>
+                      <div className="bg-red-500/10 border border-red-500/20 p-4">
+                        <p className="text-sm text-red-400">{submitError}</p>
                       </div>
                     )}
 
@@ -971,7 +961,7 @@ export default function GroupRegistrationPage() {
                       <button
                         type="button"
                         onClick={() => goToStep(1)}
-                        className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-deep-blue/20 px-6 text-sm font-medium text-deep-blue transition-colors hover:bg-deep-blue/5"
+                        className="btn-sharp inline-flex h-10 items-center justify-center gap-2 border border-white/10 bg-dark-card px-6 text-sm font-medium text-white transition-colors hover:border-aba-gold/40"
                       >
                         <ArrowLeft className="h-4 w-4" />
                         Back
@@ -979,7 +969,7 @@ export default function GroupRegistrationPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-bml-red px-8 text-sm font-medium text-white transition-colors hover:bg-bml-red/90 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="btn-sharp gradient-red inline-flex h-12 items-center justify-center gap-2 px-8 text-sm font-medium text-white disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>
@@ -987,7 +977,10 @@ export default function GroupRegistrationPage() {
                             Submitting...
                           </>
                         ) : (
-                          "Complete Registration"
+                          <>
+                            Complete Registration
+                            <ArrowUpRight className="h-4 w-4" />
+                          </>
                         )}
                       </button>
                     </div>
@@ -998,78 +991,75 @@ export default function GroupRegistrationPage() {
               {/* Pricing Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24">
-                  <Card>
-                    <CardHeader className="border-b bg-deep-blue/5">
-                      <CardTitle className="text-deep-blue">
+                  <div className="bg-dark-card border border-white/10">
+                    <div className="border-b border-white/10 bg-black/30 p-6">
+                      <h3 className="text-white font-bold">
                         Pricing Summary
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6 space-y-4">
+                      </h3>
+                    </div>
+                    <div className="p-6 space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm text-white/40">
                           Registration Type
                         </span>
-                        <Badge
-                          variant="outline"
-                          className="text-deep-blue border-deep-blue/30"
-                        >
+                        <span className="text-editorial text-aba-gold text-xs">
                           Group
-                        </Badge>
+                        </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm text-white/40">
                           Membership
                         </span>
-                        <span className="text-sm font-medium">
+                        <span className="text-sm font-medium text-white">
                           {membershipType === "MEMBER"
                             ? "ABA Member"
                             : "Non-Member"}
                         </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm text-white/40">
                           Per delegate
                         </span>
-                        <span className="text-sm font-medium">
+                        <span className="text-sm font-medium text-white">
                           {formatCurrency(perPerson)}
                         </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm text-white/40">
                           Delegates
                         </span>
-                        <span className="text-sm font-medium">
+                        <span className="text-sm font-medium text-white">
                           {delegates?.length ?? 0}
                         </span>
                       </div>
                       {pricing?.earlyBird && (
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-white/40">
                             Discount
                           </span>
-                          <Badge className="bg-green-50 text-green-700 text-xs">
-                            <Clock className="h-3 w-3 mr-1" />
+                          <span className="gradient-red text-white text-xs px-2 py-0.5 font-medium inline-flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
                             Early Bird
-                          </Badge>
+                          </span>
                         </div>
                       )}
-                      <div className="border-t pt-4">
+                      <div className="border-t border-white/10 pt-4">
                         <div className="flex justify-between items-center">
-                          <span className="font-medium text-deep-blue">
+                          <span className="font-medium text-white">
                             Total
                           </span>
-                          <span className="text-2xl font-bold text-deep-blue">
+                          <span className="text-2xl font-bold gradient-gold-text">
                             {formatCurrency(total)}
                           </span>
                         </div>
                       </div>
                       {fields.length < groupMinimum && (
-                        <p className="text-xs text-bml-red">
+                        <p className="text-xs text-red-400">
                           Minimum {groupMinimum} delegates required
                         </p>
                       )}
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

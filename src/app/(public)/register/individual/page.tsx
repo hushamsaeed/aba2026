@@ -6,19 +6,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Link from "next/link";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { IslamicPattern } from "@/components/shared/IslamicPattern";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
-import { ArrowLeft, Loader2, Clock, User, Briefcase, CreditCard } from "lucide-react";
+import { ArrowLeft, Loader2, Clock, User, Briefcase, CreditCard, ArrowUpRight } from "lucide-react";
 
 const SALUTATIONS = ["Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "Hon.", "H.E."];
 
@@ -184,48 +176,50 @@ export default function IndividualRegistrationPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-deep-blue py-14 md:py-20 overflow-hidden">
-        <IslamicPattern color="#bf9436" opacity={0.06} />
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-black pt-32 md:pt-40 pb-16 md:pb-24">
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
           <Link
             href="/register"
-            className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-1.5 text-white/40 hover:text-aba-gold text-sm mb-6 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Registration Options
           </Link>
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <p className="text-editorial text-aba-gold mb-4">Individual</p>
+          <h1 className="text-display text-3xl md:text-4xl lg:text-5xl text-white">
             Individual Registration
           </h1>
-          <p className="mt-3 text-lg text-white/70 max-w-2xl">
+          <p className="mt-3 text-lg text-white/50 max-w-2xl">
             Register as an individual delegate for the 42nd ABA Conference
           </p>
         </div>
       </section>
 
       {/* Form */}
-      <section className="py-12 md:py-16 bg-coral-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16 bg-dark-surface">
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Main Form */}
               <div className="lg:col-span-2 space-y-8">
                 {/* Personal Details */}
-                <Card>
-                  <CardHeader className="border-b">
-                    <CardTitle className="flex items-center gap-2 text-deep-blue">
-                      <User className="h-5 w-5" />
+                <div className="bg-dark-card border border-white/10">
+                  <div className="border-b border-white/10 p-6">
+                    <h2 className="flex items-center gap-2 text-white font-bold">
+                      <User className="h-5 w-5 text-aba-gold" />
                       Personal Details
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6">
+                    </h2>
+                  </div>
+                  <div className="p-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="md:col-span-2">
-                        <Label htmlFor="salutation">Salutation</Label>
+                        <Label htmlFor="salutation" className="text-white/50">Salutation</Label>
                         <select
                           id="salutation"
                           {...register("salutation")}
-                          className="mt-1.5 h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                          className="mt-1.5 h-10 w-full bg-dark-card border border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold px-3 text-sm outline-none"
                         >
                           <option value="">Select...</option>
                           {SALUTATIONS.map((s) => (
@@ -236,107 +230,107 @@ export default function IndividualRegistrationPage() {
                         </select>
                       </div>
                       <div>
-                        <Label htmlFor="firstName">
-                          First Name <span className="text-bml-red">*</span>
+                        <Label htmlFor="firstName" className="text-white/50">
+                          First Name <span className="text-aba-gold">*</span>
                         </Label>
                         <Input
                           id="firstName"
                           {...register("firstName")}
-                          className="mt-1.5"
+                          className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                           aria-invalid={!!errors.firstName}
                         />
                         {errors.firstName && (
-                          <p className="mt-1 text-xs text-bml-red">
+                          <p className="mt-1 text-xs text-red-400">
                             {errors.firstName.message}
                           </p>
                         )}
                       </div>
                       <div>
-                        <Label htmlFor="middleName">Middle Name</Label>
+                        <Label htmlFor="middleName" className="text-white/50">Middle Name</Label>
                         <Input
                           id="middleName"
                           {...register("middleName")}
-                          className="mt-1.5"
+                          className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="lastName">
-                          Last Name <span className="text-bml-red">*</span>
+                        <Label htmlFor="lastName" className="text-white/50">
+                          Last Name <span className="text-aba-gold">*</span>
                         </Label>
                         <Input
                           id="lastName"
                           {...register("lastName")}
-                          className="mt-1.5"
+                          className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                           aria-invalid={!!errors.lastName}
                         />
                         {errors.lastName && (
-                          <p className="mt-1 text-xs text-bml-red">
+                          <p className="mt-1 text-xs text-red-400">
                             {errors.lastName.message}
                           </p>
                         )}
                       </div>
                       <div>
-                        <Label htmlFor="email">
-                          Email Address <span className="text-bml-red">*</span>
+                        <Label htmlFor="email" className="text-white/50">
+                          Email Address <span className="text-aba-gold">*</span>
                         </Label>
                         <Input
                           id="email"
                           type="email"
                           {...register("email")}
-                          className="mt-1.5"
+                          className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                           aria-invalid={!!errors.email}
                         />
                         {errors.email && (
-                          <p className="mt-1 text-xs text-bml-red">
+                          <p className="mt-1 text-xs text-red-400">
                             {errors.email.message}
                           </p>
                         )}
                       </div>
                       <div>
-                        <Label htmlFor="phone">Phone Number</Label>
+                        <Label htmlFor="phone" className="text-white/50">Phone Number</Label>
                         <Input
                           id="phone"
                           type="tel"
                           {...register("phone")}
-                          className="mt-1.5"
+                          className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                         />
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
                 {/* Professional Details */}
-                <Card>
-                  <CardHeader className="border-b">
-                    <CardTitle className="flex items-center gap-2 text-deep-blue">
-                      <Briefcase className="h-5 w-5" />
+                <div className="bg-dark-card border border-white/10">
+                  <div className="border-b border-white/10 p-6">
+                    <h2 className="flex items-center gap-2 text-white font-bold">
+                      <Briefcase className="h-5 w-5 text-aba-gold" />
                       Professional Details
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6">
+                    </h2>
+                  </div>
+                  <div className="p-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="jobTitle">Job Title</Label>
+                        <Label htmlFor="jobTitle" className="text-white/50">Job Title</Label>
                         <Input
                           id="jobTitle"
                           {...register("jobTitle")}
-                          className="mt-1.5"
+                          className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="organization">Organization</Label>
+                        <Label htmlFor="organization" className="text-white/50">Organization</Label>
                         <Input
                           id="organization"
                           {...register("organization")}
-                          className="mt-1.5"
+                          className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                         />
                       </div>
                       <div className="md:col-span-2">
-                        <Label htmlFor="country">Country</Label>
+                        <Label htmlFor="country" className="text-white/50">Country</Label>
                         <select
                           id="country"
                           {...register("country")}
-                          className="mt-1.5 h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                          className="mt-1.5 h-10 w-full bg-dark-card border border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold px-3 text-sm outline-none"
                         >
                           <option value="">Select your country...</option>
                           {COUNTRIES.map((c) =>
@@ -353,20 +347,20 @@ export default function IndividualRegistrationPage() {
                         </select>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
                 {/* Membership Type */}
-                <Card>
-                  <CardHeader className="border-b">
-                    <CardTitle className="flex items-center gap-2 text-deep-blue">
-                      <CreditCard className="h-5 w-5" />
+                <div className="bg-dark-card border border-white/10">
+                  <div className="border-b border-white/10 p-6">
+                    <h2 className="flex items-center gap-2 text-white font-bold">
+                      <CreditCard className="h-5 w-5 text-aba-gold" />
                       Membership &amp; Rate
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6">
+                    </h2>
+                  </div>
+                  <div className="p-6">
                     <div className="space-y-3">
-                      <label className="flex items-start gap-3 rounded-lg border p-4 cursor-pointer has-[:checked]:border-aba-gold has-[:checked]:bg-aba-gold/5 transition-colors">
+                      <label className="flex items-start gap-3 border border-white/10 p-4 cursor-pointer has-[:checked]:border-aba-gold has-[:checked]:bg-aba-gold/5 transition-colors">
                         <input
                           type="radio"
                           value="MEMBER"
@@ -375,24 +369,24 @@ export default function IndividualRegistrationPage() {
                         />
                         <div className="flex-1">
                           <div className="flex items-center justify-between">
-                            <span className="font-medium text-deep-blue">
+                            <span className="font-medium text-white">
                               ABA Member
                             </span>
-                            <span className="font-bold text-deep-blue">
+                            <span className="font-bold gradient-gold-text">
                               {getDisplayPrice("MEMBER")}
                             </span>
                           </div>
-                          <p className="text-sm text-muted-foreground mt-0.5">
+                          <p className="text-sm text-white/40 mt-0.5">
                             For delegates from ABA member banks and institutions
                           </p>
                           {getRegularPrice("MEMBER") && (
-                            <p className="text-xs text-muted-foreground line-through mt-1">
+                            <p className="text-xs text-white/40 line-through mt-1">
                               Regular: {getRegularPrice("MEMBER")}
                             </p>
                           )}
                         </div>
                       </label>
-                      <label className="flex items-start gap-3 rounded-lg border p-4 cursor-pointer has-[:checked]:border-aba-gold has-[:checked]:bg-aba-gold/5 transition-colors">
+                      <label className="flex items-start gap-3 border border-white/10 p-4 cursor-pointer has-[:checked]:border-aba-gold has-[:checked]:bg-aba-gold/5 transition-colors">
                         <input
                           type="radio"
                           value="NON_MEMBER"
@@ -401,18 +395,18 @@ export default function IndividualRegistrationPage() {
                         />
                         <div className="flex-1">
                           <div className="flex items-center justify-between">
-                            <span className="font-medium text-deep-blue">
+                            <span className="font-medium text-white">
                               Non-Member
                             </span>
-                            <span className="font-bold text-deep-blue">
+                            <span className="font-bold gradient-gold-text">
                               {getDisplayPrice("NON_MEMBER")}
                             </span>
                           </div>
-                          <p className="text-sm text-muted-foreground mt-0.5">
+                          <p className="text-sm text-white/40 mt-0.5">
                             For delegates from non-member organizations
                           </p>
                           {getRegularPrice("NON_MEMBER") && (
-                            <p className="text-xs text-muted-foreground line-through mt-1">
+                            <p className="text-xs text-white/40 line-through mt-1">
                               Regular: {getRegularPrice("NON_MEMBER")}
                             </p>
                           )}
@@ -420,88 +414,86 @@ export default function IndividualRegistrationPage() {
                       </label>
                     </div>
                     {errors.membershipType && (
-                      <p className="mt-2 text-xs text-bml-red">
+                      <p className="mt-2 text-xs text-red-400">
                         {errors.membershipType.message}
                       </p>
                     )}
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
                 {/* Additional Information */}
-                <Card>
-                  <CardHeader className="border-b">
-                    <CardTitle className="text-deep-blue">
+                <div className="bg-dark-card border border-white/10">
+                  <div className="border-b border-white/10 p-6">
+                    <h2 className="text-white font-bold">
                       Additional Information
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6 space-y-4">
+                    </h2>
+                  </div>
+                  <div className="p-6 space-y-4">
                     <div>
-                      <Label htmlFor="dietaryRequirements">
+                      <Label htmlFor="dietaryRequirements" className="text-white/50">
                         Dietary Requirements
                       </Label>
                       <Textarea
                         id="dietaryRequirements"
                         {...register("dietaryRequirements")}
-                        className="mt-1.5"
+                        className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                         placeholder="e.g., Vegetarian, Halal, Gluten-free, Allergies..."
                         rows={2}
                       />
                     </div>
                     <div>
-                      <Label htmlFor="specialRequests">Special Requests</Label>
+                      <Label htmlFor="specialRequests" className="text-white/50">Special Requests</Label>
                       <Textarea
                         id="specialRequests"
                         {...register("specialRequests")}
-                        className="mt-1.5"
+                        className="mt-1.5 bg-dark-card border-white/10 text-white placeholder:text-white/30 focus:border-aba-gold"
                         placeholder="Any special arrangements or accessibility requirements..."
                         rows={2}
                       />
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
                 {/* Terms */}
-                <Card>
-                  <CardContent className="pt-6">
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        {...register("termsAccepted")}
-                        className="mt-0.5 h-4 w-4 rounded accent-deep-blue"
-                      />
-                      <span className="text-sm text-muted-foreground">
-                        I agree to the{" "}
-                        <Link
-                          href="/terms"
-                          className="text-deep-blue underline hover:text-aba-gold"
-                          target="_blank"
-                        >
-                          terms and conditions
-                        </Link>{" "}
-                        and the{" "}
-                        <Link
-                          href="/privacy"
-                          className="text-deep-blue underline hover:text-aba-gold"
-                          target="_blank"
-                        >
-                          privacy policy
-                        </Link>{" "}
-                        of the 42nd ABA Conference.{" "}
-                        <span className="text-bml-red">*</span>
-                      </span>
-                    </label>
-                    {errors.termsAccepted && (
-                      <p className="mt-2 text-xs text-bml-red">
-                        {errors.termsAccepted.message}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
+                <div className="bg-dark-card border border-white/10 p-6">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      {...register("termsAccepted")}
+                      className="mt-0.5 h-4 w-4 rounded accent-aba-gold"
+                    />
+                    <span className="text-sm text-white/50">
+                      I agree to the{" "}
+                      <Link
+                        href="/terms"
+                        className="text-aba-gold underline hover:text-aba-gold/80"
+                        target="_blank"
+                      >
+                        terms and conditions
+                      </Link>{" "}
+                      and the{" "}
+                      <Link
+                        href="/privacy"
+                        className="text-aba-gold underline hover:text-aba-gold/80"
+                        target="_blank"
+                      >
+                        privacy policy
+                      </Link>{" "}
+                      of the 42nd ABA Conference.{" "}
+                      <span className="text-aba-gold">*</span>
+                    </span>
+                  </label>
+                  {errors.termsAccepted && (
+                    <p className="mt-2 text-xs text-red-400">
+                      {errors.termsAccepted.message}
+                    </p>
+                  )}
+                </div>
 
                 {/* Submit Error */}
                 {submitError && (
-                  <div className="rounded-lg bg-bml-red/10 border border-bml-red/20 p-4">
-                    <p className="text-sm text-bml-red">{submitError}</p>
+                  <div className="bg-red-500/10 border border-red-500/20 p-4">
+                    <p className="text-sm text-red-400">{submitError}</p>
                   </div>
                 )}
 
@@ -510,7 +502,7 @@ export default function IndividualRegistrationPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full h-12 rounded-lg bg-bml-red text-white font-medium transition-colors hover:bg-bml-red/90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="btn-sharp gradient-red w-full h-12 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -518,7 +510,10 @@ export default function IndividualRegistrationPage() {
                         Submitting...
                       </>
                     ) : (
-                      "Complete Registration"
+                      <>
+                        Complete Registration
+                        <ArrowUpRight className="h-4 w-4" />
+                      </>
                     )}
                   </button>
                 </div>
@@ -527,29 +522,26 @@ export default function IndividualRegistrationPage() {
               {/* Pricing Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-4">
-                  <Card>
-                    <CardHeader className="border-b bg-deep-blue/5">
-                      <CardTitle className="text-deep-blue">
+                  <div className="bg-dark-card border border-white/10">
+                    <div className="border-b border-white/10 bg-black/30 p-6">
+                      <h3 className="text-white font-bold">
                         Pricing Summary
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6 space-y-4">
+                      </h3>
+                    </div>
+                    <div className="p-6 space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm text-white/40">
                           Registration Type
                         </span>
-                        <Badge
-                          variant="outline"
-                          className="text-deep-blue border-deep-blue/30"
-                        >
+                        <span className="text-editorial text-aba-gold text-xs">
                           Individual
-                        </Badge>
+                        </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm text-white/40">
                           Membership
                         </span>
-                        <span className="text-sm font-medium">
+                        <span className="text-sm font-medium text-white">
                           {membershipType === "MEMBER"
                             ? "ABA Member"
                             : "Non-Member"}
@@ -557,44 +549,44 @@ export default function IndividualRegistrationPage() {
                       </div>
                       {pricing?.earlyBird && (
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-white/40">
                             Discount
                           </span>
-                          <Badge className="bg-green-50 text-green-700 text-xs">
-                            <Clock className="h-3 w-3 mr-1" />
+                          <span className="gradient-red text-white text-xs px-2 py-0.5 font-medium inline-flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
                             Early Bird
-                          </Badge>
+                          </span>
                         </div>
                       )}
-                      <div className="border-t pt-4">
+                      <div className="border-t border-white/10 pt-4">
                         {pricing?.earlyBird && (
                           <div className="flex justify-between items-center mb-1">
-                            <span className="text-xs text-muted-foreground">
+                            <span className="text-xs text-white/40">
                               Regular rate
                             </span>
-                            <span className="text-sm text-muted-foreground line-through">
+                            <span className="text-sm text-white/40 line-through">
                               {getRegularPrice(membershipType)}
                             </span>
                           </div>
                         )}
                         <div className="flex justify-between items-center">
-                          <span className="font-medium text-deep-blue">
+                          <span className="font-medium text-white">
                             Total
                           </span>
-                          <span className="text-2xl font-bold text-deep-blue">
+                          <span className="text-2xl font-bold gradient-gold-text">
                             {getDisplayPrice(membershipType)}
                           </span>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
 
                   {/* Submit Button (desktop) */}
                   <div className="hidden lg:block">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full h-12 rounded-lg bg-bml-red text-white font-medium transition-colors hover:bg-bml-red/90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="btn-sharp gradient-red w-full h-12 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? (
                         <>
@@ -602,12 +594,15 @@ export default function IndividualRegistrationPage() {
                           Submitting...
                         </>
                       ) : (
-                        "Complete Registration"
+                        <>
+                          Complete Registration
+                          <ArrowUpRight className="h-4 w-4" />
+                        </>
                       )}
                     </button>
                   </div>
 
-                  <p className="text-xs text-center text-muted-foreground">
+                  <p className="text-xs text-center text-white/40">
                     Payment instructions will be sent to your email after
                     registration.
                   </p>
