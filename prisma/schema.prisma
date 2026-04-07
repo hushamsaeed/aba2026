@@ -1,0 +1,287 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── AUTH & USERS ───
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         UserRole @default(EDITOR)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+// ─── REGISTRATIONS ───
+
+model Registration {
+  id               String             @id @default(cuid())
+  referenceNumber  String             @unique @default(cuid())
+  type             RegistrationType
+  status           RegistrationStatus @default(PENDING)
+
+  organizationName String?
+  organizationUrl  String?
+  contactEmail     String
+  contactPhone     String?
+  contactName      String
+  country          String?
+
+  membershipType MembershipType
+  totalAmount    Decimal            @db.Decimal(10, 2)
+  currency       String             @default("USD")
+  earlyBird      Boolean            @default(false)
+
+  delegates Delegate[]
+  payment   Payment?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum RegistrationType {
+  INDIVIDUAL
+  GROUP
+}
+
+enum RegistrationStatus {
+  PENDING
+  PAYMENT_SENT
+  PAID
+  CONFIRMED
+  CANCELLED
+}
+
+enum MembershipType {
+  MEMBER
+  NON_MEMBER
+}
+
+model Delegate {
+  id             String       @id @default(cuid())
+  registrationId String
+  registration   Registration @relation(fields: [registrationId], references: [id], onDelete: Cascade)
+
+  salutation          String?
+  firstName           String
+  middleName          String?
+  lastName            String
+  email               String
+  phone               String?
+  jobTitle            String?
+  organization        String?
+  country             String?
+  dietaryRequirements String?
+  specialRequests     String?
+
+  createdAt DateTime @default(now())
+}
+
+// ─── PAYMENTS ───
+
+model Payment {
+  id             String       @id @default(cuid())
+  registrationId String       @unique
+  registration   Registration @relation(fields: [registrationId], references: [id])
+
+  method    PaymentMethod
+  status    PaymentStatus @default(PENDING)
+  reference String?
+
+  gatewaySessionId  String?
+  gatewayPaymentUrl String?
+
+  amount   Decimal @db.Decimal(10, 2)
+  currency String  @default("USD")
+
+  paidAt    DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+enum PaymentMethod {
+  GATEWAY
+  PAYMENT_LINK
+  BANK_TRANSFER
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+// ─── PROGRAM / AGENDA ───
+
+model ProgramDay {
+  id       String           @id @default(cuid())
+  date     DateTime         @db.Date
+  title    String
+  order    Int
+  sessions ProgramSession[]
+}
+
+model ProgramSession {
+  id          String      @id @default(cuid())
+  dayId       String
+  day         ProgramDay  @relation(fields: [dayId], references: [id], onDelete: Cascade)
+  title       String
+  description String?     @db.Text
+  startTime   String
+  endTime     String
+  type        SessionType
+  location    String?
+  order       Int
+
+  speakers SpeakerSession[]
+}
+
+enum SessionType {
+  KEYNOTE
+  PANEL
+  WORKSHOP
+  BREAK
+  NETWORKING
+  CEREMONY
+  ACTIVITY
+  EXCURSION
+}
+
+// ─── SPEAKERS ───
+
+model Speaker {
+  id           String           @id @default(cuid())
+  name         String
+  title        String
+  organization String
+  bio          String?          @db.Text
+  photoUrl     String?
+  country      String?
+  featured     Boolean          @default(false)
+  order        Int              @default(0)
+  sessions     SpeakerSession[]
+  createdAt    DateTime         @default(now())
+}
+
+model SpeakerSession {
+  speakerId String
+  sessionId String
+  speaker   Speaker        @relation(fields: [speakerId], references: [id], onDelete: Cascade)
+  session   ProgramSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role      String?
+
+  @@id([speakerId, sessionId])
+}
+
+// ─── SPONSORS ───
+
+model Sponsor {
+  id      String      @id @default(cuid())
+  name    String
+  tier    SponsorTier
+  logoUrl String
+  website String?
+  order   Int         @default(0)
+  active  Boolean     @default(true)
+}
+
+enum SponsorTier {
+  PLATINUM
+  GOLD
+  SILVER
+  BRONZE
+  MEDIA_PARTNER
+}
+
+// ─── CMS CONTENT ───
+
+model ContentBlock {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String?
+  body      String   @db.Text
+  imageUrl  String?
+  metadata  Json?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+}
+
+// ─── SITE CONFIG ───
+
+model SiteConfig {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String @db.Text
+  label String?
+  group String @default("general")
+}
+
+// ─── PREVIOUS CONFERENCES ───
+
+model PreviousConference {
+  id       String  @id @default(cuid())
+  year     Int
+  edition  String
+  title    String
+  location String
+  url      String?
+  order    Int     @default(0)
+}
+
+// ─── SPEAKER APPLICATIONS ───
+
+model SpeakerApplication {
+  id            String            @id @default(cuid())
+  name          String
+  email         String
+  organization  String
+  title         String
+  bio           String            @db.Text
+  topicProposal String           @db.Text
+  status        ApplicationStatus @default(PENDING)
+  createdAt     DateTime          @default(now())
+}
+
+enum ApplicationStatus {
+  PENDING
+  REVIEWED
+  ACCEPTED
+  DECLINED
+}
+
+// ─── CONTACT SUBMISSIONS ───
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// ─── GENERATED IMAGES ───
+
+model GeneratedImage {
+  id        String   @id @default(cuid())
+  prompt    String   @db.Text
+  url       String
+  filename  String
+  mimeType  String   @default("image/png")
+  createdAt DateTime @default(now())
+}
