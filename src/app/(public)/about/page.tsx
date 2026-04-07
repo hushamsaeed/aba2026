@@ -1,221 +1,115 @@
 import type { Metadata } from "next";
-import { Download, Users, Landmark, CreditCard, Globe, Building2 } from "lucide-react";
-import { IslamicPattern } from "@/components/shared/IslamicPattern";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { WavesDivider } from "@/components/shared/WavesDivider";
+import Image from "next/image";
+import { Download } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About | 42nd ABA Conference",
-  description:
-    "Learn about Bank of Maldives, the host institution, and the Asian Bankers Association.",
+  description: "About Bank of Maldives and the Asian Bankers Association.",
 };
 
 const bmlFacts = [
-  { label: "Customers", value: "365,000+", icon: Users },
-  { label: "Total Deposits", value: "MVR 32.03B", icon: Landmark },
-  { label: "Total Assets", value: "MVR 48.4B", icon: Building2 },
-  { label: "Employees", value: "1,000+", subtext: "99% local", icon: Users },
-  { label: "Network", value: "Largest", subtext: "in Maldives", icon: Globe },
-  {
-    label: "Card Memberships",
-    value: "Principal Member",
-    subtext: "Visa & MasterCard",
-    icon: CreditCard,
-  },
+  { value: "365K+", label: "Customers" },
+  { value: "32B", label: "MVR Deposits" },
+  { value: "48.4B", label: "MVR Assets" },
+  { value: "1,000+", label: "Employees" },
+  { value: "99%", label: "Local Staff" },
+  { value: "#1", label: "Network in Maldives" },
 ];
 
 export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-deep-blue py-24 md:py-32 overflow-hidden">
-        <IslamicPattern color="#bf9436" opacity={0.06} />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-            About
+      <section className="relative bg-black pt-32 md:pt-40 pb-16 md:pb-24">
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
+          <p className="text-editorial text-aba-gold mb-4">About</p>
+          <h1 className="text-display text-4xl md:text-6xl lg:text-7xl text-white">
+            Our <span className="gradient-gold-text">Hosts</span>
           </h1>
-          <p className="mt-4 text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
-            The host institution and the regional association behind the 42nd ABA
-            Conference
-          </p>
-          <div className="mt-6 h-1 w-20 rounded-full bg-aba-gold mx-auto" />
         </div>
-        <WavesDivider color="#f8f4f0" />
       </section>
 
-      {/* About BML */}
-      <section className="relative bg-coral-white py-16 md:py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-2 justify-center">
-            <div className="h-1 w-8 rounded-full bg-bml-red" />
-            <span className="text-bml-red font-medium text-sm uppercase tracking-wide">
-              Host Institution
-            </span>
-            <div className="h-1 w-8 rounded-full bg-bml-red" />
-          </div>
-
-          <SectionHeading
-            title="Bank of Maldives"
-            subtitle="The national bank and largest financial institution in the Republic of Maldives"
-          />
-
-          <div className="max-w-3xl mx-auto mb-12">
-            <div className="space-y-4 text-muted-foreground leading-relaxed text-center">
-              <p>
-                Bank of Maldives (BML) is the leading financial institution in
-                the Maldives, serving as the backbone of the nation&rsquo;s
-                economy. Established in 1982, BML has grown to become the most
-                trusted and widely connected bank across the Maldivian
-                archipelago, providing comprehensive financial services to
-                individuals, businesses, and government institutions.
-              </p>
-              <p>
-                With the largest network of branches, ATMs, and agents across
-                every inhabited island, BML plays a pivotal role in driving
-                financial inclusion throughout the Maldives. The bank is a
-                principal member of both Visa and MasterCard networks and holds
-                an exclusive partnership with American Express in the Maldives.
-              </p>
-            </div>
-          </div>
-
-          {/* Key Facts Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-            {bmlFacts.map((fact) => (
-              <div
-                key={fact.label}
-                className="bg-white rounded-xl p-5 text-center shadow-sm border border-bml-red/5 hover:border-bml-red/20 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-bml-red/10 flex items-center justify-center mx-auto mb-3">
-                  <fact.icon className="w-5 h-5 text-bml-red" />
+      {/* BML Section */}
+      <section className="relative bg-dark-surface py-20 md:py-32">
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <Image src="/logos/bml-logo.png" alt="BML" width={48} height={48} className="h-12 w-auto" />
+                <div>
+                  <p className="text-editorial text-bml-red text-[10px]">Host Institution</p>
+                  <h2 className="text-display text-3xl md:text-4xl text-white">Bank of Maldives</h2>
                 </div>
-                <p className="font-heading text-lg md:text-xl font-bold text-deep-blue">
-                  {fact.value}
+              </div>
+              <div className="space-y-4 text-white/50 text-sm leading-relaxed">
+                <p>
+                  Bank of Maldives (BML) is the leading financial institution in the Maldives,
+                  providing a comprehensive range of personal, business, and corporate banking services.
                 </p>
-                {fact.subtext && (
-                  <p className="text-xs text-bml-red font-medium">
-                    {fact.subtext}
-                  </p>
-                )}
-                <p className="text-xs text-muted-foreground mt-1">
-                  {fact.label}
+                <p>
+                  BML is the principal member for Visa and MasterCard in the Maldives and the exclusive
+                  acquirer and issuer of American Express. 99% of its 1,000+ employees are Maldivian nationals.
                 </p>
               </div>
-            ))}
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-white/10">
+              {bmlFacts.map((f) => (
+                <div key={f.label} className="bg-dark-surface p-6 text-center hover:bg-dark-card transition-colors">
+                  <span className="font-heading text-2xl md:text-3xl font-bold gradient-gold-text">{f.value}</span>
+                  <p className="text-editorial text-white/40 text-[9px] mt-2">{f.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground">
-              BML is also the exclusive American Express representative in the
-              Maldives, further cementing its role as the financial gateway of
-              the nation.
+      {/* ABA Section */}
+      <section className="relative bg-black py-20 md:py-32">
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
+          <div className="flex items-center gap-4 mb-8">
+            <Image src="/logos/aba-logo.webp" alt="ABA" width={60} height={40} className="h-10 w-auto" />
+            <div>
+              <p className="text-editorial text-aba-gold text-[10px]">Organizer</p>
+              <h2 className="text-display text-3xl md:text-4xl text-white">Asian Bankers Association</h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <p className="text-white/50 text-sm leading-relaxed">
+              The Asian Bankers Association (ABA) is a regional banking industry association
+              headquartered in Taipei, Taiwan. ABA brings together banks and financial
+              institutions from over 25 countries across Asia-Pacific and beyond.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <WavesDivider color="white" />
-
-      {/* About ABA */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            title="Asian Bankers Association"
-            subtitle="Fostering connections across the Asian banking community since 1981"
-          />
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  The Asian Bankers Association (ABA) is a regional industry
-                  association established in 1981 with the mission of providing a
-                  forum for advancing the cause of the banking and finance
-                  industry in the Asia-Pacific region.
-                </p>
-                <p>
-                  Headquartered in Taipei, Taiwan, ABA serves as a bridge
-                  connecting banking professionals, regulators, and financial
-                  institutions across Asia, fostering dialogue and cooperation on
-                  issues of common concern.
-                </p>
-              </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  With members from over 25 countries across the Asia-Pacific
-                  region, ABA organises its annual General Meeting and
-                  Conference to facilitate the exchange of ideas, best practices,
-                  and emerging trends in the banking sector.
-                </p>
-                <p>
-                  The association&rsquo;s activities include policy advocacy,
-                  capacity building, and the promotion of sound banking
-                  practices. Through its programmes and publications, ABA
-                  contributes to the development of a robust, inclusive, and
-                  innovative financial ecosystem in Asia.
-                </p>
-              </div>
-            </div>
-
-            {/* ABA Highlights */}
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="bg-coral-white rounded-xl p-6 text-center">
-                <p className="font-heading text-3xl font-bold text-deep-blue">
-                  42
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Years of Annual Conferences
-                </p>
-              </div>
-              <div className="bg-coral-white rounded-xl p-6 text-center">
-                <p className="font-heading text-3xl font-bold text-deep-blue">
-                  25+
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Member Countries
-                </p>
-              </div>
-              <div className="bg-coral-white rounded-xl p-6 text-center">
-                <p className="font-heading text-3xl font-bold text-deep-blue">
-                  Taipei
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Headquarters
-                </p>
-              </div>
+            <div className="grid grid-cols-3 gap-6">
+              {[{ v: "42", l: "Years" }, { v: "25+", l: "Countries" }, { v: "Taipei", l: "HQ" }].map((s) => (
+                <div key={s.l} className="bg-dark-card border border-white/10 p-6 text-center">
+                  <span className="font-heading text-2xl font-bold text-aba-gold">{s.v}</span>
+                  <p className="text-editorial text-white/40 text-[9px] mt-2">{s.l}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <WavesDivider color="#1e3a5f" flip />
-
-      {/* Download Brochure */}
-      <section className="relative bg-deep-blue py-16 md:py-24 overflow-hidden">
-        <IslamicPattern color="#bf9436" opacity={0.05} />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <SectionHeading
-            title="Conference Brochure"
-            subtitle="Download the official brochure for the 42nd ABA General Meeting and Conference"
-            light
-          />
-
-          <a
-            href="#"
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-xl bg-aba-gold text-white font-heading text-lg font-semibold hover:bg-aba-gold-dark transition-colors shadow-lg shadow-aba-gold/20"
-          >
-            <Download className="w-5 h-5" />
-            Download Brochure (PDF)
-          </a>
-
-          <p className="mt-4 text-white/50 text-sm">
-            The brochure includes programme details, speaker profiles, venue
-            information, and registration guidelines.
+      {/* Brochure */}
+      <section className="relative bg-dark-surface py-20 md:py-32">
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto text-center">
+          <p className="text-editorial text-aba-gold mb-4">Conference Materials</p>
+          <h2 className="text-display text-3xl md:text-5xl text-white mb-6">Download Brochure</h2>
+          <p className="text-white/50 text-sm max-w-lg mx-auto mb-10">
+            Full conference brochure with program, speaker profiles, and practical details.
           </p>
+          <a href="#" className="inline-flex items-center gap-3 gradient-gold text-black px-10 py-5 btn-sharp text-sm font-bold tracking-widest uppercase hover:opacity-90 transition-opacity">
+            <Download className="h-4 w-4" />
+            Download PDF
+          </a>
         </div>
       </section>
-
-      <WavesDivider color="#f8f4f0" />
     </>
   );
 }
