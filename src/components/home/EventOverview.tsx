@@ -1,73 +1,76 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Lightbulb,
-  Shield,
-  TrendingUp,
-  Leaf,
-} from "lucide-react";
-import { SectionHeading } from "@/components/shared/SectionHeading";
 
 const themes = [
   {
-    icon: Lightbulb,
+    num: "01",
     title: "Digital Transformation",
-    description:
-      "Explore how Asian banks are leveraging AI, blockchain, and fintech partnerships to reimagine financial services.",
+    description: "How Asian banks are leveraging AI, blockchain, and fintech partnerships to reimagine financial services.",
+    gradient: "from-aba-gold to-ocean-teal",
   },
   {
-    icon: Shield,
+    num: "02",
     title: "Risk & Resilience",
-    description:
-      "Discuss strategies for building robust risk management frameworks in an era of geopolitical uncertainty.",
+    description: "Strategies for building robust risk management frameworks in an era of geopolitical uncertainty.",
+    gradient: "from-bml-red to-aba-gold",
   },
   {
-    icon: Leaf,
+    num: "03",
     title: "Sustainable Finance",
-    description:
-      "Address how ESG principles and green finance are reshaping investment strategies across Asia.",
+    description: "How ESG principles and green finance are reshaping investment strategies across Asia.",
+    gradient: "from-ocean-teal to-palm-green",
   },
   {
-    icon: TrendingUp,
+    num: "04",
     title: "Future of Banking",
-    description:
-      "Envision the next decade of banking in Asia — from open banking to embedded finance and beyond.",
+    description: "The next decade of banking in Asia — from open banking to embedded finance and beyond.",
+    gradient: "from-[#0a1628] to-ocean-teal",
   },
 ];
 
 export function EventOverview() {
   return (
-    <section className="py-16 md:py-24 bg-coral-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="Conference Themes"
-          subtitle="Four plenary sessions exploring the critical issues shaping the future of banking in Asia"
-        />
+    <section className="relative bg-dark-surface section-padding">
+      <div className="absolute inset-0 noise-overlay" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
+        {/* Section header — Circles style */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24">
+          <div>
+            <p className="text-editorial text-aba-gold mb-4">Conference Themes</p>
+            <h2 className="text-display text-3xl md:text-5xl lg:text-6xl text-white max-w-2xl">
+              Four Plenary Sessions
+            </h2>
+          </div>
+          <p className="text-white/50 max-w-md text-sm leading-relaxed">
+            Exploring the critical issues shaping the future of banking in Asia through expert-led discussions and panel debates.
+          </p>
+        </div>
+
+        {/* Theme grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-white/10">
           {themes.map((theme, i) => (
             <motion.div
-              key={theme.title}
-              className="group bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-lg border border-border/50 transition-all duration-300"
+              key={theme.num}
+              className="group relative p-8 md:p-12 border border-white/10 hover:bg-white/[0.02] transition-all duration-500"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="flex items-start gap-4">
-                <div className="shrink-0 w-12 h-12 rounded-xl bg-aba-gold/10 flex items-center justify-center group-hover:bg-aba-gold/20 transition-colors">
-                  <theme.icon className="h-6 w-6 text-aba-gold" />
-                </div>
-                <div>
-                  <h3 className="font-heading text-lg md:text-xl font-semibold text-deep-blue mb-2">
-                    {theme.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-                    {theme.description}
-                  </p>
-                </div>
-              </div>
+              {/* Gradient accent bar */}
+              <div className={`absolute top-0 left-0 w-full h-px bg-gradient-to-r ${theme.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+
+              <span className="text-editorial text-white/20 text-[10px] group-hover:text-aba-gold transition-colors">
+                {theme.num}
+              </span>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold text-white mt-4 mb-4 group-hover:text-aba-gold transition-colors">
+                {theme.title}
+              </h3>
+              <p className="text-white/40 text-sm leading-relaxed group-hover:text-white/60 transition-colors">
+                {theme.description}
+              </p>
             </motion.div>
           ))}
         </div>

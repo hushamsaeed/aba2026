@@ -1,79 +1,88 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Plane, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { IslamicPattern } from "@/components/shared/IslamicPattern";
+import { ArrowUpRight } from "lucide-react";
 
 export function VenuePreview() {
   return (
-    <section className="relative py-16 md:py-24 bg-deep-blue overflow-hidden">
-      <IslamicPattern color="#bf9436" opacity={0.04} />
+    <section className="relative bg-black section-padding overflow-hidden">
+      <div className="absolute inset-0 noise-overlay" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="The Venue"
-          subtitle="Experience world-class hospitality at the jewel of the Maldives"
-          light
-        />
+      {/* Massive background text */}
+      <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none select-none overflow-hidden">
+        <p className="text-massive text-white/[0.02] text-center whitespace-nowrap">
+          KURUMBA
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          {/* Info */}
+      <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            className="relative aspect-[4/3] overflow-hidden"
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-4">
-              Kurumba Maldives
-            </h3>
-            <p className="text-white/70 leading-relaxed mb-6">
-              The first resort to open in the Maldives, Kurumba remains one of
-              the most beloved. Located just 10 minutes by speedboat from Velana
-              International Airport, this private island paradise offers
-              state-of-the-art conference facilities surrounded by crystal-clear
-              lagoons and white sand beaches.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <div className="flex items-center gap-3 text-white/80">
-                <MapPin className="h-5 w-5 text-aba-gold shrink-0" />
-                <span className="text-sm">North Male&apos; Atoll</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/80">
-                <Plane className="h-5 w-5 text-aba-gold shrink-0" />
-                <span className="text-sm">10 min from airport</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/80">
-                <Sun className="h-5 w-5 text-aba-gold shrink-0" />
-                <span className="text-sm">28°C average</span>
-              </div>
+            <Image
+              src="/images/venue-kurumba.png"
+              alt="Kurumba Maldives"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 90vw, 45vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            {/* Venue label overlay */}
+            <div className="absolute bottom-6 left-6">
+              <span className="text-editorial text-white/60 text-[10px]">Conference Venue</span>
             </div>
-
-            <Link href="/venue">
-              <Button className="bg-aba-gold hover:bg-aba-gold-dark text-white font-semibold rounded-full px-8">
-                View Venue Details
-              </Button>
-            </Link>
           </motion.div>
 
-          {/* Visual placeholder */}
+          {/* Content */}
           <motion.div
-            className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-ocean-teal/20 border border-white/10"
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <Sun className="h-16 w-16 text-aba-gold/30 mx-auto mb-4" />
-                <p className="text-white/40 text-sm">Venue imagery</p>
+            <p className="text-editorial text-aba-gold mb-4">The Venue</p>
+            <h2 className="text-display text-3xl md:text-5xl lg:text-6xl text-white mb-8">
+              Kurumba
+              <br />
+              <span className="gradient-gold-text">Maldives</span>
+            </h2>
+
+            <p className="text-white/50 text-sm leading-relaxed mb-6">
+              The first resort to open in the Maldives, Kurumba remains one of the most
+              beloved. Located just 10 minutes by speedboat from Velana International
+              Airport on its own private island.
+            </p>
+
+            <div className="grid grid-cols-3 gap-6 mb-10 py-6 border-t border-b border-white/10">
+              <div>
+                <span className="font-heading text-2xl md:text-3xl font-bold text-aba-gold">10</span>
+                <p className="text-editorial text-white/40 text-[9px] mt-1">Min from airport</p>
+              </div>
+              <div>
+                <span className="font-heading text-2xl md:text-3xl font-bold text-aba-gold">180</span>
+                <p className="text-editorial text-white/40 text-[9px] mt-1">Rooms & Villas</p>
+              </div>
+              <div>
+                <span className="font-heading text-2xl md:text-3xl font-bold text-aba-gold">28°</span>
+                <p className="text-editorial text-white/40 text-[9px] mt-1">Avg Temperature</p>
               </div>
             </div>
+
+            <Link
+              href="/venue"
+              className="inline-flex items-center gap-2 text-aba-gold text-editorial hover:text-white transition-colors group"
+            >
+              View venue details
+              <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
           </motion.div>
         </div>
       </div>

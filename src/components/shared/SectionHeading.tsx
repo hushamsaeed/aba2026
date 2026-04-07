@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
+  label?: string;
   centered?: boolean;
   light?: boolean;
   className?: string;
@@ -11,37 +12,26 @@ interface SectionHeadingProps {
 export function SectionHeading({
   title,
   subtitle,
-  centered = true,
-  light = false,
+  label,
+  centered = false,
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn(centered && "text-center", "mb-10 md:mb-14", className)}>
-      <h2
-        className={cn(
-          "font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight",
-          light ? "text-white" : "text-deep-blue"
-        )}
-      >
+    <div className={cn(centered && "text-center", "mb-12 md:mb-20", className)}>
+      {label && (
+        <p className="text-editorial text-aba-gold mb-4 text-xs">{label}</p>
+      )}
+      <h2 className="text-display text-3xl md:text-5xl lg:text-6xl text-white">
         {title}
       </h2>
       {subtitle && (
-        <p
-          className={cn(
-            "mt-3 text-lg md:text-xl max-w-2xl",
-            centered && "mx-auto",
-            light ? "text-white/70" : "text-muted-foreground"
-          )}
-        >
+        <p className={cn(
+          "mt-4 text-white/50 text-sm leading-relaxed max-w-2xl",
+          centered && "mx-auto"
+        )}>
           {subtitle}
         </p>
       )}
-      <div
-        className={cn(
-          "mt-4 h-1 w-20 rounded-full bg-aba-gold",
-          centered && "mx-auto"
-        )}
-      />
     </div>
   );
 }
