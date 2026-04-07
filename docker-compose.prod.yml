@@ -2,6 +2,8 @@ services:
   app:
     build: .
     restart: unless-stopped
+    ports:
+      - "3016:3000"
     networks:
       - default
       - dokploy-network
