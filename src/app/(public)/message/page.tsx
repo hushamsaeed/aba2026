@@ -8,16 +8,16 @@ export const metadata: Metadata = {
 export default function MessagePage() {
   return (
     <div className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-30 py-25 md:px-6 md:py-12 flex flex-col items-center gap-12">
+      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Header */}
         <span className="section-label">MESSAGE FROM THE CHAIRMAN</span>
-        <h1 className="font-[family-name:var(--font-heading)] text-[48px] md:text-[32px] font-bold text-text text-center">
+        <h1 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
           A Warm Invitation
         </h1>
         <div className="w-[60px] h-[2px] bg-gold" />
 
         {/* Content */}
-        <div className="flex flex-col lg:flex-row gap-15 w-full max-w-[1100px]">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-15 w-full max-w-[1100px]">
           {/* Text */}
           <div className="flex flex-col gap-6 flex-1">
             <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary leading-[1.8]">
@@ -67,7 +67,7 @@ export default function MessagePage() {
           </div>
 
           {/* Photo */}
-          <div className="relative w-[380px] md:w-full h-[500px] md:h-[350px] shrink-0 overflow-hidden">
+          <div className="relative w-full lg:w-[380px] h-[350px] lg:h-[500px] shrink-0 overflow-hidden">
             <Image
               src="/images/speakers/thinley-namgyel.png"
               alt="Thinley Namgyel — Chairman, ABA"

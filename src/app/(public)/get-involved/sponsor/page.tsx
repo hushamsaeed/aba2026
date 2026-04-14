@@ -46,9 +46,9 @@ export default function BeASponsorPage() {
     <div className="w-full">
       {/* Header */}
       <div className="w-full bg-parchment">
-        <div className="max-w-[1440px] mx-auto px-30 py-25 md:px-6 md:py-12 flex flex-col items-center gap-8">
+        <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-8">
           <span className="section-label">SPONSORSHIP</span>
-          <h1 className="font-[family-name:var(--font-heading)] text-[48px] md:text-[32px] font-bold text-text text-center">
+          <h1 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
             Partner with Us
           </h1>
           <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center leading-[1.7] max-w-[700px]">
@@ -62,7 +62,7 @@ export default function BeASponsorPage() {
 
       {/* Tiers */}
       <div className="w-full bg-navy">
-        <div className="max-w-[1440px] mx-auto px-30 py-20 md:px-6 md:py-12 flex flex-col gap-12">
+        <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-20 flex flex-col gap-12">
           <div className="flex flex-col lg:flex-row gap-6">
             {tiers.map((tier) => (
               <div
@@ -103,8 +103,8 @@ export default function BeASponsorPage() {
 
       {/* Contact CTA */}
       <div className="w-full bg-parchment">
-        <div className="max-w-[1440px] mx-auto px-30 py-20 md:px-6 md:py-12 flex flex-col items-center gap-6">
-          <h2 className="font-[family-name:var(--font-heading)] text-[36px] md:text-[28px] font-bold text-text text-center">
+        <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-20 flex flex-col items-center gap-6">
+          <h2 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[36px] font-bold text-text text-center">
             Interested in Sponsoring?
           </h2>
           <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center max-w-[600px]">

@@ -15,13 +15,13 @@ export default async function RegistrationSuccessPage({
 
   return (
     <div className="w-full bg-parchment min-h-[70vh]">
-      <div className="max-w-[1440px] mx-auto px-30 py-25 md:px-6 md:py-12 flex flex-col items-center gap-8">
+      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-8">
         {/* Success icon */}
         <div className="w-20 h-20 bg-gold/10 flex items-center justify-center">
           <span className="text-gold text-[36px]">✓</span>
         </div>
 
-        <h1 className="font-[family-name:var(--font-heading)] text-[48px] md:text-[32px] font-bold text-text text-center">
+        <h1 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
           Registration Confirmed
         </h1>
 

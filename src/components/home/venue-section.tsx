@@ -47,11 +47,11 @@ const accommodations = [
 export function VenueSection() {
   return (
     <section className="w-full bg-navy overflow-hidden">
-      <div className="max-w-[1440px] mx-auto py-25 md:py-12 flex flex-col">
+      <div className="max-w-[1440px] mx-auto py-12 lg:py-25 flex flex-col">
         {/* Header */}
-        <div className="flex flex-col items-center gap-4 px-30 md:px-6">
+        <div className="flex flex-col items-center gap-4 px-6 lg:px-30">
           <span className="section-label">CONFERENCE VENUE</span>
-          <h2 className="font-[family-name:var(--font-heading)] text-[56px] md:text-[36px] font-bold text-white text-center">
+          <h2 className="font-[family-name:var(--font-heading)] text-[36px] lg:text-[56px] font-bold text-white text-center">
             Kurumba Maldives
           </h2>
           <p className="font-[family-name:var(--font-body)] text-[16px] font-light text-white/60 text-center leading-[1.7] max-w-[700px]">
@@ -62,8 +62,8 @@ export function VenueSection() {
         </div>
 
         {/* Venue photo — padded inside container */}
-        <div className="px-30 md:px-6 py-12">
-          <div className="relative w-full h-[400px] md:h-[250px] overflow-hidden">
+        <div className="px-6 lg:px-30 py-12">
+          <div className="relative w-full h-[250px] lg:h-[400px] overflow-hidden">
             <Image
               src="/images/venue-kurumba.png"
               alt="Kurumba Maldives resort"
@@ -75,7 +75,7 @@ export function VenueSection() {
         </div>
 
         {/* Features — 3 columns */}
-        <div className="flex flex-col lg:flex-row gap-10 px-30 md:px-6 py-12">
+        <div className="flex flex-col lg:flex-row gap-10 px-6 lg:px-30 py-12">
           {features.map((feat) => (
             <div key={feat.title} className="flex flex-col gap-3 flex-1">
               <feat.icon className="w-7 h-7 text-gold" />
@@ -90,7 +90,7 @@ export function VenueSection() {
         </div>
 
         {/* Accommodation — cards with images matching design */}
-        <div className="flex flex-col gap-8 px-30 md:px-6 py-12">
+        <div className="flex flex-col gap-8 px-6 lg:px-30 py-12">
           <span className="section-label">ACCOMMODATION</span>
           <div className="flex flex-col lg:flex-row gap-6">
             {accommodations.map((accom) => (

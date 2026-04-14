@@ -37,10 +37,10 @@ const days = [
 export function ProgramPreview() {
   return (
     <section className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-30 py-25 md:px-6 md:py-12 flex flex-col items-center gap-12">
+      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Header */}
         <span className="section-label">CONFERENCE PROGRAM</span>
-        <h2 className="font-[family-name:var(--font-heading)] text-[48px] md:text-[32px] font-bold text-text text-center">
+        <h2 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
           Three Days of Insight
         </h2>
         <div className="w-[60px] h-[2px] bg-gold" />

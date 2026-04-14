@@ -3,12 +3,12 @@ import Image from "next/image";
 export function AboutSection() {
   return (
     <section className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-30 py-25 md:px-6 md:py-12 flex flex-col gap-14">
+      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col gap-14">
         {/* Section label */}
         <span className="section-label">ABOUT</span>
 
         {/* Two columns */}
-        <div className="flex flex-col lg:flex-row gap-15">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-15">
           {/* About ABA */}
           <div className="flex flex-col gap-5 flex-1">
             <Image
@@ -18,7 +18,7 @@ export function AboutSection() {
               height={40}
               className="h-10 w-auto object-contain"
             />
-            <h3 className="font-[family-name:var(--font-heading)] text-[32px] md:text-[24px] font-bold text-text">
+            <h3 className="font-[family-name:var(--font-heading)] text-[24px] lg:text-[32px] font-bold text-text">
               Asian Bankers Association
             </h3>
             <p className="font-[family-name:var(--font-body)] text-[15px] text-text-secondary leading-[1.7]">
@@ -61,7 +61,7 @@ export function AboutSection() {
               height={48}
               className="h-12 w-12 object-contain"
             />
-            <h3 className="font-[family-name:var(--font-heading)] text-[32px] md:text-[24px] font-bold text-text">
+            <h3 className="font-[family-name:var(--font-heading)] text-[24px] lg:text-[32px] font-bold text-text">
               Bank of Maldives
             </h3>
             <p className="font-[family-name:var(--font-body)] text-[15px] text-text-secondary leading-[1.7]">

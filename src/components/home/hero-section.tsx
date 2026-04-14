@@ -4,7 +4,7 @@ import { ButtonSecondary } from "@/components/shared/button-secondary";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full h-[900px] md:h-[700px] bg-navy-dark overflow-hidden -mt-20">
+    <section className="relative w-full h-[700px] lg:h-[900px] bg-navy-dark overflow-hidden -mt-20">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -32,21 +32,21 @@ export function HeroSection() {
           alt="Asian Bankers Association"
           width={200}
           height={65}
-          className="h-[65px] w-auto object-contain md:h-[50px]"
+          className="h-[45px] lg:h-[65px] w-auto object-contain"
         />
 
         {/* Date label */}
-        <p className="font-[family-name:var(--font-body)] text-[13px] font-medium tracking-[4px] text-gold md:text-[11px]">
+        <p className="font-[family-name:var(--font-body)] text-[11px] lg:text-[13px] font-medium tracking-[3px] lg:tracking-[4px] text-gold">
           1 – 3  SEPTEMBER  2026   ·   KURUMBA MALDIVES
         </p>
 
         {/* Title */}
-        <h1 className="font-[family-name:var(--font-heading)] text-[72px] md:text-[36px] font-bold text-white text-center leading-[1.1] max-w-[900px]">
+        <h1 className="font-[family-name:var(--font-heading)] text-[36px] lg:text-[72px] font-bold text-white text-center leading-[1.1] max-w-[900px]">
           42nd ABA General{"\n"}Meeting & Conference
         </h1>
 
         {/* Theme subtitle */}
-        <p className="font-[family-name:var(--font-body)] text-[20px] md:text-[16px] font-light tracking-[1px] text-white/80 text-center">
+        <p className="font-[family-name:var(--font-body)] text-[14px] lg:text-[20px] font-light tracking-[1px] text-white/80 text-center">
           Banking in Asia: Investing to Build Resilience
         </p>
 

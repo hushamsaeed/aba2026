@@ -46,8 +46,8 @@ const plenary4Speakers = [
 
 function TimeSlot({ time, children, light }: { time: string; children: React.ReactNode; light?: boolean }) {
   return (
-    <div className="flex gap-6 md:flex-col md:gap-2">
-      <span className={`font-[family-name:var(--font-body)] text-[14px] w-[130px] shrink-0 md:w-auto ${light ? "text-white/40" : "text-text-secondary"}`}>
+    <div className="flex flex-col gap-2 lg:flex-row lg:gap-6">
+      <span className={`font-[family-name:var(--font-body)] text-[14px] w-auto lg:w-[130px] shrink-0 ${light ? "text-white/40" : "text-text-secondary"}`}>
         {time}
       </span>
       <div className="flex-1">{children}</div>
@@ -81,10 +81,10 @@ function PlenaryCard({
   light?: boolean;
 }) {
   return (
-    <div className={`flex flex-col gap-8 p-10 md:p-6 border-t-[3px] border-gold ${light ? "bg-white/[0.06]" : "bg-white"}`}>
+    <div className={`flex flex-col gap-8 p-6 lg:p-10 border-t-[3px] border-gold ${light ? "bg-white/[0.06]" : "bg-white"}`}>
       <div className="flex flex-col gap-3">
-        <span className="section-label">{light ? "" : ""}PLENARY SESSION</span>
-        <h3 className={`font-[family-name:var(--font-heading)] text-[28px] md:text-[22px] font-bold ${light ? "text-white" : "text-text"}`}>
+        <span className="section-label">PLENARY SESSION</span>
+        <h3 className={`font-[family-name:var(--font-heading)] text-[22px] lg:text-[28px] font-bold ${light ? "text-white" : "text-text"}`}>
           {title}
         </h3>
         <p className={`font-[family-name:var(--font-body)] text-[15px] leading-[1.7] max-w-[700px] ${light ? "text-white/60" : "text-text-secondary"}`}>
@@ -140,9 +140,9 @@ export default function ProgramPage() {
     <div className="w-full">
       {/* Header */}
       <div className="w-full bg-parchment">
-        <div className="max-w-[1440px] mx-auto px-30 py-20 md:px-6 md:py-12 flex flex-col items-center gap-6">
+        <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-20 flex flex-col items-center gap-6">
           <span className="section-label">CONFERENCE PROGRAM</span>
-          <h1 className="font-[family-name:var(--font-heading)] text-[52px] md:text-[36px] font-bold text-text text-center">
+          <h1 className="font-[family-name:var(--font-heading)] text-[36px] lg:text-[52px] font-bold text-text text-center">
             Three Days of Insight & Connection
           </h1>
           <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center leading-[1.7] max-w-[800px]">
@@ -156,10 +156,10 @@ export default function ProgramPage() {
 
       {/* ── Day 1 — Navy ── */}
       <div className="w-full bg-navy">
-        <div className="max-w-[1440px] mx-auto px-30 py-12 md:px-6 md:py-8 flex flex-col gap-8">
+        <div className="max-w-[1440px] mx-auto px-6 py-8 lg:px-30 lg:py-12 flex flex-col gap-8">
           <div className="flex flex-col gap-2">
             <span className="section-label">DAY 1</span>
-            <h2 className="font-[family-name:var(--font-heading)] text-[36px] md:text-[28px] font-bold text-white">
+            <h2 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[36px] font-bold text-white">
               September 1, 2026
             </h2>
           </div>
@@ -193,10 +193,10 @@ export default function ProgramPage() {
 
       {/* ── Day 2 — Parchment ── */}
       <div className="w-full bg-parchment">
-        <div className="max-w-[1440px] mx-auto px-30 py-12 md:px-6 md:py-8 flex flex-col gap-8">
+        <div className="max-w-[1440px] mx-auto px-6 py-8 lg:px-30 lg:py-12 flex flex-col gap-8">
           <div className="flex flex-col gap-2">
             <span className="section-label">DAY 2</span>
-            <h2 className="font-[family-name:var(--font-heading)] text-[36px] md:text-[28px] font-bold text-text">
+            <h2 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[36px] font-bold text-text">
               September 2, 2026
             </h2>
             <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary">
@@ -251,10 +251,10 @@ export default function ProgramPage() {
 
       {/* ── Day 3 — Navy ── */}
       <div className="w-full bg-navy">
-        <div className="max-w-[1440px] mx-auto px-30 py-12 md:px-6 md:py-8 flex flex-col gap-8">
+        <div className="max-w-[1440px] mx-auto px-6 py-8 lg:px-30 lg:py-12 flex flex-col gap-8">
           <div className="flex flex-col gap-2">
             <span className="section-label">DAY 3</span>
-            <h2 className="font-[family-name:var(--font-heading)] text-[36px] md:text-[28px] font-bold text-white">
+            <h2 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[36px] font-bold text-white">
               September 3, 2026
             </h2>
           </div>
@@ -312,8 +312,8 @@ export default function ProgramPage() {
 
       {/* CTA */}
       <div className="w-full bg-parchment">
-        <div className="max-w-[1440px] mx-auto px-30 py-20 md:px-6 md:py-12 flex flex-col items-center gap-6">
-          <h2 className="font-[family-name:var(--font-heading)] text-[36px] md:text-[28px] font-bold text-text text-center">
+        <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-20 flex flex-col items-center gap-6">
+          <h2 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[36px] font-bold text-text text-center">
             Join Us in Maldives
           </h2>
           <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center">

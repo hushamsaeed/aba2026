@@ -20,7 +20,7 @@ export function Navbar() {
   return (
     <>
       {/* Desktop NavBar — 80px, navy bg */}
-      <nav className="w-full h-20 bg-navy flex items-center justify-between px-15 relative z-50">
+      <nav className="w-full h-16 lg:h-20 bg-navy flex items-center justify-between px-4 lg:px-15 relative z-50">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image

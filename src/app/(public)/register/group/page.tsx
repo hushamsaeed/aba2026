@@ -98,15 +98,15 @@ export default function GroupRegistrationPage() {
 
   return (
     <div className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-30 py-20 md:px-6 md:py-10">
+      <div className="max-w-[1440px] mx-auto px-6 py-10 lg:px-30 lg:py-20">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 mb-12">
           <span className="section-label">GROUP REGISTRATION</span>
-          <h1 className="font-[family-name:var(--font-heading)] text-[42px] md:text-[28px] font-bold text-text text-center">
-            Register Your Group
+          <h1 className="font-[family-name:var(--font-heading)] text-[26px] lg:text-[42px] font-bold text-text text-center">
+            Register Your Organization
           </h1>
-          <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center">
-            Register 3 or more delegates from your organization at group rates.
+          <p className="font-[family-name:var(--font-body)] text-[15px] text-text-secondary text-center leading-[1.6] max-w-[600px]">
+            Register multiple delegates from your organization and benefit from group pricing.
           </p>
         </div>
 

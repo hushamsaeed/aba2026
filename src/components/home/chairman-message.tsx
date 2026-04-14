@@ -3,18 +3,18 @@ import Image from "next/image";
 export function ChairmanMessage() {
   return (
     <section className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-30 py-25 md:px-6 md:py-12 flex flex-col items-center gap-12">
+      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Section header */}
         <span className="section-label">MESSAGE FROM THE CHAIRMAN</span>
-        <h2 className="font-[family-name:var(--font-heading)] text-[48px] md:text-[32px] font-bold text-text text-center">
+        <h2 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
           A Warm Invitation
         </h2>
         <div className="w-[60px] h-[2px] bg-gold" />
 
         {/* Content — 2 columns: text left, photo right */}
-        <div className="flex flex-col-reverse lg:flex-row gap-15 w-full">
+        <div className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-15 w-full">
           {/* Text column */}
-          <div className="flex flex-col gap-6 flex-1">
+          <div className="flex flex-col gap-6 flex-1 min-w-0">
             <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary leading-[1.8]">
               On behalf of the Asian Bankers Association, I extend my sincerest
               invitation to all ABA members, associates and friends to join me and
@@ -50,7 +50,7 @@ export function ChairmanMessage() {
           </div>
 
           {/* Chairman photo — 380x460, object-cover */}
-          <div className="relative w-[380px] md:w-full h-[460px] md:h-[300px] shrink-0 overflow-hidden">
+          <div className="relative w-full lg:w-[380px] h-[300px] lg:h-[460px] shrink-0 overflow-hidden">
             <Image
               src="/images/speakers/thinley-namgyel.png"
               alt="Thinley Namgyel — Chairman, ABA"

@@ -86,15 +86,15 @@ export default function IndividualRegistrationPage() {
 
   return (
     <div className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-30 py-20 md:px-6 md:py-10">
+      <div className="max-w-[1440px] mx-auto px-6 py-10 lg:px-30 lg:py-20">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 mb-12">
           <span className="section-label">INDIVIDUAL REGISTRATION</span>
-          <h1 className="font-[family-name:var(--font-heading)] text-[42px] md:text-[28px] font-bold text-text text-center">
+          <h1 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[42px] font-bold text-text text-center">
             Register as Individual
           </h1>
-          <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center">
-            Complete the form below to register for the 42nd ABA Conference.
+          <p className="font-[family-name:var(--font-body)] text-[15px] text-text-secondary text-center leading-[1.6] max-w-[600px]">
+            Secure your place at the 42nd ABA General Meeting & Conference, 1–3 September 2026, Kurumba Maldives.
           </p>
         </div>
 
