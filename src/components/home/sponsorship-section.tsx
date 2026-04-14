@@ -41,18 +41,18 @@ export function SponsorshipSection() {
     <section className="w-full bg-navy">
       <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Header */}
-        <span className="section-label">BECOME A SPONSOR</span>
-        <h2 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-white text-center">
+        <span data-animate className="section-label">BECOME A SPONSOR</span>
+        <h2 data-animate className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-white text-center">
           Sponsorship Packages
         </h2>
-        <p className="font-[family-name:var(--font-body)] text-[16px] font-light text-white/60 text-center leading-[1.7] max-w-[700px]">
+        <p data-animate className="font-[family-name:var(--font-body)] text-[16px] font-light text-white/60 text-center leading-[1.7] max-w-[700px]">
           Position your organisation at the forefront of regional banking
           dialogue. Engage directly with senior banking leaders, policymakers,
           and industry experts from across Asia.
         </p>
 
         {/* Tier cards — white bg with border, matching SponsorTierCard design */}
-        <div className="flex flex-col lg:flex-row gap-6 w-full">
+        <div data-stagger className="flex flex-col lg:flex-row gap-6 w-full">
           {tiers.map((tier) => (
             <div
               key={tier.name}

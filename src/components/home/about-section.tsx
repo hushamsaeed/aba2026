@@ -5,10 +5,10 @@ export function AboutSection() {
     <section className="w-full bg-parchment">
       <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col gap-14">
         {/* Section label */}
-        <span className="section-label">ABOUT</span>
+        <span data-animate className="section-label">ABOUT</span>
 
         {/* Two columns */}
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-15">
+        <div data-stagger className="flex flex-col lg:flex-row gap-10 lg:gap-15">
           {/* About ABA */}
           <div className="flex flex-col items-start gap-5 flex-1">
             <Image

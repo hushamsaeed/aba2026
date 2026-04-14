@@ -16,14 +16,14 @@ export function SpeakerCard({
   className,
 }: SpeakerCardProps) {
   return (
-    <div className={`flex flex-col bg-white w-[300px] ${className ?? ""}`}>
-      <div className="relative w-full h-[280px] bg-speaker-bg">
+    <div className={`flex flex-col bg-white w-[300px] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${className ?? ""}`}>
+      <div className="relative w-full h-[280px] bg-speaker-bg overflow-hidden group">
         {photoUrl ? (
           <Image
             src={photoUrl}
             alt={name}
             fill
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
             sizes="300px"
           />
         ) : (

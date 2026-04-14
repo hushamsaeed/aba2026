@@ -39,14 +39,14 @@ export function ProgramPreview() {
     <section className="w-full bg-parchment">
       <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Header */}
-        <span className="section-label">CONFERENCE PROGRAM</span>
-        <h2 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
+        <span data-animate className="section-label">CONFERENCE PROGRAM</span>
+        <h2 data-animate className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
           Three Days of Insight
         </h2>
-        <div className="w-[60px] h-[2px] bg-gold" />
+        <div data-divider className="w-[60px] h-[2px] bg-gold" />
 
         {/* Day cards */}
-        <div className="flex flex-col lg:flex-row gap-6 w-full">
+        <div data-stagger className="flex flex-col lg:flex-row gap-6 w-full">
           {days.map((day) => (
             <div
               key={day.date}

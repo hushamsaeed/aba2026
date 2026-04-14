@@ -41,13 +41,13 @@ export function RegistrationSection() {
     <section className="w-full bg-parchment">
       <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Header */}
-        <span className="section-label">REGISTRATION</span>
-        <h2 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
+        <span data-animate className="section-label">REGISTRATION</span>
+        <h2 data-animate className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
           Get Your Pass
         </h2>
 
         {/* Early bird badge */}
-        <div className="flex items-center gap-2 bg-gold/[0.08] px-6 py-3">
+        <div data-animate className="flex items-center gap-2 bg-gold/[0.08] px-6 py-3">
           <Timer className="w-[18px] h-[18px] text-gold" />
           <span className="font-[family-name:var(--font-body)] text-[14px] font-medium text-gold">
             Early bird pricing ends 1 June 2026 — Save 20%
@@ -55,7 +55,7 @@ export function RegistrationSection() {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <div data-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
           {pricingTiers.map((tier) => (
             <PricingCard
               key={tier.tierLabel}

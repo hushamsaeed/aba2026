@@ -5,8 +5,8 @@ import { ButtonSecondary } from "@/components/shared/button-secondary";
 export function HeroSection() {
   return (
     <section className="relative w-full h-[700px] lg:h-[900px] bg-navy-dark overflow-hidden -mt-16 lg:-mt-20">
-      {/* Background image */}
-      <div className="absolute inset-0">
+      {/* Background image — parallax */}
+      <div className="absolute inset-0" data-parallax>
         <Image
           src="/images/hero-bg.jpg"
           alt="Maldives aerial view"

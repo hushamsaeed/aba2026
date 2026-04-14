@@ -25,7 +25,7 @@ export function PricingCard({
   return (
     <div
       className={cn(
-        "flex flex-col bg-white border border-border-light w-[340px]",
+        "flex flex-col bg-white border border-border-light w-[340px] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
         selected && "ring-[3px] ring-gold",
         className,
       )}

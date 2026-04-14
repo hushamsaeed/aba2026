@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -19,11 +19,18 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50">
-      {/* NavBar */}
-      <nav className="w-full h-16 lg:h-20 bg-navy flex items-center justify-between px-4 lg:px-15">
+      {/* NavBar — adds backdrop blur + shadow on scroll */}
+      <nav className={`w-full h-16 lg:h-20 flex items-center justify-between px-4 lg:px-15 transition-all duration-300 ${scrolled ? "bg-navy/95 backdrop-blur-md shadow-lg" : "bg-navy"}`}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image

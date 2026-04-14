@@ -5,11 +5,11 @@ export function ChairmanMessage() {
     <section className="w-full bg-parchment">
       <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Section header */}
-        <span className="section-label">MESSAGE FROM THE CHAIRMAN</span>
-        <h2 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
+        <span className="section-label" data-animate>MESSAGE FROM THE CHAIRMAN</span>
+        <h2 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center" data-animate>
           A Warm Invitation
         </h2>
-        <div className="w-[60px] h-[2px] bg-gold" />
+        <div className="w-[60px] h-[2px] bg-gold" data-divider />
 
         {/* Content — 2 columns: text left, photo right */}
         <div className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-15 w-full">

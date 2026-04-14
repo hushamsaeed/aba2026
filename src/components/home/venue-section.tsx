@@ -50,11 +50,11 @@ export function VenueSection() {
       <div className="max-w-[1440px] mx-auto py-12 lg:py-25 flex flex-col">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 px-6 lg:px-30">
-          <span className="section-label">CONFERENCE VENUE</span>
-          <h2 className="font-[family-name:var(--font-heading)] text-[36px] lg:text-[56px] font-bold text-white text-center">
+          <span data-animate className="section-label">CONFERENCE VENUE</span>
+          <h2 data-animate className="font-[family-name:var(--font-heading)] text-[36px] lg:text-[56px] font-bold text-white text-center">
             Kurumba Maldives
           </h2>
-          <p className="font-[family-name:var(--font-body)] text-[16px] font-light text-white/60 text-center leading-[1.7] max-w-[700px]">
+          <p data-animate className="font-[family-name:var(--font-body)] text-[16px] font-light text-white/60 text-center leading-[1.7] max-w-[700px]">
             An iconic island resort in the North Malé Atoll — the Maldives&apos;
             first private island resort, combining rich heritage with
             contemporary comfort.
@@ -75,7 +75,7 @@ export function VenueSection() {
         </div>
 
         {/* Features — 3 columns */}
-        <div className="flex flex-col lg:flex-row gap-10 px-6 lg:px-30 py-12">
+        <div data-stagger className="flex flex-col lg:flex-row gap-10 px-6 lg:px-30 py-12">
           {features.map((feat) => (
             <div key={feat.title} className="flex flex-col gap-3 flex-1">
               <feat.icon className="w-7 h-7 text-gold" />
@@ -91,8 +91,8 @@ export function VenueSection() {
 
         {/* Accommodation — cards with images matching design */}
         <div className="flex flex-col gap-8 px-6 lg:px-30 py-12">
-          <span className="section-label">ACCOMMODATION</span>
-          <div className="flex flex-col lg:flex-row gap-6">
+          <span data-animate className="section-label">ACCOMMODATION</span>
+          <div data-stagger className="flex flex-col lg:flex-row gap-6">
             {accommodations.map((accom) => (
               <div
                 key={accom.name}
