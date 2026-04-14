@@ -3,19 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Pencil } from "lucide-react";
 
 interface ContentBlock {
   id: string;
@@ -28,29 +19,44 @@ interface ContentBlock {
   updatedBy: string;
 }
 
+function timeAgo(dateStr: string): string {
+  const now = new Date();
+  const date = new Date(dateStr);
+  const diffMs = now.getTime() - date.getTime();
+  const diffMins = Math.floor(diffMs / 60000);
+  if (diffMins < 1) return "just now";
+  if (diffMins < 60) return `${diffMins}m ago`;
+  const diffHours = Math.floor(diffMins / 60);
+  if (diffHours < 24) return `${diffHours}h ago`;
+  const diffDays = Math.floor(diffHours / 24);
+  if (diffDays < 30) return `${diffDays}d ago`;
+  const diffMonths = Math.floor(diffDays / 30);
+  return `${diffMonths}mo ago`;
+}
+
 export function ContentClient({ blocks: initial }: { blocks: ContentBlock[] }) {
   const router = useRouter();
   const [blocks, setBlocks] = useState(initial);
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [editing, setEditing] = useState<ContentBlock | null>(null);
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [form, setForm] = useState({ title: "", body: "", imageUrl: "" });
   const [saving, setSaving] = useState(false);
 
-  function openEdit(block: ContentBlock) {
-    setEditing(block);
+  const selectedBlock = blocks.find((b) => b.slug === selectedSlug) ?? null;
+
+  function selectBlock(block: ContentBlock) {
+    setSelectedSlug(block.slug);
     setForm({
       title: block.title,
       body: block.body,
       imageUrl: block.imageUrl,
     });
-    setDialogOpen(true);
   }
 
   async function handleSave() {
-    if (!editing) return;
+    if (!selectedBlock) return;
     setSaving(true);
     try {
-      const res = await fetch(`/api/admin/content/${editing.slug}`, {
+      const res = await fetch(`/api/admin/content/${selectedBlock.slug}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -61,7 +67,7 @@ export function ContentClient({ blocks: initial }: { blocks: ContentBlock[] }) {
       const data = await res.json();
       setBlocks((prev) =>
         prev.map((b) =>
-          b.slug === editing.slug
+          b.slug === selectedBlock.slug
             ? {
                 ...b,
                 title: data.block.title ?? "",
@@ -72,7 +78,6 @@ export function ContentClient({ blocks: initial }: { blocks: ContentBlock[] }) {
             : b
         )
       );
-      setDialogOpen(false);
       router.refresh();
     } catch {
       alert("Failed to save content");
@@ -82,98 +87,93 @@ export function ContentClient({ blocks: initial }: { blocks: ContentBlock[] }) {
   }
 
   return (
-    <>
-      {blocks.length === 0 ? (
-        <Card>
-          <CardContent className="py-12 text-center">
-            <p className="text-muted-foreground">No content blocks yet.</p>
-          </CardContent>
-        </Card>
-      ) : (
-        <div className="grid gap-4 md:grid-cols-2">
-          {blocks.map((block) => (
-            <Card key={block.id} className="group relative">
-              <CardHeader className="flex flex-row items-start justify-between">
-                <div className="space-y-1">
-                  <CardTitle className="text-base">
-                    {block.title || block.slug}
-                  </CardTitle>
-                  <Badge variant="secondary" className="font-mono text-xs">
-                    {block.slug}
-                  </Badge>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => openEdit(block)}
-                >
-                  <Pencil className="size-4" />
-                </Button>
-              </CardHeader>
-              <CardContent>
-                <p className="line-clamp-3 text-sm text-muted-foreground">
-                  {block.body}
+    <div className="flex gap-6 min-h-[600px]">
+      {/* Left column - block list */}
+      <div className="w-80 shrink-0 space-y-1 overflow-y-auto rounded-lg bg-[#1a1a1a] p-3">
+        {blocks.length === 0 ? (
+          <p className="py-8 text-center text-sm text-muted-foreground">
+            No content blocks yet.
+          </p>
+        ) : (
+          blocks.map((block) => (
+            <button
+              key={block.id}
+              onClick={() => selectBlock(block)}
+              className={`w-full rounded-md px-3 py-3 text-left transition-colors ${
+                selectedSlug === block.slug
+                  ? "border border-amber-500/40 bg-amber-500/10"
+                  : "border border-transparent hover:bg-[#222]"
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <Badge variant="secondary" className="font-mono text-[10px] shrink-0">
+                  {block.slug}
+                </Badge>
+              </div>
+              {block.title && (
+                <p className="mt-1 text-sm font-medium text-white truncate">
+                  {block.title}
                 </p>
-                <p className="mt-3 text-xs text-muted-foreground">
-                  Updated:{" "}
-                  {new Date(block.updatedAt).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      )}
+              )}
+              <p className="mt-1 text-xs text-muted-foreground">
+                Updated {timeAgo(block.updatedAt)}
+              </p>
+            </button>
+          ))
+        )}
+      </div>
 
-      {/* Edit Dialog */}
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>
-              Edit Content: {editing?.title || editing?.slug}
-            </DialogTitle>
-          </DialogHeader>
-          <div className="grid gap-4 py-4">
+      {/* Right column - editor */}
+      <div className="flex-1 rounded-lg bg-[#1a1a1a] p-6">
+        {!selectedBlock ? (
+          <div className="flex h-full items-center justify-center">
+            <p className="text-sm text-muted-foreground">
+              Select a content block to edit
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-5">
+            <h2 className="text-lg font-semibold text-white">
+              Edit: {selectedBlock.title || selectedBlock.slug}
+            </h2>
+
             <div className="grid gap-2">
-              <Label htmlFor="title">Title</Label>
+              <Label htmlFor="edit-title">Title</Label>
               <Input
-                id="title"
+                id="edit-title"
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
               />
             </div>
+
             <div className="grid gap-2">
-              <Label htmlFor="body">Body</Label>
+              <Label htmlFor="edit-body">Body</Label>
               <Textarea
-                id="body"
-                rows={12}
+                id="edit-body"
+                rows={14}
                 value={form.body}
                 onChange={(e) => setForm({ ...form, body: e.target.value })}
                 className="font-mono text-sm"
               />
             </div>
+
             <div className="grid gap-2">
-              <Label htmlFor="imageUrl">Image URL</Label>
+              <Label htmlFor="edit-imageUrl">Image URL</Label>
               <Input
-                id="imageUrl"
+                id="edit-imageUrl"
                 value={form.imageUrl}
                 onChange={(e) => setForm({ ...form, imageUrl: e.target.value })}
               />
             </div>
+
+            <div className="flex justify-end">
+              <Button onClick={handleSave} disabled={saving}>
+                {saving ? "Saving..." : "Save Changes"}
+              </Button>
+            </div>
           </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setDialogOpen(false)}>
-              Cancel
-            </Button>
-            <Button onClick={handleSave} disabled={saving}>
-              {saving ? "Saving..." : "Save Changes"}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </>
+        )}
+      </div>
+    </div>
   );
 }

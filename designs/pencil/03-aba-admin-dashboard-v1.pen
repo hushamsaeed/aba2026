@@ -5340,6 +5340,307 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "0tAv5",
+      "x": 400,
+      "y": 12600,
+      "name": "13-AI-Images",
+      "width": 1440,
+      "height": 900,
+      "fill": "#0a0a0a",
+      "children": [
+        {
+          "id": "TrTDW",
+          "type": "ref",
+          "ref": "IUCBU",
+          "height": "fill_container",
+          "name": "aiSb"
+        },
+        {
+          "type": "frame",
+          "id": "3HxKe",
+          "name": "aiMain",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            24,
+            32
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "T8TwU",
+              "name": "aiTop",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FPLVL",
+                  "name": "aiTitle",
+                  "fill": "#FFFFFF",
+                  "content": "AI Image Generator",
+                  "fontFamily": "Inter",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cQ8QK",
+              "name": "aiBody",
+              "width": "fill_container",
+              "height": "fill_container",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "dcmuA",
+                  "name": "aiPrompt",
+                  "width": "fill_container",
+                  "fill": "#1a1a1a",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MYwjY",
+                      "name": "aiPromptLbl",
+                      "fill": "#FFFFFF60",
+                      "content": "Prompt",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "853gq",
+                      "name": "aiPromptInput",
+                      "width": "fill_container",
+                      "height": 100,
+                      "fill": "#0a0a0a",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#FFFFFF15"
+                      },
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ELFTc",
+                          "name": "aiPromptTxt",
+                          "fill": "#FFFFFF60",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Aerial view of Maldives resort island, turquoise water, overwater villas, golden hour...",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Uc0GX",
+                      "name": "aiGenBtn",
+                      "fill": "#C5A55A",
+                      "cornerRadius": 6,
+                      "gap": 8,
+                      "padding": [
+                        10,
+                        20
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "wzvRA",
+                          "name": "aiGenIcon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "sparkles",
+                          "iconFontFamily": "lucide",
+                          "fill": "#0A1628"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1YycL",
+                          "name": "aiGenTxt",
+                          "fill": "#0A1628",
+                          "content": "Generate Image",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "RMwXR",
+                      "name": "aiSuggLbl",
+                      "fill": "#FFFFFF40",
+                      "content": "Quick Prompts",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gIVHS",
+                      "name": "aiSuggs",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "lGyXA",
+                          "name": "aiS1",
+                          "cornerRadius": 4,
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1,
+                            "fill": "#FFFFFF15"
+                          },
+                          "padding": [
+                            6,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Racej",
+                              "name": "aiS1t",
+                              "fill": "#FFFFFF40",
+                              "content": "Maldives aerial",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "kfScs",
+                          "name": "aiS2",
+                          "cornerRadius": 4,
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1,
+                            "fill": "#FFFFFF15"
+                          },
+                          "padding": [
+                            6,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "JrqrC",
+                              "name": "aiS2t",
+                              "fill": "#FFFFFF40",
+                              "content": "Conference venue",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "5fH8e",
+                          "name": "aiS3",
+                          "cornerRadius": 4,
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1,
+                            "fill": "#FFFFFF15"
+                          },
+                          "padding": [
+                            6,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "T3Xtt",
+                              "name": "aiS3t",
+                              "fill": "#FFFFFF40",
+                              "content": "Cultural pattern",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "795ei",
+                  "name": "aiPreview",
+                  "width": "fill_container",
+                  "fill": "#1a1a1a",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ciTn8",
+                      "name": "aiPreviewLbl",
+                      "fill": "#FFFFFF60",
+                      "content": "Preview",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cu7Qn",
+                      "name": "aiPreviewImg",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#FFFFFF05",
+                      "cornerRadius": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "I5Fro",
+                          "name": "aiPreviewPh",
+                          "width": 48,
+                          "height": 48,
+                          "iconFontName": "image",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF15"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -59,12 +59,19 @@ function formatCurrency(amount: string, currency: string) {
   }).format(Number(amount));
 }
 
+const statusFilters = ["All", "PENDING", "COMPLETED", "FAILED", "REFUNDED"] as const;
+
 export function PaymentsClient({ payments: initial }: { payments: Payment[] }) {
   const router = useRouter();
   const [payments, setPayments] = useState(initial);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [confirmingId, setConfirmingId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+
+  const filteredPayments = activeFilter === "All"
+    ? payments
+    : payments.filter((p) => p.status === activeFilter);
 
   function openConfirm(id: string) {
     setConfirmingId(id);
@@ -103,6 +110,22 @@ export function PaymentsClient({ payments: initial }: { payments: Payment[] }) {
 
   return (
     <>
+      <div className="flex flex-wrap gap-2">
+        {statusFilters.map((status) => (
+          <button
+            key={status}
+            onClick={() => setActiveFilter(status)}
+            className={`rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${
+              activeFilter === status
+                ? "border-[#C5A55A] bg-[#C5A55A] text-gray-900"
+                : "border-border bg-transparent text-muted-foreground hover:bg-accent"
+            }`}
+          >
+            {status === "All" ? "All" : status.charAt(0) + status.slice(1).toLowerCase()}
+          </button>
+        ))}
+      </div>
+
       <Card>
         <CardContent className="p-0">
           <div className="overflow-x-auto">
@@ -120,14 +143,14 @@ export function PaymentsClient({ payments: initial }: { payments: Payment[] }) {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {payments.length === 0 ? (
+                {filteredPayments.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={8} className="py-8 text-center text-sm text-muted-foreground">
-                      No payments yet.
+                      {activeFilter === "All" ? "No payments yet." : `No ${activeFilter.toLowerCase()} payments.`}
                     </TableCell>
                   </TableRow>
                 ) : (
-                  payments.map((payment) => (
+                  filteredPayments.map((payment) => (
                     <TableRow key={payment.id}>
                       <TableCell className="font-mono text-xs">
                         {payment.registration.referenceNumber.slice(0, 12)}

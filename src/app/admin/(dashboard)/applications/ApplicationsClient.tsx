@@ -27,6 +27,8 @@ const statusColors: Record<string, string> = {
   DECLINED: "bg-red-500/10 text-red-600 border-red-500/20",
 };
 
+const statusFilters = ["All", "PENDING", "REVIEWED", "ACCEPTED", "DECLINED"] as const;
+
 export function ApplicationsClient({
   applications: initial,
 }: {
@@ -36,6 +38,16 @@ export function ApplicationsClient({
   const [applications, setApplications] = useState(initial);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [saving, setSaving] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+
+  const filteredApplications = activeFilter === "All"
+    ? applications
+    : applications.filter((a) => a.status === activeFilter);
+
+  function getCount(status: string) {
+    if (status === "All") return applications.length;
+    return applications.filter((a) => a.status === status).length;
+  }
 
   async function updateStatus(id: string, status: string) {
     setSaving(id);
@@ -61,7 +73,23 @@ export function ApplicationsClient({
 
   return (
     <>
-      {applications.length === 0 ? (
+      <div className="flex flex-wrap gap-2 mb-4">
+        {statusFilters.map((status) => (
+          <button
+            key={status}
+            onClick={() => setActiveFilter(status)}
+            className={`rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${
+              activeFilter === status
+                ? "border-[#C5A55A] bg-[#C5A55A] text-gray-900"
+                : "border-border bg-transparent text-muted-foreground hover:bg-accent"
+            }`}
+          >
+            {status === "All" ? "All" : status.charAt(0) + status.slice(1).toLowerCase()} ({getCount(status)})
+          </button>
+        ))}
+      </div>
+
+      {filteredApplications.length === 0 ? (
         <Card>
           <CardContent className="py-12 text-center">
             <p className="text-muted-foreground">No speaker applications yet.</p>
@@ -69,7 +97,7 @@ export function ApplicationsClient({
         </Card>
       ) : (
         <div className="space-y-3">
-          {applications.map((app) => (
+          {filteredApplications.map((app) => (
             <Card key={app.id}>
               <CardHeader
                 className="cursor-pointer"

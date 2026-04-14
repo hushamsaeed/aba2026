@@ -154,90 +154,100 @@ export function SponsorsClient({ sponsors: initial }: { sponsors: Sponsor[] }) {
         </Button>
       </div>
 
-      <Card>
-        <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Tier</TableHead>
-                  <TableHead>Logo</TableHead>
-                  <TableHead>Website</TableHead>
-                  <TableHead>Active</TableHead>
-                  <TableHead>Order</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {sponsors.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={7} className="py-8 text-center text-sm text-muted-foreground">
-                      No sponsors yet. Add your first sponsor.
-                    </TableCell>
-                  </TableRow>
+      {sponsors.length === 0 ? (
+        <Card>
+          <CardContent className="py-8 text-center text-sm text-muted-foreground">
+            No sponsors yet. Add your first sponsor.
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="space-y-6">
+          {tiers.map((tier) => {
+            const tierSponsors = sponsors.filter((s) => s.tier === tier);
+            return (
+              <div key={tier}>
+                <h3 className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C5A55A]">
+                  {tier.replace("_", " ")}
+                </h3>
+                {tierSponsors.length === 0 ? (
+                  <p className="text-sm italic text-muted-foreground">No sponsors in this tier</p>
                 ) : (
-                  sponsors.map((sponsor) => (
-                    <TableRow key={sponsor.id}>
-                      <TableCell className="font-medium">{sponsor.name}</TableCell>
-                      <TableCell>
-                        <Badge className={tierColors[sponsor.tier] || ""}>
-                          {sponsor.tier.replace("_", " ")}
-                        </Badge>
-                      </TableCell>
-                      <TableCell>
-                        {sponsor.logoUrl ? (
-                          <Image
-                            src={sponsor.logoUrl}
-                            alt={sponsor.name}
-                            width={48}
-                            height={32}
-                            className="rounded object-contain"
-                          />
-                        ) : (
-                          <span className="text-muted-foreground">-</span>
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        {sponsor.website ? (
-                          <a
-                            href={sponsor.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm text-blue-600 hover:underline"
-                          >
-                            {new URL(sponsor.website).hostname}
-                          </a>
-                        ) : (
-                          <span className="text-muted-foreground">-</span>
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        {sponsor.active ? (
-                          <Badge className="bg-emerald-500/10 text-emerald-600 border-emerald-500/20">Active</Badge>
-                        ) : (
-                          <Badge variant="secondary">Inactive</Badge>
-                        )}
-                      </TableCell>
-                      <TableCell>{sponsor.order}</TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex justify-end gap-1">
-                          <Button variant="ghost" size="icon" onClick={() => openEdit(sponsor)}>
-                            <Pencil className="size-4" />
-                          </Button>
-                          <Button variant="ghost" size="icon" onClick={() => openDelete(sponsor.id)}>
-                            <Trash2 className="size-4 text-destructive" />
-                          </Button>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))
+                  <Card>
+                    <CardContent className="p-0">
+                      <div className="overflow-x-auto">
+                        <Table>
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead>Name</TableHead>
+                              <TableHead>Logo</TableHead>
+                              <TableHead>Website</TableHead>
+                              <TableHead>Active</TableHead>
+                              <TableHead>Order</TableHead>
+                              <TableHead className="text-right">Actions</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {tierSponsors.map((sponsor) => (
+                              <TableRow key={sponsor.id}>
+                                <TableCell className="font-medium">{sponsor.name}</TableCell>
+                                <TableCell>
+                                  {sponsor.logoUrl ? (
+                                    <Image
+                                      src={sponsor.logoUrl}
+                                      alt={sponsor.name}
+                                      width={48}
+                                      height={32}
+                                      className="rounded object-contain"
+                                    />
+                                  ) : (
+                                    <span className="text-muted-foreground">-</span>
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {sponsor.website ? (
+                                    <a
+                                      href={sponsor.website}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-sm text-blue-600 hover:underline"
+                                    >
+                                      {new URL(sponsor.website).hostname}
+                                    </a>
+                                  ) : (
+                                    <span className="text-muted-foreground">-</span>
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {sponsor.active ? (
+                                    <Badge className="bg-emerald-500/10 text-emerald-600 border-emerald-500/20">Active</Badge>
+                                  ) : (
+                                    <Badge variant="secondary">Inactive</Badge>
+                                  )}
+                                </TableCell>
+                                <TableCell>{sponsor.order}</TableCell>
+                                <TableCell className="text-right">
+                                  <div className="flex justify-end gap-1">
+                                    <Button variant="ghost" size="icon" onClick={() => openEdit(sponsor)}>
+                                      <Pencil className="size-4" />
+                                    </Button>
+                                    <Button variant="ghost" size="icon" onClick={() => openDelete(sponsor.id)}>
+                                      <Trash2 className="size-4 text-destructive" />
+                                    </Button>
+                                  </div>
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    </CardContent>
+                  </Card>
                 )}
-              </TableBody>
-            </Table>
-          </div>
-        </CardContent>
-      </Card>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {/* Add/Edit Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>

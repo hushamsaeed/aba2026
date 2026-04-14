@@ -182,6 +182,2182 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "XwMG9",
+      "x": 1600,
+      "y": 0,
+      "name": "01-Hero",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#0A2540",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "nXINQ",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "HeroBgImage",
+          "width": "fill_container(0)",
+          "height": "fill_container(0)",
+          "fill": {
+            "type": "image",
+            "opacity": 0.5,
+            "enabled": true,
+            "url": "../../designs/concept-assets/hero-maldives.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "bibcc",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "HeroGradient",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#0A2540EE",
+                "position": 0
+              },
+              {
+                "color": "#0A254088",
+                "position": 0.4
+              },
+              {
+                "color": "#0A254066",
+                "position": 0.7
+              },
+              {
+                "color": "#0A2540DD",
+                "position": 1
+              }
+            ]
+          },
+          "width": "fill_container(0)",
+          "height": "fill_container(0)"
+        },
+        {
+          "id": "j3bP3",
+          "type": "ref",
+          "ref": "OFcqN",
+          "width": "fill_container",
+          "name": "heroNav"
+        },
+        {
+          "type": "frame",
+          "id": "vTKjU",
+          "name": "HeroBody",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            0,
+            120
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "D6Cyi",
+              "name": "KasabuDecor",
+              "opacity": 0.4,
+              "width": 300,
+              "height": 4,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "../../designs/concept-assets/kasabu-embroidery.png",
+                "mode": "fill"
+              }
+            },
+            {
+              "type": "text",
+              "id": "8Kkkl",
+              "name": "HeroDate",
+              "fill": "#C5A55A",
+              "content": "1 – 3  SEPTEMBER  2026",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "NGWN4",
+              "name": "HeroTitle",
+              "fill": "#FFFFFF",
+              "content": "42nd ABA General\nMeeting & Conference",
+              "lineHeight": 1.05,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 76,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "7CVVI",
+              "name": "HeroTheme",
+              "fill": "#FFFFFFCC",
+              "content": "Banking in Asia: Investing to Build Resilience",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "300",
+              "letterSpacing": 1
+            },
+            {
+              "type": "text",
+              "id": "wmTOB",
+              "name": "HeroVenue",
+              "fill": "#FFFFFF60",
+              "content": "Kurumba Maldives",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "WPZ38",
+              "name": "HeroBtns",
+              "gap": 20,
+              "children": [
+                {
+                  "id": "peuMY",
+                  "type": "ref",
+                  "ref": "tJK9C",
+                  "name": "heroBtn1"
+                },
+                {
+                  "id": "ayaDq",
+                  "type": "ref",
+                  "ref": "BhgiL",
+                  "name": "heroBtn2"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AGh1w",
+              "name": "HostedBy",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "3ACgr",
+                  "name": "heroHostLbl",
+                  "fill": "#FFFFFF50",
+                  "content": "Hosted by",
+                  "fontFamily": "Inter",
+                  "fontSize": 11
+                },
+                {
+                  "type": "frame",
+                  "id": "sUAqT",
+                  "name": "BMLLogo",
+                  "width": 120,
+                  "height": 16,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "../../_intake/BML Logo_White_Full_2000x257.png",
+                    "mode": "fit"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TKd5a",
+          "layoutPosition": "absolute",
+          "x": 1050,
+          "y": 620,
+          "name": "DhoniDecor",
+          "opacity": 0.15,
+          "width": 320,
+          "height": 180,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../designs/concept-assets/dhoni-silhouette.png",
+            "mode": "fit"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "QZSLc",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 780,
+          "name": "WaveBottom",
+          "opacity": 0.3,
+          "width": 1440,
+          "height": 120,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../designs/concept-assets/wave-pattern.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "WPvy9",
+          "layoutPosition": "absolute",
+          "x": -40,
+          "y": 50,
+          "name": "PalmLeft",
+          "opacity": 0.1,
+          "rotation": 14.999999999999998,
+          "width": 200,
+          "height": 200,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../designs/concept-assets/palm-frond.png",
+            "mode": "fit"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "hIlHA",
+          "layoutPosition": "absolute",
+          "x": 1300,
+          "y": 100,
+          "name": "PalmRight",
+          "opacity": 0.08,
+          "rotation": -20,
+          "flipX": true,
+          "width": 160,
+          "height": 160,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../designs/concept-assets/palm-frond.png",
+            "mode": "fit"
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "iXkOP",
+      "x": 1600,
+      "y": 1050,
+      "name": "02-Cultural-Intro",
+      "width": 1440,
+      "fill": "#E8DCC8",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "syquy",
+          "name": "CultureBody",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "F7bPj",
+              "name": "cultureLabel",
+              "fill": "#C44536",
+              "content": "MALDIVIAN HERITAGE",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "4oMK4",
+              "name": "cultureTitle",
+              "fill": "#0A2540",
+              "content": "Where Banking\nMeets Paradise",
+              "lineHeight": 1.1,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 52,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "7fXZo",
+              "name": "cultureSub",
+              "fill": "#4A4A4A",
+              "textGrowth": "fixed-width",
+              "width": 700,
+              "content": "A conference steeped in the rich cultural traditions of the Maldives — from the intricate lacquer work of Thulhaadhoo to the rhythmic pulse of Bodu Beru.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "300"
+            },
+            {
+              "type": "frame",
+              "id": "MmNFd",
+              "name": "CultureCards",
+              "width": "fill_container",
+              "gap": 32,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "7US16",
+                  "name": "LacquerCard",
+                  "width": "fill_container",
+                  "fill": "#0A2540",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "g0V6z",
+                      "name": "LacquerImg",
+                      "width": "fill_container",
+                      "height": 180,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../designs/concept-assets/lacquer-pattern.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "FNXM0",
+                      "name": "card1Title",
+                      "fill": "#C5A55A",
+                      "content": "Liyelaa Jehun",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rJ0cS",
+                      "name": "card1Sub",
+                      "fill": "#FFFFFF80",
+                      "content": "Lacquer Work",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "YxAUI",
+                      "name": "card1Desc",
+                      "fill": "#FFFFFF90",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "The ancient art of layering red, yellow, and black lacquer on wood — each piece hand-etched with unique floral patterns passed through generations in Baa Atoll.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "7ri3y",
+                  "name": "CoralCard",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E0DCD5"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Iawko",
+                      "name": "CoralImg",
+                      "width": "fill_container",
+                      "height": 180,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../designs/concept-assets/coral-stone-pattern.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "FhjLH",
+                      "name": "card2Title",
+                      "fill": "#0A2540",
+                      "content": "Coral Stone Craft",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BfYPC",
+                      "name": "card2Sub",
+                      "fill": "#C44536",
+                      "content": "Mosque Carvings",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "tJvds",
+                      "name": "card2Desc",
+                      "fill": "#4A4A4A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Intricate geometric patterns and Islamic calligraphy carved into coral stone — a tradition perfected in the Hukuru Miskiy, the oldest mosque in the Maldives.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KNTo6",
+                  "name": "CoirCard",
+                  "width": "fill_container",
+                  "fill": "#0A2540",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "520JM",
+                      "name": "CoirImg",
+                      "width": "fill_container",
+                      "height": 180,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../designs/concept-assets/coir-rope-border.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "d356a",
+                      "name": "card3Title",
+                      "fill": "#C5A55A",
+                      "content": "Roanu Veshun",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yEQfP",
+                      "name": "card3Sub",
+                      "fill": "#FFFFFF80",
+                      "content": "Coir Rope Making",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "mVzgZ",
+                      "name": "card3Desc",
+                      "fill": "#FFFFFF90",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Coconut fibers twisted into strong, beautiful ropes — the backbone of Maldivian boat building and fishing, a craft connecting generations to the sea.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eSjUs",
+              "name": "RopeDivider",
+              "opacity": 0.6,
+              "width": 400,
+              "height": 24,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "../../designs/concept-assets/coir-rope-border.png",
+                "mode": "fill"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "oQnx3",
+      "x": 1600,
+      "y": 2200,
+      "name": "03-Program",
+      "width": 1440,
+      "fill": "#0A2540",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "4Ym3W",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "CoralBgTexture",
+          "opacity": 0.03,
+          "width": "fill_container(0)",
+          "height": "fill_container(0)",
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../designs/concept-assets/coral-stone-pattern.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "veKlv",
+          "name": "ProgBody",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "DQtu8",
+              "name": "progLabel",
+              "fill": "#0891B2",
+              "content": "CONFERENCE PROGRAM",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "R8SQ0",
+              "name": "progTitle",
+              "fill": "#FFFFFF",
+              "content": "Three Days of\nInsight & Connection",
+              "lineHeight": 1.1,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 48,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "lDbxl",
+              "name": "LacquerDivider",
+              "width": 80,
+              "height": 4,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "../../designs/concept-assets/lacquer-pattern.png",
+                "mode": "fill"
+              }
+            },
+            {
+              "type": "frame",
+              "id": "kcgZb",
+              "name": "DayCards",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "LNDjj",
+                  "name": "Day1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF08",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#0891B230"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fSimq",
+                      "name": "D1Head",
+                      "width": "fill_container",
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": {
+                          "bottom": 2
+                        },
+                        "fill": "#C4453640"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        28,
+                        28,
+                        20,
+                        28
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "C5ezg",
+                          "name": "d1tag",
+                          "fill": "#C44536",
+                          "content": "DAY 1 — SEP 1",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "kJ31E",
+                          "name": "d1title",
+                          "fill": "#FFFFFF",
+                          "content": "Opening &\nHost Bank",
+                          "lineHeight": 1.15,
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 24,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "4dRV6",
+                      "name": "D1Body",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HYaGO",
+                          "name": "d1i1",
+                          "fill": "#FFFFFF80",
+                          "content": "— Opening Ceremony",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qzYOT",
+                          "name": "d1i2",
+                          "fill": "#FFFFFF80",
+                          "content": "— Host Bank Session",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "4vVHB",
+                          "name": "d1i3",
+                          "fill": "#FFFFFF80",
+                          "content": "— Policy Committee",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "jglyS",
+                          "name": "d1i4",
+                          "fill": "#C5A55A",
+                          "content": "— Welcome Dinner",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "k9uXr",
+                  "name": "Day2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF08",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#0891B230"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "F2G7T",
+                      "name": "D2Head",
+                      "width": "fill_container",
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": {
+                          "bottom": 2
+                        },
+                        "fill": "#0891B240"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        28,
+                        28,
+                        20,
+                        28
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ZReUY",
+                          "name": "d2tag",
+                          "fill": "#0891B2",
+                          "content": "DAY 2 — SEP 2",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "9fGdC",
+                          "name": "d2title",
+                          "fill": "#FFFFFF",
+                          "content": "Conference &\nPlenaries",
+                          "lineHeight": 1.15,
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 24,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "944yG",
+                      "name": "D2Body",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "OqxJj",
+                          "name": "d2i1",
+                          "fill": "#FFFFFF80",
+                          "content": "— Digital First Era",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QT11l",
+                          "name": "d2i2",
+                          "fill": "#FFFFFF80",
+                          "content": "— Sustainability",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wDvhG",
+                          "name": "d2i3",
+                          "fill": "#FFFFFF80",
+                          "content": "— Chairman's Report",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "opPUj",
+                          "name": "d2i4",
+                          "fill": "#FFFFFF80",
+                          "content": "— B2B Networking",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "G26Yo",
+                  "name": "Day3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF08",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#0891B230"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "mS9kE",
+                      "name": "D3Head",
+                      "width": "fill_container",
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": {
+                          "bottom": 2
+                        },
+                        "fill": "#C5A55A40"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        28,
+                        28,
+                        20,
+                        28
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "OqQLA",
+                          "name": "d3tag",
+                          "fill": "#C5A55A",
+                          "content": "DAY 3 — SEP 3",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "G6QI5",
+                          "name": "d3title",
+                          "fill": "#FFFFFF",
+                          "content": "Risk, Governance\n& Farewell",
+                          "lineHeight": 1.15,
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 24,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "q2OvE",
+                      "name": "D3Body",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LHAcl",
+                          "name": "d3i1",
+                          "fill": "#FFFFFF80",
+                          "content": "— Technology for Risk",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "4HjTf",
+                          "name": "d3i2",
+                          "fill": "#FFFFFF80",
+                          "content": "— Governors' Roundtable",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kpjv5",
+                          "name": "d3i3",
+                          "fill": "#C5A55A",
+                          "content": "— Farewell Dinner",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "s8joV",
+              "type": "ref",
+              "ref": "tJK9C",
+              "name": "progCta",
+              "descendants": {
+                "xlfa0": {
+                  "content": "VIEW FULL PROGRAM"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "b077J",
+      "x": 1600,
+      "y": 3200,
+      "name": "04-Speakers",
+      "width": 1440,
+      "fill": "#F4F2EF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "QsryM",
+          "name": "SpkBody",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "vTor3",
+              "name": "spkLabel",
+              "fill": "#C5A55A",
+              "content": "CONFERENCE SPEAKERS",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "zzbjr",
+              "name": "spkTitle",
+              "fill": "#0A2540",
+              "content": "25 Distinguished Leaders",
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 48,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "uf1Go",
+              "name": "spkSub",
+              "fill": "#4A4A4A",
+              "textGrowth": "fixed-width",
+              "width": 650,
+              "content": "Banking CEOs, central bank governors, fintech pioneers, and sustainability experts from across Asia.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "300"
+            },
+            {
+              "type": "frame",
+              "id": "sdsoI",
+              "name": "SpkGrid",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bG624",
+                  "name": "Spk1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E0DCD5"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "LgZhm",
+                      "name": "s1img",
+                      "width": "fill_container",
+                      "height": 260,
+                      "fill": "#0A2540"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HZrRs",
+                      "name": "s1info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "s1l2G",
+                          "name": "s1name",
+                          "fill": "#0A2540",
+                          "content": "Piyush Gupta",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 18,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "sKif1",
+                          "name": "s1role",
+                          "fill": "#4A4A4A",
+                          "content": "CEO, DBS",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tAVzB",
+                  "name": "Spk2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E0DCD5"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jOAex",
+                      "name": "s2img",
+                      "width": "fill_container",
+                      "height": 260,
+                      "fill": "#0A2540"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "52Gk7",
+                      "name": "s2info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zPx9y",
+                          "name": "s2name",
+                          "fill": "#0A2540",
+                          "content": "Gan Kim Yong",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 18,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Hn3qI",
+                          "name": "s2role",
+                          "fill": "#4A4A4A",
+                          "content": "Chairman, MAS",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DF1lr",
+                  "name": "Spk3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E0DCD5"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "5E7DG",
+                      "name": "s3img",
+                      "width": "fill_container",
+                      "height": 260,
+                      "fill": "#0A2540"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pu6Yh",
+                      "name": "s3info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "UZIUd",
+                          "name": "s3name",
+                          "fill": "#0A2540",
+                          "content": "Tessa Dann",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 18,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "PCblz",
+                          "name": "s3role",
+                          "fill": "#4A4A4A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Head of Sustainable Finance, Societe Generale",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "DcVQ2",
+              "name": "spkCta",
+              "fill": "#C5A55A",
+              "content": "View all 25 speakers →",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "JiHvC",
+      "x": 1600,
+      "y": 4200,
+      "name": "05-Venue",
+      "clip": true,
+      "width": 1440,
+      "fill": "#0A2540",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "O7lh7",
+          "name": "VenueHeroImg",
+          "width": "fill_container",
+          "height": 480,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../designs/concept-assets/hero-maldives.png",
+            "mode": "fill"
+          },
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "h2vXj",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "VenueOverlay",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#0A254000",
+                    "position": 0
+                  },
+                  {
+                    "color": "#0A2540FF",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": "fill_container(0)",
+              "height": "fill_container(0)"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "GESvm",
+          "name": "VenueBody",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            48,
+            120
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "aiaID",
+              "name": "venueLabel",
+              "fill": "#0891B2",
+              "content": "CONFERENCE VENUE",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "oILKA",
+              "name": "venueTitle",
+              "fill": "#FFFFFF",
+              "content": "Kurumba Maldives",
+              "fontFamily": "Playfair Display",
+              "fontSize": 52,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "ScV6X",
+              "name": "venueSub",
+              "fill": "#FFFFFF90",
+              "textGrowth": "fixed-width",
+              "width": 700,
+              "content": "An iconic island resort in the North Malé Atoll — the Maldives' first private island resort, combining rich heritage with contemporary comfort. Just 10 minutes by speedboat from Velana International Airport.",
+              "lineHeight": 1.7,
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "300"
+            },
+            {
+              "type": "frame",
+              "id": "Tapyo",
+              "name": "RopeDivider2",
+              "opacity": 0.4,
+              "width": 300,
+              "height": 20,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "../../designs/concept-assets/coir-rope-border.png",
+                "mode": "fill"
+              }
+            },
+            {
+              "type": "frame",
+              "id": "6V2RI",
+              "name": "AccomCards",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xe2NL",
+                  "name": "ac1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF08",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "FwA9j",
+                      "name": "ac1img",
+                      "width": "fill_container",
+                      "height": 160,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../public/images/accom-kurumba.jpg",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "C0AuV",
+                      "name": "ac1info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JrMyG",
+                          "name": "ac1n",
+                          "fill": "#FFFFFF",
+                          "content": "Kurumba Maldives",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "n7gW6",
+                          "name": "ac1t",
+                          "fill": "#C5A55A",
+                          "content": "OFFICIAL VENUE",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "hlI0L",
+                          "name": "ac1d",
+                          "fill": "#FFFFFF60",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Beachfront rooms, villas, and onsite meeting facilities.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Bd4Ue",
+                  "name": "ac2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF08",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ss6dn",
+                      "name": "ac2img",
+                      "width": "fill_container",
+                      "height": 160,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../public/images/accom-dusit.jpg",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "04L08",
+                      "name": "ac2info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "v6gpg",
+                          "name": "ac2n",
+                          "fill": "#FFFFFF",
+                          "content": "dusitD2 Feydhoo",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Ry1JK",
+                          "name": "ac2d",
+                          "fill": "#FFFFFF60",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Modern overwater villas with all-inclusive offering.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "prSp9",
+                  "name": "ac3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF08",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "2RErG",
+                      "name": "ac3img",
+                      "width": "fill_container",
+                      "height": 160,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../public/images/accom-villa.jpg",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "famli",
+                      "name": "ac3info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "SDb4J",
+                          "name": "ac3n",
+                          "fill": "#FFFFFF",
+                          "content": "Villa Nautica",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "e7SKw",
+                          "name": "ac3d",
+                          "fill": "#FFFFFF60",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Spacious beachfront and overwater villas near Malé.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ZfuxZ",
+      "x": 1600,
+      "y": 5400,
+      "name": "06-Registration",
+      "width": 1440,
+      "fill": "#E8DCC8",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "2qwqb",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "RegBgPattern",
+          "opacity": 0.06,
+          "width": "fill_container(0)",
+          "height": "fill_container(0)",
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../designs/concept-assets/coral-stone-pattern.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "5PyQm",
+          "name": "RegBody",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "wUZs8",
+              "name": "regLabel",
+              "fill": "#C44536",
+              "content": "REGISTRATION",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "qhVQE",
+              "name": "regTitle",
+              "fill": "#0A2540",
+              "content": "Get Your Pass",
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 48,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "dNNAY",
+              "name": "EarlyBird",
+              "fill": "#C4453615",
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "fjdpF",
+                  "name": "regEarlyIcon",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "timer",
+                  "iconFontFamily": "lucide",
+                  "fill": "#C44536"
+                },
+                {
+                  "type": "text",
+                  "id": "tAKkC",
+                  "name": "regEarlyTxt",
+                  "fill": "#C44536",
+                  "content": "Early bird pricing ends 1 June 2026 — Save 20%",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ek45f",
+              "name": "RegCards",
+              "width": "fill_container",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NDz8m",
+                  "name": "rc1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E0DCD5"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BB4LT",
+                      "name": "rc1h",
+                      "width": "fill_container",
+                      "fill": "#0A2540",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        28,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "52YvH",
+                          "name": "rc1tier",
+                          "fill": "#C5A55A",
+                          "content": "ABA MEMBER",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "hJrgJ",
+                          "name": "rc1price",
+                          "fill": "#FFFFFF",
+                          "content": "$800",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 36,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Q7pRK",
+                          "name": "rc1early",
+                          "fill": "#C5A55A",
+                          "content": "Early Bird: $640",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uGN51",
+                      "name": "rc1body",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "hlUtM",
+                          "name": "rc1f1",
+                          "fill": "#0A2540",
+                          "content": "✓  Full conference access",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "af2LV",
+                          "name": "rc1f2",
+                          "fill": "#0A2540",
+                          "content": "✓  All plenary sessions",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "RTQi8",
+                          "name": "rc1f3",
+                          "fill": "#0A2540",
+                          "content": "✓  Welcome & Farewell dinners",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qYbqA",
+                  "name": "rc2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E0DCD5"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "1OiMT",
+                      "name": "rc2h",
+                      "width": "fill_container",
+                      "fill": "#0A2540",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        28,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "74J6r",
+                          "name": "rc2tier",
+                          "fill": "#C5A55A",
+                          "content": "NON-ABA MEMBER",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "AovzX",
+                          "name": "rc2price",
+                          "fill": "#FFFFFF",
+                          "content": "$1,000",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 36,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "4hwSQ",
+                          "name": "rc2early",
+                          "fill": "#C5A55A",
+                          "content": "Early Bird: $800",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OwryP",
+                      "name": "rc2body",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "XEl4o",
+                          "name": "rc2f1",
+                          "fill": "#0A2540",
+                          "content": "✓  Full conference access",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JGMyW",
+                          "name": "rc2f2",
+                          "fill": "#0A2540",
+                          "content": "✓  All plenary sessions",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3xp1x",
+                          "name": "rc2f3",
+                          "fill": "#0A2540",
+                          "content": "✓  Welcome & Farewell dinners",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q2mJQ",
+                  "name": "rc3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E0DCD5"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "aC5f0",
+                      "name": "rc3h",
+                      "width": "fill_container",
+                      "fill": "#0A2540",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        28,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "N5i8n",
+                          "name": "rc3tier",
+                          "fill": "#C5A55A",
+                          "content": "GROUP (3+)",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "yYuoa",
+                          "name": "rc3price",
+                          "fill": "#FFFFFF",
+                          "content": "$700",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 36,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "UMCQ3",
+                          "name": "rc3early",
+                          "fill": "#C5A55A",
+                          "content": "Early Bird: $560/person",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "D7Sfo",
+                      "name": "rc3body",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "MJxKY",
+                          "name": "rc3f1",
+                          "fill": "#0A2540",
+                          "content": "✓  Full conference access",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "5mWns",
+                          "name": "rc3f2",
+                          "fill": "#0A2540",
+                          "content": "✓  All plenary sessions",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "jq5HT",
+                          "name": "rc3f3",
+                          "fill": "#0A2540",
+                          "content": "✓  Minimum 3 delegates",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "QoPn9",
+              "type": "ref",
+              "ref": "tJK9C",
+              "name": "regCta",
+              "descendants": {
+                "xlfa0": {
+                  "content": "REGISTER NOW"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "GD1Bu",
+      "x": 1600,
+      "y": 6500,
+      "name": "07-Footer",
+      "width": 1440,
+      "fill": "#0A2540",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "jXwId",
+          "name": "KasabuBorder",
+          "opacity": 0.4,
+          "width": "fill_container",
+          "height": 8,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../designs/concept-assets/kasabu-embroidery.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "PqqjZ",
+          "name": "FooterBody",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            48,
+            80
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "hK60B",
+              "name": "FooterTop",
+              "width": "fill_container",
+              "gap": 60,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AXiIO",
+                  "name": "ftBrand",
+                  "width": 360,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DLa1b",
+                      "name": "ftTagline",
+                      "fill": "#FFFFFF60",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "42nd ABA General Meeting & Conference\n1–3 September 2026 · Kurumba Maldives",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kkMRs",
+                      "name": "ftLogo",
+                      "width": 120,
+                      "height": 40,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../_intake/aba-logo-assets/logo-web-2x.png",
+                        "mode": "fit"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tVRAM",
+                      "name": "ftBmlLogo",
+                      "width": 140,
+                      "height": 18,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../_intake/BML Logo_White_Full_2000x257.png",
+                        "mode": "fit"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YNSsr",
+                  "name": "ftLinks",
+                  "layout": "vertical",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Adlll",
+                      "name": "ftLinksTitle",
+                      "fill": "#0891B2",
+                      "content": "QUICK LINKS",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "2oilr",
+                      "name": "ftL1",
+                      "fill": "#FFFFFF60",
+                      "content": "Program",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "aNEcv",
+                      "name": "ftL2",
+                      "fill": "#FFFFFF60",
+                      "content": "Speakers",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cDP0Z",
+                      "name": "ftL3",
+                      "fill": "#FFFFFF60",
+                      "content": "Registration",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "luFIJ",
+                  "name": "ftContact",
+                  "layout": "vertical",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YSuuK",
+                      "name": "ftConTitle",
+                      "fill": "#0891B2",
+                      "content": "CONTACT",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "q9gY3",
+                      "name": "ftC1",
+                      "fill": "#FFFFFF60",
+                      "content": "maldivesaba@maldivesaba.com",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SHYGg",
+                      "name": "ftC2",
+                      "fill": "#FFFFFF60",
+                      "content": "Bank of Maldives",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "8pDy1",
+              "name": "ftDivider",
+              "fill": "#FFFFFF10",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "LfY5q",
+              "name": "ftBottom",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sHQzD",
+                  "name": "ftCopy",
+                  "fill": "#FFFFFF30",
+                  "content": "© 2026 Asian Bankers Association. All rights reserved.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "pRL0f",
+                  "name": "ftSocial",
+                  "fill": "#FFFFFF30",
+                  "content": "LinkedIn  ·  Twitter  ·  Facebook",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

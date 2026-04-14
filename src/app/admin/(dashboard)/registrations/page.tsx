@@ -67,11 +67,21 @@ export default async function RegistrationsPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="font-heading text-2xl font-bold">Registrations</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Manage conference registrations ({registrations.length} total)
-        </p>
+      <div className="flex items-start justify-between">
+        <div>
+          <h1 className="font-heading text-2xl font-bold">Registrations</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Manage conference registrations ({registrations.length} total)
+          </p>
+        </div>
+        <a
+          href="/api/admin/registrations/export"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm hover:bg-accent hover:text-accent-foreground"
+        >
+          Export CSV
+        </a>
       </div>
 
       <RegistrationsFilter

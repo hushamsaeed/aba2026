@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BrochureButton } from "@/components/shared/brochure-button";
 
 export function AboutSection() {
   return (
@@ -50,6 +51,7 @@ export function AboutSection() {
             >
               Visit asianbankers.org →
             </a>
+            <BrochureButton />
           </div>
 
           {/* About BML */}

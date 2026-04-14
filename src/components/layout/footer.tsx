@@ -9,8 +9,8 @@ const quickLinks = [
 ];
 
 const prevConferences = [
-  { label: "41st ABA Conference", href: "#" },
-  { label: "40th ABA Conference", href: "#" },
+  { label: "41st ABA Conference — Bhutan 2025", href: "https://41aba.bt" },
+  { label: "40th ABA Conference — Baku 2024", href: "https://www.aba.org.tw" },
 ];
 
 export function Footer() {

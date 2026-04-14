@@ -3,20 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import {
   Dialog,
   DialogContent,
@@ -25,6 +16,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Plus, Pencil, Trash2 } from "lucide-react";
+import Image from "next/image";
 
 interface Speaker {
   id: string;
@@ -49,6 +41,16 @@ const emptySpeaker: Omit<Speaker, "id" | "createdAt"> = {
   featured: false,
   order: 0,
 };
+
+function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
 
 export function SpeakersClient({ speakers: initial }: { speakers: Speaker[] }) {
   const router = useRouter();
@@ -145,69 +147,80 @@ export function SpeakersClient({ speakers: initial }: { speakers: Speaker[] }) {
         </Button>
       </div>
 
-      <Card>
-        <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Title</TableHead>
-                  <TableHead>Organization</TableHead>
-                  <TableHead>Country</TableHead>
-                  <TableHead>Featured</TableHead>
-                  <TableHead>Order</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {speakers.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={7} className="py-8 text-center text-sm text-muted-foreground">
-                      No speakers yet. Add your first speaker.
-                    </TableCell>
-                  </TableRow>
-                ) : (
-                  speakers.map((speaker) => (
-                    <TableRow key={speaker.id}>
-                      <TableCell className="font-medium">{speaker.name}</TableCell>
-                      <TableCell>{speaker.title}</TableCell>
-                      <TableCell>{speaker.organization}</TableCell>
-                      <TableCell>{speaker.country || "-"}</TableCell>
-                      <TableCell>
-                        {speaker.featured ? (
-                          <Badge className="bg-amber-500/10 text-amber-600 border-amber-500/20">Featured</Badge>
-                        ) : (
-                          <span className="text-muted-foreground">-</span>
-                        )}
-                      </TableCell>
-                      <TableCell>{speaker.order}</TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex justify-end gap-1">
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => openEdit(speaker)}
-                          >
-                            <Pencil className="size-4" />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => openDelete(speaker.id)}
-                          >
-                            <Trash2 className="size-4 text-destructive" />
-                          </Button>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))
+      {speakers.length === 0 ? (
+        <div className="rounded-lg bg-[#1a1a1a] py-12 text-center">
+          <p className="text-sm text-muted-foreground">
+            No speakers yet. Add your first speaker.
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {speakers.map((speaker) => (
+            <div
+              key={speaker.id}
+              className="group bg-[#1a1a1a] rounded-lg p-4 transition-colors hover:bg-[#222]"
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                  {speaker.photoUrl ? (
+                    <Image
+                      src={speaker.photoUrl}
+                      alt={speaker.name}
+                      width={56}
+                      height={56}
+                      className="size-14 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex size-14 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 font-semibold text-lg">
+                      {getInitials(speaker.name)}
+                    </div>
+                  )}
+                  <div className="min-w-0">
+                    <p className="font-bold text-white truncate">
+                      {speaker.name}
+                    </p>
+                    <p className="text-sm text-muted-foreground truncate">
+                      {speaker.title}
+                      {speaker.organization && ` — ${speaker.organization}`}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex shrink-0 gap-1">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="size-8 opacity-0 group-hover:opacity-100 transition-opacity"
+                    onClick={() => openEdit(speaker)}
+                  >
+                    <Pencil className="size-4" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="size-8 opacity-0 group-hover:opacity-100 transition-opacity"
+                    onClick={() => openDelete(speaker.id)}
+                  >
+                    <Trash2 className="size-4 text-destructive" />
+                  </Button>
+                </div>
+              </div>
+
+              <div className="mt-3 flex items-center gap-2">
+                {speaker.featured && (
+                  <Badge className="bg-amber-500/10 text-amber-500 border-amber-500/20">
+                    Featured
+                  </Badge>
                 )}
-              </TableBody>
-            </Table>
-          </div>
-        </CardContent>
-      </Card>
+                {speaker.country && (
+                  <span className="text-xs text-muted-foreground">
+                    {speaker.country}
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Add/Edit Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
