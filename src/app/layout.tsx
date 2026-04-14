@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { Space_Mono, Sora } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
-const spaceMono = Space_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
-const sora = Sora({
+const playfairDisplay = Playfair_Display({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,9 +31,9 @@ export const metadata: Metadata = {
     "banking conference",
     "Maldives",
     "Bank of Maldives",
-    "fintech",
     "banking",
     "2026",
+    "Kurumba",
   ],
   openGraph: {
     title: "42nd ABA General Meeting & Conference",
@@ -50,9 +52,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceMono.variable} ${sora.variable} h-full antialiased`}
+      className={`${playfairDisplay.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white">
+      <body className="min-h-full flex flex-col bg-parchment text-text font-[family-name:var(--font-body)]">
         <TooltipProvider>
           {children}
           <Toaster />

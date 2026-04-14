@@ -43,3 +43,9 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# Intake files (large originals, processed versions in public/)
+_intake/speakers/
+_intake/*.docx
+_intake/*.rtf
+designs/

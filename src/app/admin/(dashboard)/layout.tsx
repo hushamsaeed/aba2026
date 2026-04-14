@@ -28,7 +28,7 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="dark min-h-screen bg-background text-foreground">
       <AdminSidebar
         userName={user.name}
         userEmail={user.email}

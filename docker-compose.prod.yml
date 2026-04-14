@@ -9,10 +9,10 @@ services:
       - dokploy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.aba2026.rule=Host(`aba2026.thecrayfish.tech`)"
-      - "traefik.http.routers.aba2026.entrypoints=websecure"
-      - "traefik.http.routers.aba2026.tls.certresolver=letsencrypt"
-      - "traefik.http.services.aba2026.loadbalancer.server.port=3000"
+      - "traefik.http.routers.aba-maldives.rule=Host(`aba-maldives.thecrayfish.tech`)"
+      - "traefik.http.routers.aba-maldives.entrypoints=websecure"
+      - "traefik.http.routers.aba-maldives.tls.certresolver=letsencrypt"
+      - "traefik.http.services.aba-maldives.loadbalancer.server.port=3000"
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - JWT_SECRET=${JWT_SECRET}

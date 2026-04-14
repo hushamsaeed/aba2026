@@ -1,153 +1,83 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Messages | 42nd ABA Conference",
-  description:
-    "Welcome messages from the ABA Chairman and the Host Country for the 42nd ABA Conference in Maldives.",
+  title: "Message from the Chairman",
 };
 
 export default function MessagePage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="relative bg-black pt-32 md:pt-40 pb-16 md:pb-24">
-        <div className="absolute inset-0 noise-overlay" />
-        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
-          <p className="text-editorial text-aba-gold mb-4">Welcome</p>
-          <h1 className="text-display text-4xl md:text-6xl lg:text-7xl text-white">
-            Messages
-          </h1>
-          <p className="mt-4 text-white/50 max-w-2xl text-sm leading-relaxed">
-            Words from the leadership of the Asian Bankers Association
-            and our gracious host, Bank of Maldives.
-          </p>
-        </div>
-      </section>
+    <div className="w-full bg-parchment">
+      <div className="max-w-[1440px] mx-auto px-30 py-25 md:px-6 md:py-12 flex flex-col items-center gap-12">
+        {/* Header */}
+        <span className="section-label">MESSAGE FROM THE CHAIRMAN</span>
+        <h1 className="font-[family-name:var(--font-heading)] text-[48px] md:text-[32px] font-bold text-text text-center">
+          A Warm Invitation
+        </h1>
+        <div className="w-[60px] h-[2px] bg-gold" />
 
-      {/* Messages */}
-      <section className="relative bg-dark-surface py-20 md:py-32">
-        <div className="absolute inset-0 noise-overlay" />
-        <div className="relative z-10 w-[90%] max-w-[1640px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Chairman's Message */}
-            <article className="relative bg-dark-card border border-white/10 overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-aba-gold" />
-              <div className="p-8 md:p-10">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-14 h-14 bg-aba-gold/10 flex items-center justify-center">
-                    <span className="font-heading text-lg font-bold text-aba-gold">DW</span>
-                  </div>
-                  <div>
-                    <h3 className="font-heading text-lg font-semibold text-white">Daniel Wu</h3>
-                    <p className="text-editorial text-white/40 text-[10px]">Chairman, ABA</p>
-                    <p className="text-editorial text-white/30 text-[10px]">Vice Chairman, CTBC Financial Holding</p>
-                  </div>
-                </div>
+        {/* Content */}
+        <div className="flex flex-col lg:flex-row gap-15 w-full max-w-[1100px]">
+          {/* Text */}
+          <div className="flex flex-col gap-6 flex-1">
+            <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary leading-[1.8]">
+              On behalf of the Asian Bankers Association, I extend my sincerest
+              invitation to all ABA members, associates and friends to join me
+              and other ABA Board members for the 42nd ABA General Meeting and
+              Conference scheduled to take place on 1–3 September 2026 in
+              Maldives.
+            </p>
+            <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary leading-[1.8]">
+              Thanks to the kind offer of Bank of Maldives to organize this
+              year&apos;s Conference, we will have the opportunity to learn how
+              the country&apos;s economy has progressed, the prospects for
+              continued growth of its banking and financial sector, and possible
+              areas of business opportunities.
+            </p>
+            <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary leading-[1.8]">
+              I am glad that this year&apos;s Conference will focus on the theme
+              &ldquo;Banking in Asia: Investing to Build Resilience&rdquo;. The
+              three-day event is designed to provide a valuable platform for ABA
+              members to meet and network, as well as to exchange views with
+              invited experts on current trends and developments in the regional
+              and global markets.
+            </p>
+            <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary leading-[1.8]">
+              It has been eight years since the ABA General Meeting and
+              Conference was last held in Maldives in 2018. I trust that this
+              year&apos;s Conference in the beautiful Maldives will provide all
+              delegates with a most memorable experience as they discover the
+              country&apos;s unique beauty and culture.
+            </p>
+            <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary leading-[1.8]">
+              I warmly welcome all of you to the 42nd ABA General Meeting and
+              Conference and look forward to seeing you in Maldives!
+            </p>
+            <div className="flex flex-col gap-1 mt-4">
+              <p className="font-[family-name:var(--font-heading)] text-[18px] font-bold text-text">
+                Thinley Namgyel
+              </p>
+              <p className="font-[family-name:var(--font-body)] text-[14px] text-text-secondary">
+                Chairman, Asian Bankers Association
+              </p>
+              <p className="font-[family-name:var(--font-body)] text-[14px] text-text-secondary">
+                Chairman, Bank of Bhutan
+              </p>
+            </div>
+          </div>
 
-                <h2 className="text-display text-2xl md:text-3xl text-white mb-6">
-                  Chairman&rsquo;s Message
-                </h2>
-
-                <div className="space-y-4 text-white/50 text-sm leading-relaxed">
-                  <p>Dear Colleagues and Distinguished Guests,</p>
-                  <p>
-                    It is my great pleasure to welcome you to the 42nd ABA
-                    General Meeting and Conference, hosted in the breathtaking
-                    Republic of Maldives by Bank of Maldives. This year&rsquo;s
-                    gathering holds special significance as we convene in one of
-                    the most unique island nations in the world.
-                  </p>
-                  <p>
-                    As the banking landscape across Asia continues to evolve at an
-                    unprecedented pace, the importance of collaboration and
-                    knowledge-sharing among our member institutions has never been
-                    greater. Digital transformation, sustainable finance, and
-                    financial inclusion remain at the forefront of our industry.
-                  </p>
-                  <p>
-                    The theme &ldquo;Banking in Asia: Investing to Build Resilience&rdquo;
-                    reflects our collective commitment to shaping the future of banking
-                    in the region. I am confident that the discussions and networking
-                    opportunities will yield meaningful insights and lasting partnerships.
-                  </p>
-                  <p>
-                    I extend my sincere gratitude to Bank of Maldives for their
-                    generous hospitality and meticulous preparations.
-                  </p>
-                  <p className="text-aba-gold mt-6">
-                    Warm regards,
-                    <br />
-                    Daniel Wu
-                  </p>
-                </div>
-              </div>
-            </article>
-
-            {/* Host Country Welcome */}
-            <article className="relative bg-dark-card border border-white/10 overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-bml-red" />
-              <div className="p-8 md:p-10">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-14 h-14 bg-bml-red/10 flex items-center justify-center">
-                    <span className="font-heading text-lg font-bold text-bml-red">BML</span>
-                  </div>
-                  <div>
-                    <h3 className="font-heading text-lg font-semibold text-white">Bank of Maldives</h3>
-                    <p className="text-editorial text-white/40 text-[10px]">Host Institution</p>
-                    <p className="text-editorial text-white/30 text-[10px]">Republic of Maldives</p>
-                  </div>
-                </div>
-
-                <h2 className="text-display text-2xl md:text-3xl text-white mb-6">
-                  Host Country Welcome
-                </h2>
-
-                <div className="space-y-4 text-white/50 text-sm leading-relaxed">
-                  <p>
-                    On behalf of Bank of Maldives and the people of the Republic
-                    of Maldives, it is our privilege and honour to welcome
-                    delegates from across Asia to our island nation.
-                  </p>
-                  <p>
-                    The Maldives, renowned for its pristine natural beauty and
-                    warm hospitality, is proud to serve as the venue for this
-                    prestigious gathering. As the largest financial institution in the
-                    Maldives, Bank of Maldives is deeply committed to advancing
-                    the financial sector across the broader Asian banking community.
-                  </p>
-                  <p>
-                    Our nation may be small in size, but our aspirations for
-                    financial innovation and inclusion are boundless. This conference
-                    presents a remarkable opportunity to share experiences, forge
-                    partnerships, and explore collaborative solutions.
-                  </p>
-                  <p>
-                    We have prepared a programme that balances substantive
-                    professional discourse with the opportunity to experience the
-                    unique culture and natural splendour of the Maldives.
-                  </p>
-                  <p className="text-bml-red mt-6">
-                    Ahlan wa sahlan &mdash; Welcome to the Maldives.
-                  </p>
-                </div>
-              </div>
-            </article>
+          {/* Photo */}
+          <div className="relative w-[380px] md:w-full h-[500px] md:h-[350px] shrink-0 overflow-hidden">
+            <Image
+              src="/images/speakers/thinley-namgyel.png"
+              alt="Thinley Namgyel — Chairman, ABA"
+              fill
+              className="object-cover"
+              sizes="380px"
+            />
           </div>
         </div>
-      </section>
-
-      {/* Quote */}
-      <section className="relative bg-black py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 noise-overlay" />
-        <div className="relative z-10 w-[90%] max-w-[800px] mx-auto text-center">
-          <blockquote className="font-heading text-xl md:text-2xl text-white/80 italic leading-relaxed">
-            &ldquo;The 42nd ABA Conference brings together the brightest minds in
-            Asian banking to chart the future of our industry in a setting of
-            unparalleled beauty.&rdquo;
-          </blockquote>
-          <div className="mt-8 h-px w-16 gradient-gold mx-auto" />
-        </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 }

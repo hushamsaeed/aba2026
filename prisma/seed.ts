@@ -180,35 +180,72 @@ async function main() {
     });
   }
 
-  // Seed sample program days
+  // Seed all 25 speakers
+  const speakers = [
+    { id: "sp-mohamed-shareef", name: "Mohamed Shareef", title: "CEO & Managing Director", organization: "Bank of Maldives", country: "Maldives", photoUrl: "/images/speakers/mohamed-shareef.png", featured: true, order: 1 },
+    { id: "sp-piyush-gupta", name: "Piyush Gupta", title: "CEO", organization: "Development Bank of Singapore", country: "Singapore", photoUrl: "/images/speakers/piyush-gupta.png", featured: true, order: 2 },
+    { id: "sp-steve-monaghan", name: "Steve Monaghan", title: "Executive Chairman", organization: "Human AI", country: "Singapore", photoUrl: "/images/speakers/steve-monaghan.png", featured: false, order: 3 },
+    { id: "sp-nguyen-duc-binh", name: "Nguyen Duc Binh", title: "Chief Technology Officer", organization: "DNSE Securities", country: "Vietnam", photoUrl: "/images/speakers/nguyen-duc-binh.png", featured: false, order: 4 },
+    { id: "sp-kenny-lam", name: "Kenny Lam", title: "CEO", organization: "Two Sigma Asia Pacific", country: "Hong Kong", photoUrl: "/images/speakers/kenny-lam.png", featured: false, order: 5 },
+    { id: "sp-jahja-setiaatmadja", name: "Jahja Setiaatmadja", title: "President Director", organization: "Bank Central Asia", country: "Indonesia", photoUrl: "/images/speakers/jahja-setiaatmadja.png", featured: true, order: 6 },
+    { id: "sp-dato-sri-khairussaleh", name: "Dato Sri Khairussaleh", title: "President & Group CEO", organization: "Maybank", country: "Malaysia", photoUrl: "/images/speakers/dato-sri-khairussaleh.png", featured: true, order: 7 },
+    { id: "sp-damith-pallewatte", name: "Damith Pallewatte", title: "CEO & Managing Director", organization: "Hatton National Bank", country: "Sri Lanka", photoUrl: "/images/speakers/damith-pallewatte.png", featured: true, order: 8 },
+    { id: "sp-tessa-dann", name: "Tessa Dann", title: "Head of Sustainable Finance, Asia Pacific", organization: "Societe Generale", country: "Singapore", photoUrl: "/images/speakers/tessa-dann.png", featured: false, order: 9 },
+    { id: "sp-luanne-sieh", name: "Luanne Sieh", title: "Group Sustainability Officer", organization: "CIMB", country: "Malaysia", photoUrl: "/images/speakers/luanne-sieh.png", featured: false, order: 10 },
+    { id: "sp-guo-peiyuan", name: "Dr. Guo Peiyuan", title: "Chairman", organization: "Syntai Green Finance", country: "China", photoUrl: "/images/speakers/guo-peiyuan.png", featured: false, order: 11 },
+    { id: "sp-eugene-wong", name: "Eugene Wong", title: "CEO", organization: "Sustainable Finance Institute Asia", country: "Singapore", photoUrl: "/images/speakers/eugene-wong.png", featured: false, order: 12 },
+    { id: "sp-kamran-khan", name: "Kamran Khan", title: "Head of ESG, APAC, MENA & Africa", organization: "Deutsche Bank", country: "Singapore", photoUrl: "/images/speakers/kamran-khan.png", featured: false, order: 13 },
+    { id: "sp-reginaldo-cariaso", name: "Reginaldo Cariaso", title: "President & CEO", organization: "Rizal Commercial Banking Corporation", country: "Philippines", photoUrl: "/images/speakers/reginaldo-cariaso.png", featured: true, order: 14 },
+    { id: "sp-andeed-ma", name: "Andeed Ma", title: "President", organization: "Risk & Insurance Management Association of Singapore", country: "Singapore", photoUrl: "/images/speakers/andeed-ma.png", featured: false, order: 15 },
+    { id: "sp-noppachai", name: "Noppachai Tungsinpulchai", title: "Head of IT Risk Management", organization: "Krung Thai Bank", country: "Thailand", photoUrl: "/images/speakers/noppachai-tungsinpulchai.png", featured: false, order: 16 },
+    { id: "sp-kelvin-teo", name: "Kelvin Teo", title: "Co-Founder & Group CEO", organization: "Funding Securities / Modalku", country: "Singapore", photoUrl: "/images/speakers/kelvin-teo.png", featured: false, order: 17 },
+    { id: "sp-mayank-nanda", name: "Mayank Nanda", title: "SVP & Head of Market/Credit Risk Analytics", organization: "Numerix", country: "India", photoUrl: "/images/speakers/mayank-nanda.png", featured: false, order: 18 },
+    { id: "sp-gaitri-sharma", name: "Gaitri Sharma", title: "Chief Risk Officer, Group Global Banking", organization: "Maybank", country: "Malaysia", photoUrl: "/images/speakers/gaitri-sharma.png", featured: false, order: 19 },
+    { id: "sp-thinley-namgyel", name: "Thinley Namgyel", title: "Chairman", organization: "Bank of Bhutan", country: "Bhutan", photoUrl: "/images/speakers/thinley-namgyel.png", featured: true, order: 20 },
+    { id: "sp-eli-remolona", name: "Dr. Eli Remolona Jr.", title: "Governor", organization: "Central Bank of the Philippines", country: "Philippines", photoUrl: "/images/speakers/eli-remolona.png", featured: true, order: 21 },
+    { id: "sp-gan-kim-yong", name: "Gan Kim Yong", title: "Chairman", organization: "Monetary Authority of Singapore", country: "Singapore", photoUrl: "/images/speakers/gan-kim-yong.png", featured: true, order: 22 },
+    { id: "sp-abdul-rasheed", name: "Dato' Sri Abdul Rasheed Ghaffour", title: "Governor", organization: "Bank Negara Malaysia", country: "Malaysia", photoUrl: "/images/speakers/abdul-rasheed-ghaffour.png", featured: true, order: 23 },
+    { id: "sp-ahmed-munawar", name: "Ahmed Munawar", title: "Governor", organization: "Maldives Monetary Authority", country: "Maldives", photoUrl: "/images/speakers/ahmed-munawar.png", featured: true, order: 24 },
+    { id: "sp-yang-chin-long", name: "Yang Chin-long", title: "Governor", organization: "Central Bank of the Republic of China (Taiwan)", country: "Taiwan", photoUrl: "/images/speakers/yang-chin-long.png", featured: true, order: 25 },
+  ];
+
+  for (const speaker of speakers) {
+    await prisma.speaker.upsert({
+      where: { id: speaker.id },
+      update: { name: speaker.name, title: speaker.title, organization: speaker.organization, photoUrl: speaker.photoUrl },
+      create: speaker,
+    });
+  }
+
+  // Seed program days
   const day1 = await prisma.programDay.upsert({
     where: { id: "day-1" },
     update: {},
-    create: { id: "day-1", date: new Date("2026-09-01"), title: "Day 1 — Opening & Plenary Sessions", order: 1 },
+    create: { id: "day-1", date: new Date("2026-09-01"), title: "Day 1 — Opening & Host Bank", order: 1 },
   });
 
   const day2 = await prisma.programDay.upsert({
     where: { id: "day-2" },
     update: {},
-    create: { id: "day-2", date: new Date("2026-09-02"), title: "Day 2 — Plenary Sessions & General Meeting", order: 2 },
+    create: { id: "day-2", date: new Date("2026-09-02"), title: "Day 2 — 41st ABA General Meeting & Conference", order: 2 },
   });
 
   const day3 = await prisma.programDay.upsert({
     where: { id: "day-3" },
     update: {},
-    create: { id: "day-3", date: new Date("2026-09-03"), title: "Day 3 — Activities & Excursions", order: 3 },
+    create: { id: "day-3", date: new Date("2026-09-03"), title: "Day 3 — Risk, Governance & Farewell", order: 3 },
   });
 
-  // Seed sample sessions for Day 1
+  // Day 1 sessions
   const day1Sessions = [
-    { id: "s1-1", title: "Registration & Welcome Coffee", startTime: "08:00", endTime: "09:00", type: "BREAK" as const, order: 1 },
-    { id: "s1-2", title: "Opening Ceremony", startTime: "09:00", endTime: "09:45", type: "CEREMONY" as const, order: 2, description: "Welcome address by the Host Bank and ABA Chairman" },
-    { id: "s1-3", title: "Keynote Address", startTime: "09:45", endTime: "10:30", type: "KEYNOTE" as const, order: 3, description: "Banking in Asia: Investing to Build Resilience" },
-    { id: "s1-4", title: "Coffee Break", startTime: "10:30", endTime: "11:00", type: "BREAK" as const, order: 4 },
-    { id: "s1-5", title: "Plenary Session 1: Digital Transformation in Banking", startTime: "11:00", endTime: "12:30", type: "PANEL" as const, order: 5 },
-    { id: "s1-6", title: "Networking Lunch", startTime: "12:30", endTime: "14:00", type: "BREAK" as const, order: 6 },
-    { id: "s1-7", title: "Plenary Session 2: Sustainable Finance & ESG", startTime: "14:00", endTime: "15:30", type: "PANEL" as const, order: 7 },
-    { id: "s1-8", title: "Welcome Dinner & Cultural Performance", startTime: "19:00", endTime: "22:00", type: "NETWORKING" as const, order: 8 },
+    { id: "s1-1", title: "Registration", startTime: "09:00", endTime: "10:00", type: "BREAK" as const, order: 1 },
+    { id: "s1-2", title: "Opening Ceremony", startTime: "10:00", endTime: "11:00", type: "CEREMONY" as const, order: 2 },
+    { id: "s1-3", title: "Coffee Break", startTime: "11:00", endTime: "11:15", type: "BREAK" as const, order: 3 },
+    { id: "s1-4", title: "Host Bank Session — Bank of Maldives", startTime: "11:15", endTime: "12:45", type: "KEYNOTE" as const, order: 4 },
+    { id: "s1-5", title: "Lunch", startTime: "12:45", endTime: "14:00", type: "BREAK" as const, order: 5 },
+    { id: "s1-6", title: "ABA Policy Advocacy Committee Meeting", startTime: "14:00", endTime: "15:30", type: "PANEL" as const, order: 6 },
+    { id: "s1-7", title: "B2B / Networking Session", startTime: "15:30", endTime: "17:30", type: "NETWORKING" as const, order: 7 },
+    { id: "s1-8", title: "Welcome Dinner", startTime: "18:30", endTime: "20:00", type: "NETWORKING" as const, order: 8 },
   ];
 
   for (const session of day1Sessions) {
@@ -221,13 +258,11 @@ async function main() {
 
   // Day 2 sessions
   const day2Sessions = [
-    { id: "s2-1", title: "Morning Coffee", startTime: "08:30", endTime: "09:00", type: "BREAK" as const, order: 1 },
-    { id: "s2-2", title: "Plenary Session 3: Risk Management & Resilience", startTime: "09:00", endTime: "10:30", type: "PANEL" as const, order: 2 },
-    { id: "s2-3", title: "Coffee Break", startTime: "10:30", endTime: "11:00", type: "BREAK" as const, order: 3 },
-    { id: "s2-4", title: "Plenary Session 4: Future of Banking in Asia", startTime: "11:00", endTime: "12:30", type: "PANEL" as const, order: 4 },
-    { id: "s2-5", title: "Networking Lunch", startTime: "12:30", endTime: "14:00", type: "BREAK" as const, order: 5 },
-    { id: "s2-6", title: "ABA General Meeting", startTime: "14:00", endTime: "16:00", type: "CEREMONY" as const, order: 6, description: "Annual General Meeting of the Asian Bankers Association" },
-    { id: "s2-7", title: "Gala Dinner", startTime: "19:00", endTime: "22:00", type: "NETWORKING" as const, order: 7 },
+    { id: "s2-1", title: "Registration", startTime: "09:00", endTime: "10:00", type: "BREAK" as const, order: 1 },
+    { id: "s2-2", title: "Plenary Session 1: Digital First for the Digital Era", startTime: "10:00", endTime: "11:30", type: "PANEL" as const, order: 2, description: "Digital transformation, AI, emerging tech, payment revolution, agentic commerce, cross-border payments" },
+    { id: "s2-3", title: "Plenary Session 2: Sustainability — Building Resilience", startTime: "11:30", endTime: "13:00", type: "PANEL" as const, order: 3, description: "ESG issues, climate risk management, financing climate adaptation, blue economy, sustainable tourism finance" },
+    { id: "s2-4", title: "Lunch & ABA Chairman's Report", startTime: "13:00", endTime: "15:00", type: "BREAK" as const, order: 4 },
+    { id: "s2-5", title: "B2B / Networking Session", startTime: "15:00", endTime: "16:30", type: "NETWORKING" as const, order: 5 },
   ];
 
   for (const session of day2Sessions) {
@@ -240,10 +275,11 @@ async function main() {
 
   // Day 3 sessions
   const day3Sessions = [
-    { id: "s3-1", title: "Island Excursion & Snorkeling", startTime: "09:00", endTime: "12:00", type: "EXCURSION" as const, order: 1, description: "Guided tour of nearby islands with snorkeling" },
-    { id: "s3-2", title: "Lunch at Resort", startTime: "12:00", endTime: "13:30", type: "BREAK" as const, order: 2 },
-    { id: "s3-3", title: "Cultural Workshop — Maldivian Lacquerwork", startTime: "14:00", endTime: "15:30", type: "ACTIVITY" as const, order: 3 },
-    { id: "s3-4", title: "Farewell Reception", startTime: "17:00", endTime: "19:00", type: "NETWORKING" as const, order: 4 },
+    { id: "s3-1", title: "Plenary Session 3: Success Through Synergy — Leveraging Technology for Risk", startTime: "09:00", endTime: "10:30", type: "PANEL" as const, order: 1, description: "AI/ML/blockchain/cloud computing for risk management, predictive analytics, responsible AI, governance" },
+    { id: "s3-2", title: "Coffee Break", startTime: "10:30", endTime: "10:45", type: "BREAK" as const, order: 2 },
+    { id: "s3-3", title: "Plenary Session 4: Governors' Roundtable", startTime: "10:45", endTime: "12:15", type: "PANEL" as const, order: 3, description: "Central bank governors examine regulatory support for bank transformation, financial stability, digital transformation, sustainable finance" },
+    { id: "s3-4", title: "Lunch", startTime: "12:30", endTime: "14:00", type: "BREAK" as const, order: 4 },
+    { id: "s3-5", title: "Farewell Dinner & Entertainment", startTime: "19:00", endTime: "22:00", type: "NETWORKING" as const, order: 5 },
   ];
 
   for (const session of day3Sessions) {
