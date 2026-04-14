@@ -71,7 +71,7 @@ function NavContent({
       {/* Logo */}
       <div className="flex items-center gap-3 border-b border-sidebar-border px-4 py-4">
         <Image
-          src="/logos/aba-logo.webp"
+          src="/logos/aba-logo.png"
           alt="ABA"
           width={36}
           height={36}

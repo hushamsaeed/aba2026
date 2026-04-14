@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
         {/* Logos */}
         <div className="mb-8 flex items-center justify-center gap-6">
           <Image
-            src="/logos/aba-logo.webp"
+            src="/logos/aba-logo.png"
             alt="ABA Logo"
             width={80}
             height={80}
@@ -58,7 +58,7 @@ export default function AdminLoginPage() {
           />
           <div className="h-12 w-px bg-white/20" />
           <Image
-            src="/logos/bml-logo.png"
+            src="/logos/bml-logo-simple.png"
             alt="BML Logo"
             width={80}
             height={80}

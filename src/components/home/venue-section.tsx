@@ -28,19 +28,19 @@ const accommodations = [
     tag: "OFFICIAL CONFERENCE VENUE",
     description:
       "Beachfront rooms, private bungalows, and villas set amid tropical gardens with onsite meeting facilities.",
-    image: "/images/venue-kurumba.png",
+    image: "/images/accom-kurumba.jpg",
   },
   {
     name: "dusitD2 Feydhoo Maldives",
     description:
       "Contemporary island resort with modern beach and overwater villas, bold design and premium all-inclusive offering.",
-    image: "/images/maldives-ocean.png",
+    image: "/images/accom-dusit.jpg",
   },
   {
     name: "Villa Nautica Maldives",
     description:
       "Spacious beachfront and overwater villas with dining, wellness, and recreational facilities near Malé.",
-    image: "/images/maldives-ocean.png",
+    image: "/images/accom-villa.jpg",
   },
 ];
 

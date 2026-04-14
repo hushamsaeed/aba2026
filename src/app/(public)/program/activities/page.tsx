@@ -10,32 +10,32 @@ const activities = [
   {
     title: "Snorkelling & Diving",
     description: "Explore Kurumba's vibrant house reef with guided snorkelling and PADI-certified diving excursions among tropical marine life.",
-    image: "/images/maldives-ocean.png",
+    image: "/images/act-snorkel.jpg",
   },
   {
     title: "Water Sports",
     description: "Kayaking, paddleboarding, jet skiing, and parasailing — the Indian Ocean is your playground with activities for all skill levels.",
-    image: "/images/maldives-ocean.png",
+    image: "/images/act-watersports.jpg",
   },
   {
     title: "Spa & Wellness",
     description: "Rejuvenate with traditional Maldivian treatments, aromatherapy, and wellness rituals in an oceanfront spa setting.",
-    image: "/images/venue-kurumba.jpg",
+    image: "/images/act-spa.jpg",
   },
   {
     title: "Cultural Activities",
     description: "Discover Maldivian heritage through coconut palm weaving, traditional music, Bodu Beru drumming, and island village visits.",
-    image: "/images/maldives-ocean.png",
+    image: "/images/act-culture.jpg",
   },
   {
     title: "Sunset Cruises",
     description: "Sail across the Indian Ocean at golden hour aboard a traditional Maldivian dhoni, with dolphin-watching opportunities along the way.",
-    image: "/images/hero-bg.jpg",
+    image: "/images/act-sunset.jpg",
   },
   {
     title: "Dining Experiences",
     description: "Eight restaurants and bars serve international and Maldivian cuisine, from beachfront grills to fine dining — perfect for informal networking.",
-    image: "/images/venue-kurumba.jpg",
+    image: "/images/act-dining.jpg",
   },
 ];
 
