@@ -4,7 +4,7 @@ import { ButtonSecondary } from "@/components/shared/button-secondary";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full h-[700px] lg:h-[900px] bg-navy-dark overflow-hidden -mt-20">
+    <section className="relative w-full h-[700px] lg:h-[900px] bg-navy-dark overflow-hidden -mt-16 lg:-mt-20">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -25,7 +25,7 @@ export function HeroSection() {
       </div>
 
       {/* Content — vertically centered */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full gap-8 px-6 pt-20">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full gap-8 px-6 pt-16 lg:pt-20">
         {/* ABA Logo — hidden on mobile (already in navbar) */}
         <Image
           src="/logos/aba-logo.png"

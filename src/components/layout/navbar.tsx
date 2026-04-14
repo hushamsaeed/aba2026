@@ -10,13 +10,10 @@ const navLinks = [
   { label: "Message", href: "/message" },
   { label: "Venue", href: "/venue" },
   { label: "Program", href: "/program" },
-  { label: "Speakers", href: "/speakers" },
-  { label: "Get Involved", href: "/get-involved" },
-];
-
-const mobileExtraLinks = [
   { label: "Activities", href: "/program/activities" },
+  { label: "Speakers", href: "/speakers" },
   { label: "About", href: "/about" },
+  { label: "Get Involved", href: "/get-involved" },
   { label: "FAQ", href: "/get-involved/faq" },
 ];
 
@@ -24,11 +21,11 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <>
-      {/* Desktop NavBar */}
-      <nav className="w-full h-16 lg:h-20 bg-navy flex items-center justify-between px-4 lg:px-15 relative z-50">
+    <header className="sticky top-0 z-50">
+      {/* NavBar */}
+      <nav className="w-full h-16 lg:h-20 bg-navy flex items-center justify-between px-4 lg:px-15">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
             src="/logos/aba-logo.png"
             alt="ABA Logo"
@@ -39,13 +36,13 @@ export function Navbar() {
           />
         </Link>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center gap-9">
+        {/* Desktop Nav Links — gap 28px for 8 links */}
+        <div className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="font-[family-name:var(--font-body)] text-[14px] font-medium tracking-[0.5px] text-white hover:text-gold transition-colors"
+              className="font-[family-name:var(--font-body)] text-[13px] font-medium tracking-[0.3px] text-white hover:text-gold transition-colors whitespace-nowrap"
             >
               {link.label}
             </Link>
@@ -55,9 +52,9 @@ export function Navbar() {
         {/* Desktop Register CTA */}
         <Link
           href="/register"
-          className="hidden lg:flex items-center justify-center bg-gold px-7 py-3 font-[family-name:var(--font-body)] text-[13px] font-semibold tracking-[1.5px] text-navy uppercase hover:bg-gold-hover transition-colors"
+          className="hidden lg:flex items-center justify-center bg-gold px-6 py-2.5 font-[family-name:var(--font-body)] text-[12px] font-semibold tracking-[1.5px] text-navy uppercase hover:bg-gold-hover transition-colors shrink-0"
         >
-          REGISTER NOW
+          REGISTER
         </Link>
 
         {/* Mobile Hamburger */}
@@ -81,7 +78,7 @@ export function Navbar() {
             className="fixed inset-0 top-16 bg-navy z-40 lg:hidden overflow-y-auto"
           >
             <div className="flex flex-col">
-              {[...navLinks, ...mobileExtraLinks].map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -104,6 +101,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </header>
   );
 }

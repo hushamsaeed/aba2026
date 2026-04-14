@@ -10,7 +10,7 @@ export function AboutSection() {
         {/* Two columns */}
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-15">
           {/* About ABA */}
-          <div className="flex flex-col gap-5 flex-1">
+          <div className="flex flex-col items-start gap-5 flex-1">
             <Image
               src="/logos/aba-logo.png"
               alt="ABA Logo"
@@ -53,7 +53,7 @@ export function AboutSection() {
           </div>
 
           {/* About BML */}
-          <div className="flex flex-col gap-5 flex-1">
+          <div className="flex flex-col items-start gap-5 flex-1">
             <Image
               src="/logos/bml-logo-simple.png"
               alt="Bank of Maldives"
