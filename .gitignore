@@ -48,4 +48,5 @@ next-env.d.ts
 _intake/speakers/
 _intake/*.docx
 _intake/*.rtf
-designs/
+designs/pencil/01-*.pen
+designs/concept-assets/

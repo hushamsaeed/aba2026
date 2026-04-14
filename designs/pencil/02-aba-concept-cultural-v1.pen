@@ -1,0 +1,187 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "type": "frame",
+      "id": "tJK9C",
+      "x": 0,
+      "y": 0,
+      "name": "Component/ButtonPrimary",
+      "reusable": true,
+      "fill": "#C5A55A",
+      "padding": [
+        16,
+        40
+      ],
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "xlfa0",
+          "name": "Label",
+          "fill": "#0A2540",
+          "content": "REGISTER NOW",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "letterSpacing": 1.5
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "BhgiL",
+      "x": 0,
+      "y": 120,
+      "name": "Component/ButtonSecondary",
+      "reusable": true,
+      "fill": "#00000000",
+      "stroke": {
+        "align": "inside",
+        "thickness": 2,
+        "fill": "#C5A55A"
+      },
+      "padding": [
+        16,
+        40
+      ],
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "O7kp8",
+          "name": "Label",
+          "fill": "#C5A55A",
+          "content": "VIEW PROGRAM",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "letterSpacing": 1.5
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "OFcqN",
+      "x": 0,
+      "y": 280,
+      "name": "Component/NavBar",
+      "reusable": true,
+      "width": 1440,
+      "height": 80,
+      "fill": "#0A254000",
+      "padding": [
+        0,
+        60
+      ],
+      "justifyContent": "space_between",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "LSiIV",
+          "name": "Logo",
+          "width": 140,
+          "height": 44,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../../_intake/aba-logo-assets/logo-web-2x.png",
+            "mode": "fit"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "mCsb4",
+          "name": "Links",
+          "gap": 28,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "CjM9J",
+              "name": "n1",
+              "fill": "#FFFFFF",
+              "content": "Program",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 0.3
+            },
+            {
+              "type": "text",
+              "id": "kfKmS",
+              "name": "n2",
+              "fill": "#FFFFFF",
+              "content": "Speakers",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 0.3
+            },
+            {
+              "type": "text",
+              "id": "qMfXQ",
+              "name": "n3",
+              "fill": "#FFFFFF",
+              "content": "Venue",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 0.3
+            },
+            {
+              "type": "text",
+              "id": "oVbSC",
+              "name": "n4",
+              "fill": "#FFFFFF",
+              "content": "About",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 0.3
+            },
+            {
+              "type": "text",
+              "id": "sQ4YQ",
+              "name": "n5",
+              "fill": "#FFFFFF",
+              "content": "Get Involved",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 0.3
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hYvqi",
+          "name": "RegisterBtn",
+          "fill": "#C5A55A",
+          "padding": [
+            10,
+            24
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "1KlbI",
+              "name": "navCtaTxt",
+              "fill": "#0A2540",
+              "content": "REGISTER",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600",
+              "letterSpacing": 1.5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
