@@ -1,92 +1,78 @@
 import { Metadata } from "next";
 import { FAQItem } from "@/components/shared/faq-item";
-import { ButtonPrimary } from "@/components/shared/button-primary";
+import { ButtonSecondary } from "@/components/shared/button-secondary";
 
 export const metadata: Metadata = {
   title: "FAQ",
 };
 
-const faqs = [
+const faqCategories = [
   {
-    question: "How do I register for the conference?",
-    answer:
-      "You can register through our online registration portal. Select your registration tier (individual or group), fill in your details, and complete payment to secure your spot. Both ABA member and non-member rates are available.",
+    label: "REGISTRATION",
+    items: [
+      { question: "How do I register for the conference?", answer: "You can register through our online registration portal. Select your registration tier (individual or group), fill in your details, and complete payment to secure your spot. Both ABA member and non-member rates are available." },
+      { question: "Can I register as a group?", answer: "Yes, organizations can register multiple delegates at group rates. Use the Group Registration form to add your attendees and benefit from discounted pricing." },
+      { question: "What is the cancellation policy?", answer: "Fees are non-refundable for cancellations or no-shows within 30 days of the conference. Please contact maldivesaba@maldivesaba.com for changes." },
+    ],
   },
   {
-    question: "What is included in the registration fee?",
-    answer:
-      "All registration packages include full conference access for 3 days, all plenary sessions, networking and B2B sessions, welcome and farewell dinners, conference materials and delegate kit, and a certificate of attendance.",
+    label: "VENUE & TRAVEL",
+    items: [
+      { question: "How do I get to Kurumba Maldives?", answer: "Kurumba is just 10 minutes by speedboat from Velana International Airport. Transfers operate 24 hours a day. Arrangements will be communicated upon registration." },
+      { question: "What accommodation options are available?", answer: "Bank of Maldives has negotiated special rates at Kurumba Maldives (official venue), dusitD2 Feydhoo Maldives, and Villa Nautica Maldives. Transportation between resorts will be arranged." },
+      { question: "Do I need a visa to visit the Maldives?", answer: "The Maldives offers visa-on-arrival for most nationalities for stays up to 30 days. Please check with your local Maldivian embassy for specific requirements." },
+    ],
   },
   {
-    question: "Is there an early bird discount?",
-    answer:
-      "Yes! Early bird pricing is available until 1 June 2026, offering approximately 20% savings on all registration tiers. We encourage you to register early to take advantage of these rates.",
+    label: "PROGRAM",
+    items: [
+      { question: "What is the conference format?", answer: "The 3-day event features plenary sessions with invited speakers, a Governors' Roundtable, B2B networking sessions, and social events including welcome and farewell dinners." },
+      { question: "How are speakers selected?", answer: "Speakers are selected based on their expertise and relevance to the conference themes. You can apply through our Call for Speakers page." },
+    ],
   },
   {
-    question: "What is the cancellation policy?",
-    answer:
-      "Registrations cancelled more than 30 days before the conference will receive a refund minus a $100 administrative fee. Cancellations within 30 days of the conference are non-refundable. Contact maldivesaba@maldivesaba.com for changes.",
-  },
-  {
-    question: "How do I get to Kurumba Maldives?",
-    answer:
-      "Kurumba Maldives is located just 10 minutes by speedboat from Velana International Airport in Malé. The resort offers 24-hour speedboat transfers. Upon arrival at the airport, you will be met by resort staff and transferred directly to the island.",
-  },
-  {
-    question: "Are there other accommodation options?",
-    answer:
-      "Yes, in addition to Kurumba Maldives (the official conference venue), we have negotiated special rates at dusitD2 Feydhoo Maldives and Villa Nautica Maldives. All properties are easily accessible from the conference venue.",
-  },
-  {
-    question: "What is the group registration minimum?",
-    answer:
-      "Group registrations require a minimum of 3 delegates. You can register your group and add individual delegate details during the registration process. Group rates offer a discount over individual registration.",
-  },
-  {
-    question: "Can I apply to be a speaker?",
-    answer:
-      "Absolutely! We welcome proposals from banking professionals, fintech leaders, regulators, and researchers. Submit your application through our Apply to Speak page with your topic proposal and brief biography.",
-  },
-  {
-    question: "What sponsorship opportunities are available?",
-    answer:
-      "We offer multiple sponsorship tiers: Platinum, Gold, Silver, and Bronze, as well as Media Partner packages. Each tier includes varying levels of branding, speaking opportunities, and complimentary registrations. Contact us for a detailed prospectus.",
-  },
-  {
-    question: "Is there a dress code for the conference?",
-    answer:
-      "Business attire is recommended for conference sessions and plenary meetings. Smart casual is appropriate for evening events and social activities. The Maldives is a tropical destination, so lightweight fabrics are recommended.",
+    label: "PAYMENTS",
+    items: [
+      { question: "What payment methods are accepted?", answer: "Full payment is required at the time of registration. We accept major credit cards and bank transfers. A confirmation email with receipt will be sent upon successful payment." },
+      { question: "Can I get an invoice or receipt?", answer: "Yes, a payment receipt is automatically generated and sent to your registered email address. For invoices, please contact maldivesaba@maldivesaba.com." },
+    ],
   },
 ];
 
 export default function FAQPage() {
   return (
     <div className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
+      <div className="max-w-[1440px] mx-auto">
         {/* Header */}
-        <span className="section-label">FAQ</span>
-        <h1 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
-          Frequently Asked Questions
-        </h1>
-        <div className="w-[60px] h-[2px] bg-gold" />
+        <div className="flex flex-col items-center gap-4 px-6 py-12 lg:px-30 lg:py-15">
+          <span className="section-label">FREQUENTLY ASKED QUESTIONS</span>
+          <h1 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[42px] font-bold text-text text-center">
+            Everything You Need to Know
+          </h1>
+        </div>
 
-        {/* FAQ items */}
-        <div className="w-full max-w-[900px]">
-          {faqs.map((faq) => (
-            <FAQItem
-              key={faq.question}
-              question={faq.question}
-              answer={faq.answer}
-            />
+        {/* FAQ categories */}
+        <div className="flex flex-col gap-10 px-6 lg:px-30">
+          {faqCategories.map((category) => (
+            <div key={category.label} className="flex flex-col">
+              <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[3px] text-gold uppercase mb-2">
+                {category.label}
+              </span>
+              {category.items.map((faq) => (
+                <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+              ))}
+            </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col items-center gap-4 mt-8">
-          <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center">
+        <div className="flex flex-col items-center gap-5 px-6 py-12 lg:px-30 lg:py-12">
+          <h2 className="font-[family-name:var(--font-heading)] text-[24px] lg:text-[28px] font-bold text-text text-center">
             Still have questions?
-          </p>
-          <ButtonPrimary href="/contact">CONTACT US</ButtonPrimary>
+          </h2>
+          <ButtonSecondary href="/contact" className="text-navy border-navy hover:bg-navy/5">
+            CONTACT US
+          </ButtonSecondary>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ export function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-bg.png"
+          src="/images/hero-bg.jpg"
           alt="Maldives aerial view"
           fill
           className="object-cover"
@@ -46,14 +46,19 @@ export function HeroSection() {
         </h1>
 
         {/* Theme subtitle */}
-        <p className="font-[family-name:var(--font-body)] text-[14px] lg:text-[20px] font-light tracking-[1px] text-white/80 text-center">
-          Banking in Asia: Investing to Build Resilience
+        <p className="font-[family-name:var(--font-body)] text-[14px] lg:text-[20px] font-light tracking-[1px] text-white/80 text-center leading-[1.5]">
+          Banking in Asia:{"\n"}Investing to Build Resilience
         </p>
 
-        {/* CTA buttons */}
-        <div className="flex items-center gap-5 flex-wrap justify-center">
-          <ButtonPrimary href="/register">REGISTER NOW</ButtonPrimary>
-          <ButtonSecondary href="/program" className="text-white border-white/30 hover:border-gold hover:text-gold">
+        {/* Venue text — shown on mobile per design */}
+        <p className="font-[family-name:var(--font-body)] text-[12px] text-white/50 text-center lg:hidden">
+          Kurumba Maldives
+        </p>
+
+        {/* CTA buttons — stacked full-width on mobile, inline on desktop */}
+        <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-5 w-full lg:w-auto px-6 lg:px-0">
+          <ButtonPrimary href="/register" className="w-full lg:w-auto">REGISTER NOW</ButtonPrimary>
+          <ButtonSecondary href="/program" className="w-full lg:w-auto text-gold border-gold lg:text-white lg:border-white/30 hover:border-gold hover:text-gold">
             VIEW PROGRAM
           </ButtonSecondary>
         </div>

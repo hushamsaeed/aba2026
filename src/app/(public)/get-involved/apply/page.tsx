@@ -32,7 +32,7 @@ export default function ApplyToSpeakPage() {
           {/* Conference photo — 300px tall, full width */}
           <div className="relative w-full h-[300px] overflow-hidden">
             <Image
-              src="/images/venue-kurumba.png"
+              src="/images/venue-kurumba.jpg"
               alt="Conference venue"
               fill
               className="object-cover"

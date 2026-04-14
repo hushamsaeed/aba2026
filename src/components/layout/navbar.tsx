@@ -14,6 +14,12 @@ const navLinks = [
   { label: "About", href: "/about" },
 ];
 
+const mobileExtraLinks = [
+  { label: "Get Involved", href: "/get-involved" },
+  { label: "Activities", href: "/program/activities" },
+  { label: "FAQ", href: "/get-involved/faq" },
+];
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -72,7 +78,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-20 bg-navy z-40 lg:hidden"
+            className="fixed inset-0 top-16 bg-navy z-40 lg:hidden overflow-y-auto"
           >
             <div className="flex flex-col">
               {navLinks.map((link) => (
@@ -81,6 +87,17 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center px-5 py-4 border-b border-white/10 font-[family-name:var(--font-body)] text-[16px] font-medium text-white hover:text-gold transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              {/* Extra mobile links */}
+              {mobileExtraLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center px-5 py-4 border-b border-white/10 font-[family-name:var(--font-body)] text-[14px] text-white/60 hover:text-gold transition-colors"
                 >
                   {link.label}
                 </Link>

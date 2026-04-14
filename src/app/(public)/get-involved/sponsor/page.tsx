@@ -1,119 +1,59 @@
 import { Metadata } from "next";
-import { ButtonPrimary } from "@/components/shared/button-primary";
+import { SponsorInquiryForm } from "./SponsorInquiryForm";
 
 export const metadata: Metadata = {
   title: "Be a Sponsor",
 };
 
 const tiers = [
-  {
-    name: "PLATINUM SPONSOR",
-    price: "USD 50,000",
-    seats: "10 complimentary registrations",
-    benefits: [
-      "Remarks at Opening Ceremony",
-      "30-minute presentation slot",
-      "VIP seating during event",
-      "Stall space at conference venue",
-      "Logo on all conference materials",
-      "Logo on website",
-    ],
-  },
-  {
-    name: "GOLD CO-SPONSOR",
-    price: "USD 25,000",
-    seats: "6 complimentary registrations",
-    benefits: [
-      "30-minute presentation slot",
-      "Stall space at conference venue",
-      "Logo on all conference materials",
-      "Logo on website",
-    ],
-  },
-  {
-    name: "BRONZE PARTNER",
-    price: "USD 15,000",
-    seats: "3 complimentary registrations",
-    benefits: [
-      "15-minute presentation slot",
-      "Logo on website",
-    ],
-  },
+  { name: "Platinum Sponsor", price: "USD 50,000" },
+  { name: "Gold Co-Sponsor", price: "USD 25,000" },
+  { name: "Bronze Partner", price: "USD 15,000" },
 ];
 
 export default function BeASponsorPage() {
   return (
-    <div className="w-full">
-      {/* Header */}
-      <div className="w-full bg-parchment">
-        <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-8">
+    <div className="w-full bg-parchment">
+      {/* Two-column body — matches design 16-Be-a-Sponsor */}
+      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-15 flex flex-col lg:flex-row gap-10 lg:gap-15">
+        {/* Left — Info column */}
+        <div className="flex flex-col gap-6 flex-1">
           <span className="section-label">SPONSORSHIP</span>
-          <h1 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
-            Partner with Us
+          <h1 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[42px] font-bold text-text">
+            Partner With Us
           </h1>
-          <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center leading-[1.7] max-w-[700px]">
-            Position your organisation at the forefront of regional banking
-            dialogue. Engage directly with senior banking leaders, policymakers,
-            and industry experts from across Asia.
+          <p className="font-[family-name:var(--font-body)] text-[15px] text-text-secondary leading-[1.7]">
+            Sponsoring the ABA Conference offers a distinctive opportunity to
+            position your organisation at the forefront of regional banking
+            dialogue. The conference brings together senior banking leaders,
+            policymakers, and industry experts from across Asia.
           </p>
-          <div className="w-[60px] h-[2px] bg-gold" />
-        </div>
-      </div>
 
-      {/* Tiers */}
-      <div className="w-full bg-navy">
-        <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-20 flex flex-col gap-12">
-          <div className="flex flex-col lg:flex-row gap-6">
+          {/* Sponsorship tiers */}
+          <div className="flex flex-col gap-4">
+            <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[3px] text-gold uppercase">
+              SPONSORSHIP TIERS
+            </span>
             {tiers.map((tier) => (
               <div
                 key={tier.name}
-                className="flex flex-col flex-1 bg-white border border-border-light"
+                className="flex items-center justify-between bg-navy px-5 py-4"
               >
-                <div
-                  className="flex flex-col gap-3 px-8 py-9"
-                  style={{
-                    background: "linear-gradient(180deg, #1B2A4A 0%, #243556 100%)",
-                  }}
-                >
-                  <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[3px] text-gold uppercase">
-                    {tier.name}
-                  </span>
-                  <span className="font-[family-name:var(--font-heading)] text-[36px] font-bold text-white">
-                    {tier.price}
-                  </span>
-                  <span className="font-[family-name:var(--font-body)] text-[14px] text-white/60">
-                    {tier.seats}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-3.5 px-8 py-7 flex-1">
-                  {tier.benefits.map((benefit) => (
-                    <p
-                      key={benefit}
-                      className="font-[family-name:var(--font-body)] text-[14px] text-text"
-                    >
-                      ✓  {benefit}
-                    </p>
-                  ))}
-                </div>
+                <span className="font-[family-name:var(--font-body)] text-[15px] font-semibold text-white">
+                  {tier.name}
+                </span>
+                <span className="font-[family-name:var(--font-heading)] text-[20px] font-bold text-gold">
+                  {tier.price}
+                </span>
               </div>
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Contact CTA */}
-      <div className="w-full bg-parchment">
-        <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-20 flex flex-col items-center gap-6">
-          <h2 className="font-[family-name:var(--font-heading)] text-[28px] lg:text-[36px] font-bold text-text text-center">
-            Interested in Sponsoring?
-          </h2>
-          <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary text-center max-w-[600px]">
-            Contact us to discuss sponsorship opportunities and receive a
-            detailed prospectus with full package details.
-          </p>
-          <ButtonPrimary href="mailto:conference@bankofmaldives.com.mv">
-            GET IN TOUCH
-          </ButtonPrimary>
+        {/* Right — Inquiry form */}
+        <div className="flex flex-col gap-6 flex-1">
+          <span className="section-label">SPONSORSHIP INQUIRY</span>
+          <SponsorInquiryForm />
         </div>
       </div>
     </div>

@@ -65,7 +65,7 @@ export function VenueSection() {
         <div className="px-6 lg:px-30 py-12">
           <div className="relative w-full h-[250px] lg:h-[400px] overflow-hidden">
             <Image
-              src="/images/venue-kurumba.png"
+              src="/images/venue-kurumba.jpg"
               alt="Kurumba Maldives resort"
               fill
               className="object-cover"
