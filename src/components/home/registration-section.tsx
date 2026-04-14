@@ -6,25 +6,25 @@ const pricingTiers = [
     tierLabel: "ABA MEMBER",
     price: "$800",
     earlyBirdPrice: "$640",
-    ctaHref: "/register/individual",
+    ctaHref: "/register/individual?tier=MEMBER",
   },
   {
     tierLabel: "ABA MEMBER — GROUP",
     price: "$700",
     earlyBirdPrice: "$560",
-    ctaHref: "/register/group",
+    ctaHref: "/register/group?tier=MEMBER",
   },
   {
     tierLabel: "NON-ABA MEMBER",
     price: "$1,000",
     earlyBirdPrice: "$800",
-    ctaHref: "/register/individual",
+    ctaHref: "/register/individual?tier=NON_MEMBER",
   },
   {
     tierLabel: "NON-ABA MEMBER — GROUP",
     price: "$900",
     earlyBirdPrice: "$720",
-    ctaHref: "/register/group",
+    ctaHref: "/register/group?tier=NON_MEMBER",
   },
 ];
 

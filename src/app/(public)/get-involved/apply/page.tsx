@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { SpeakerApplicationForm } from "./SpeakerApplicationForm";
 
 export const metadata: Metadata = {
@@ -8,58 +9,42 @@ export const metadata: Metadata = {
 export default function ApplyToSpeakPage() {
   return (
     <div className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
-        {/* Header */}
-        <span className="section-label">APPLY TO SPEAK</span>
-        <h1 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
-          Share Your Expertise
-        </h1>
-        <div className="w-[60px] h-[2px] bg-gold" />
-
-        {/* Two columns */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-15 w-full">
-          {/* Form */}
-          <div className="flex-1">
-            <SpeakerApplicationForm />
+      {/* Two-column body: info left, form right — matches design 9lgSS */}
+      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-15 flex flex-col lg:flex-row gap-10 lg:gap-15">
+        {/* Left — Info column */}
+        <div className="flex flex-col gap-6 flex-1">
+          <span className="section-label">CALL FOR SPEAKERS</span>
+          <h1 className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text leading-[1.1]">
+            Share Your{"\n"}Expertise
+          </h1>
+          <p className="font-[family-name:var(--font-body)] text-[15px] text-text-secondary leading-[1.7]">
+            The 42nd ABA Conference brings together senior banking leaders,
+            policymakers, and industry experts from across Asia. We invite
+            professionals with deep expertise in digital banking,
+            sustainability, risk management, and financial regulation to share
+            their insights.
+          </p>
+          <p className="font-[family-name:var(--font-body)] text-[15px] text-text-secondary leading-[1.7]">
+            Selected speakers will present during one of four plenary sessions,
+            engaging with an audience of senior decision-makers from leading
+            financial institutions across the region.
+          </p>
+          {/* Conference photo — 300px tall, full width */}
+          <div className="relative w-full h-[300px] overflow-hidden">
+            <Image
+              src="/images/venue-kurumba.png"
+              alt="Conference venue"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 600px"
+            />
           </div>
+        </div>
 
-          {/* Info panel */}
-          <div className="w-full lg:w-[400px] shrink-0">
-            <div className="flex flex-col gap-8 bg-navy p-10 text-white">
-              <h3 className="font-[family-name:var(--font-heading)] text-[24px] font-bold">
-                Why Speak?
-              </h3>
-              <ul className="flex flex-col gap-4">
-                {[
-                  "Share your insights with 500+ banking leaders from across Asia",
-                  "Gain visibility for your organisation and expertise",
-                  "Network with senior executives, regulators, and policymakers",
-                  "Contribute to shaping the future of banking in the region",
-                  "Complimentary conference registration for accepted speakers",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="font-[family-name:var(--font-body)] text-[14px] text-white/70 leading-[1.6] flex items-start gap-3"
-                  >
-                    <span className="text-gold mt-0.5">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="w-full h-px bg-white/10" />
-              <div className="flex flex-col gap-2">
-                <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[2px] text-gold uppercase">
-                  Questions?
-                </span>
-                <a
-                  href="mailto:maldivesaba@maldivesaba.com"
-                  className="font-[family-name:var(--font-body)] text-[14px] text-white/70 hover:text-white transition-colors"
-                >
-                  maldivesaba@maldivesaba.com
-                </a>
-              </div>
-            </div>
-          </div>
+        {/* Right — Form column */}
+        <div className="flex flex-col gap-6 flex-1">
+          <span className="section-label">SPEAKER APPLICATION</span>
+          <SpeakerApplicationForm />
         </div>
       </div>
     </div>

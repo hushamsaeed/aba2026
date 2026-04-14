@@ -23,7 +23,7 @@ export function SpeakerCard({
             src={photoUrl}
             alt={name}
             fill
-            className="object-contain"
+            className="object-cover object-top"
             sizes="300px"
           />
         ) : (

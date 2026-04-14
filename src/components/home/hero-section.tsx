@@ -26,13 +26,13 @@ export function HeroSection() {
 
       {/* Content — vertically centered */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full gap-8 px-6 pt-20">
-        {/* ABA Logo */}
+        {/* ABA Logo — hidden on mobile (already in navbar) */}
         <Image
           src="/logos/aba-logo.png"
           alt="Asian Bankers Association"
           width={200}
           height={65}
-          className="h-[45px] lg:h-[65px] w-auto object-contain"
+          className="hidden lg:block h-[65px] w-auto object-contain"
         />
 
         {/* Date label */}

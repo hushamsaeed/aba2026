@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { FormInput } from "@/components/shared/form-input";
 import { FormSelect } from "@/components/shared/form-select";
 import { ButtonPrimary } from "@/components/shared/button-primary";
@@ -18,11 +18,15 @@ interface Delegate {
   email: string;
 }
 
-export default function GroupRegistrationPage() {
+function GroupRegistrationForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const tierParam = searchParams.get("tier");
+  const initialTier = tierParam === "NON_MEMBER" ? "NON_MEMBER" : "MEMBER";
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [membership, setMembership] = useState("MEMBER");
+  const [membership, setMembership] = useState(initialTier);
   const [delegates, setDelegates] = useState<Delegate[]>([
     { firstName: "", lastName: "", email: "" },
     { firstName: "", lastName: "", email: "" },
@@ -274,5 +278,13 @@ export default function GroupRegistrationPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function GroupRegistrationPage() {
+  return (
+    <Suspense>
+      <GroupRegistrationForm />
+    </Suspense>
   );
 }

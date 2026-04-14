@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { FormInput } from "@/components/shared/form-input";
 import { FormSelect } from "@/components/shared/form-select";
 import { FormTextarea } from "@/components/shared/form-textarea";
@@ -20,11 +21,15 @@ const membershipOptions = [
   { value: "NON_MEMBER", label: "Non-ABA Member — $1,000 ($800 Early Bird)" },
 ];
 
-export default function IndividualRegistrationPage() {
+function IndividualRegistrationForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const tierParam = searchParams.get("tier");
+  const initialTier = tierParam === "NON_MEMBER" ? "NON_MEMBER" : "MEMBER";
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [membership, setMembership] = useState("MEMBER");
+  const [membership, setMembership] = useState(initialTier);
 
   const isEarlyBird = new Date() < new Date("2026-06-01");
   const price = membership === "MEMBER"
@@ -218,5 +223,13 @@ export default function IndividualRegistrationPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function IndividualRegistrationPage() {
+  return (
+    <Suspense>
+      <IndividualRegistrationForm />
+    </Suspense>
   );
 }
