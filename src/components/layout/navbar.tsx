@@ -10,13 +10,13 @@ const navLinks = [
   { label: "Message", href: "/message" },
   { label: "Venue", href: "/venue" },
   { label: "Program", href: "/program" },
-  { label: "Sponsors", href: "/get-involved/sponsor" },
-  { label: "About", href: "/about" },
+  { label: "Speakers", href: "/speakers" },
+  { label: "Get Involved", href: "/get-involved" },
 ];
 
 const mobileExtraLinks = [
-  { label: "Get Involved", href: "/get-involved" },
   { label: "Activities", href: "/program/activities" },
+  { label: "About", href: "/about" },
   { label: "FAQ", href: "/get-involved/faq" },
 ];
 
@@ -25,16 +25,16 @@ export function Navbar() {
 
   return (
     <>
-      {/* Desktop NavBar — 80px, navy bg */}
+      {/* Desktop NavBar */}
       <nav className="w-full h-16 lg:h-20 bg-navy flex items-center justify-between px-4 lg:px-15 relative z-50">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logos/aba-logo.webp"
+            src="/logos/aba-logo.png"
             alt="ABA Logo"
             width={160}
             height={50}
-            className="h-[50px] w-auto object-contain"
+            className="h-8 lg:h-[50px] w-auto object-contain"
             priority
           />
         </Link>
@@ -81,23 +81,12 @@ export function Navbar() {
             className="fixed inset-0 top-16 bg-navy z-40 lg:hidden overflow-y-auto"
           >
             <div className="flex flex-col">
-              {navLinks.map((link) => (
+              {[...navLinks, ...mobileExtraLinks].map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center px-5 py-4 border-b border-white/10 font-[family-name:var(--font-body)] text-[16px] font-medium text-white hover:text-gold transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              {/* Extra mobile links */}
-              {mobileExtraLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center px-5 py-4 border-b border-white/10 font-[family-name:var(--font-body)] text-[14px] text-white/60 hover:text-gold transition-colors"
                 >
                   {link.label}
                 </Link>
