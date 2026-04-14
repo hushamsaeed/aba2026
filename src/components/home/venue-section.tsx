@@ -25,28 +25,29 @@ const features = [
 const accommodations = [
   {
     name: "Kurumba Maldives",
+    tag: "OFFICIAL CONFERENCE VENUE",
     description:
-      "Official conference venue with beachfront rooms, private bungalows, and villas. On-site meeting facilities, dining, and leisure amenities.",
-    link: "nivakurumba.com",
+      "Beachfront rooms, private bungalows, and villas set amid tropical gardens with onsite meeting facilities.",
+    image: "/images/venue-kurumba.png",
   },
   {
-    name: "dusitD2 Feydhoo",
+    name: "dusitD2 Feydhoo Maldives",
     description:
-      "Contemporary island resort with modern beach and overwater villas. Vibrant, lifestyle-focused atmosphere with all-inclusive offering.",
-    link: "dusit.com",
+      "Contemporary island resort with modern beach and overwater villas, bold design and premium all-inclusive offering.",
+    image: "/images/maldives-ocean.png",
   },
   {
-    name: "Villa Nautica",
+    name: "Villa Nautica Maldives",
     description:
-      "Spacious beachfront and overwater villas with dining, wellness, and recreational facilities. Classic charm with modern comforts.",
-    link: "villaresorts.com",
+      "Spacious beachfront and overwater villas with dining, wellness, and recreational facilities near Malé.",
+    image: "/images/maldives-ocean.png",
   },
 ];
 
 export function VenueSection() {
   return (
     <section className="w-full bg-navy overflow-hidden">
-      <div className="max-w-[1440px] mx-auto py-25 md:py-12 flex flex-col gap-0">
+      <div className="max-w-[1440px] mx-auto py-25 md:py-12 flex flex-col">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 px-30 md:px-6">
           <span className="section-label">CONFERENCE VENUE</span>
@@ -60,7 +61,7 @@ export function VenueSection() {
           </p>
         </div>
 
-        {/* Venue photo */}
+        {/* Venue photo — padded inside container */}
         <div className="px-30 md:px-6 py-12">
           <div className="relative w-full h-[400px] md:h-[250px] overflow-hidden">
             <Image
@@ -73,8 +74,8 @@ export function VenueSection() {
           </div>
         </div>
 
-        {/* Features */}
-        <div className="flex flex-col md:flex-col lg:flex-row gap-10 px-30 md:px-6 py-12">
+        {/* Features — 3 columns */}
+        <div className="flex flex-col lg:flex-row gap-10 px-30 md:px-6 py-12">
           {features.map((feat) => (
             <div key={feat.title} className="flex flex-col gap-3 flex-1">
               <feat.icon className="w-7 h-7 text-gold" />
@@ -88,24 +89,39 @@ export function VenueSection() {
           ))}
         </div>
 
-        {/* Accommodation */}
+        {/* Accommodation — cards with images matching design */}
         <div className="flex flex-col gap-8 px-30 md:px-6 py-12">
           <span className="section-label">ACCOMMODATION</span>
           <div className="flex flex-col lg:flex-row gap-6">
             {accommodations.map((accom) => (
               <div
                 key={accom.name}
-                className="flex flex-col gap-4 flex-1 bg-white/[0.03] p-8"
+                className="flex flex-col flex-1 bg-white/[0.03] overflow-hidden"
               >
-                <h4 className="font-[family-name:var(--font-heading)] text-[22px] font-bold text-white">
-                  {accom.name}
-                </h4>
-                <p className="font-[family-name:var(--font-body)] text-[14px] text-white/50 leading-[1.7]">
-                  {accom.description}
-                </p>
-                <span className="font-[family-name:var(--font-body)] text-[13px] text-gold font-medium">
-                  {accom.link} →
-                </span>
+                {/* Card image — 180px */}
+                <div className="relative w-full h-[180px]">
+                  <Image
+                    src={accom.image}
+                    alt={accom.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                  />
+                </div>
+                {/* Card info — padding 24, gap 8 */}
+                <div className="flex flex-col gap-2 p-6">
+                  <h4 className="font-[family-name:var(--font-heading)] text-[20px] font-bold text-white">
+                    {accom.name}
+                  </h4>
+                  {accom.tag && (
+                    <span className="font-[family-name:var(--font-body)] text-[10px] font-bold tracking-[2px] text-gold uppercase">
+                      {accom.tag}
+                    </span>
+                  )}
+                  <p className="font-[family-name:var(--font-body)] text-[13px] text-white/50 leading-[1.6]">
+                    {accom.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

@@ -11,9 +11,9 @@ export function ChairmanMessage() {
         </h2>
         <div className="w-[60px] h-[2px] bg-gold" />
 
-        {/* Content — 2 columns */}
-        <div className="flex flex-col md:flex-col-reverse lg:flex-row gap-15 w-full">
-          {/* Text */}
+        {/* Content — 2 columns: text left, photo right */}
+        <div className="flex flex-col-reverse lg:flex-row gap-15 w-full">
+          {/* Text column */}
           <div className="flex flex-col gap-6 flex-1">
             <p className="font-[family-name:var(--font-body)] text-[16px] text-text-secondary leading-[1.8]">
               On behalf of the Asian Bankers Association, I extend my sincerest
@@ -37,20 +37,19 @@ export function ChairmanMessage() {
               invited experts on current trends and developments in the regional
               and global markets.
             </p>
+
+            {/* Signature — matches design: gap-1, Playfair 20px name, Inter 14px role */}
             <div className="flex flex-col gap-1 mt-4">
-              <p className="font-[family-name:var(--font-heading)] text-[16px] font-bold text-text">
+              <p className="font-[family-name:var(--font-heading)] text-[20px] font-bold text-text">
                 Thinley Namgyel
               </p>
-              <p className="font-[family-name:var(--font-body)] text-[13px] text-text-secondary">
+              <p className="font-[family-name:var(--font-body)] text-[14px] text-text-secondary">
                 Chairman, Asian Bankers Association
-              </p>
-              <p className="font-[family-name:var(--font-body)] text-[13px] text-text-secondary">
-                Chairman, Bank of Bhutan
               </p>
             </div>
           </div>
 
-          {/* Photo */}
+          {/* Chairman photo — 380x460, object-cover */}
           <div className="relative w-[380px] md:w-full h-[460px] md:h-[300px] shrink-0 overflow-hidden">
             <Image
               src="/images/speakers/thinley-namgyel.png"

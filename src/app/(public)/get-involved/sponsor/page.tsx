@@ -9,32 +9,32 @@ const tiers = [
   {
     name: "PLATINUM SPONSOR",
     price: "USD 50,000",
+    seats: "10 complimentary registrations",
     benefits: [
-      "10 complimentary registrations",
-      "Keynote speaking slot (45 minutes)",
-      "Logo on all conference materials",
-      "Logo on website with hyperlink",
+      "Remarks at Opening Ceremony",
+      "30-minute presentation slot",
+      "VIP seating during event",
       "Stall space at conference venue",
-      "VIP networking dinner seating",
-      "Full-page ad in conference brochure",
+      "Logo on all conference materials",
+      "Logo on website",
     ],
   },
   {
     name: "GOLD CO-SPONSOR",
     price: "USD 25,000",
+    seats: "6 complimentary registrations",
     benefits: [
-      "6 complimentary registrations",
       "30-minute presentation slot",
-      "Logo on all conference materials",
-      "Logo on website with hyperlink",
       "Stall space at conference venue",
+      "Logo on all conference materials",
+      "Logo on website",
     ],
   },
   {
     name: "BRONZE PARTNER",
     price: "USD 15,000",
+    seats: "3 complimentary registrations",
     benefits: [
-      "3 complimentary registrations",
       "15-minute presentation slot",
       "Logo on website",
     ],
@@ -67,21 +67,29 @@ export default function BeASponsorPage() {
             {tiers.map((tier) => (
               <div
                 key={tier.name}
-                className="flex flex-col flex-1 bg-white/[0.04] border border-white/10"
+                className="flex flex-col flex-1 bg-white border border-border-light"
               >
-                <div className="flex flex-col gap-2 bg-gradient-to-br from-navy-dark to-navy p-9 px-8">
-                  <span className="font-[family-name:var(--font-body)] text-[12px] font-bold tracking-[2px] text-gold uppercase">
+                <div
+                  className="flex flex-col gap-3 px-8 py-9"
+                  style={{
+                    background: "linear-gradient(180deg, #1B2A4A 0%, #243556 100%)",
+                  }}
+                >
+                  <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[3px] text-gold uppercase">
                     {tier.name}
                   </span>
-                  <span className="font-[family-name:var(--font-heading)] text-[32px] font-bold text-white">
+                  <span className="font-[family-name:var(--font-heading)] text-[36px] font-bold text-white">
                     {tier.price}
                   </span>
+                  <span className="font-[family-name:var(--font-body)] text-[14px] text-white/60">
+                    {tier.seats}
+                  </span>
                 </div>
-                <div className="flex flex-col gap-4 p-8 flex-1">
+                <div className="flex flex-col gap-3.5 px-8 py-7 flex-1">
                   {tier.benefits.map((benefit) => (
                     <p
                       key={benefit}
-                      className="font-[family-name:var(--font-body)] text-[14px] text-white/60"
+                      className="font-[family-name:var(--font-body)] text-[14px] text-text"
                     >
                       ✓  {benefit}
                     </p>

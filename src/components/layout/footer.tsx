@@ -9,32 +9,31 @@ const quickLinks = [
 ];
 
 const prevConferences = [
-  { label: "41st ABA Conference — Bhutan 2025", href: "#" },
-  { label: "40th ABA Conference — Baku 2024", href: "#" },
+  { label: "41st ABA Conference", href: "#" },
+  { label: "40th ABA Conference", href: "#" },
 ];
 
 export function Footer() {
   return (
     <footer className="w-full bg-navy text-white">
-      <div className="max-w-[1440px] mx-auto px-20 py-15 flex flex-col gap-12 md:px-10 sm:px-6">
-        {/* Top row — 4 columns */}
+      {/* Padding 60 80, gap 48 — matches design */}
+      <div className="max-w-[1440px] mx-auto px-20 py-15 flex flex-col gap-12 md:px-6">
+        {/* Top row — 4 columns, gap 60, space-between */}
         <div className="flex flex-col md:flex-row gap-15 justify-between">
-          {/* Brand column */}
+          {/* Brand column — width 360 */}
           <div className="flex flex-col gap-4 max-w-[360px]">
-            <p className="font-[family-name:var(--font-body)] text-[14px] text-white/60 leading-[1.7]">
-              42nd ABA General Meeting & Conference{"\n"}
-              1–3 September 2026{"\n"}
-              Kurumba Maldives
+            <p className="font-[family-name:var(--font-body)] text-[14px] text-white/60 leading-[1.7] whitespace-pre-line">
+              {"42nd ABA General Meeting & Conference\n1–3 September 2026\nKurumba Maldives"}
             </p>
             <Image
-              src="/logos/aba-logo.webp"
+              src="/logos/aba-logo.png"
               alt="ABA Logo"
               width={140}
               height={44}
               className="h-11 w-auto object-contain"
             />
             <Image
-              src="/logos/bml-logo.png"
+              src="/logos/bml-logo-white.png"
               alt="Bank of Maldives"
               width={180}
               height={24}
@@ -42,7 +41,7 @@ export function Footer() {
             />
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links — gap 14 */}
           <div className="flex flex-col gap-3.5">
             <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[2px] text-gold uppercase">
               Quick Links
@@ -58,7 +57,7 @@ export function Footer() {
             ))}
           </div>
 
-          {/* Contact */}
+          {/* Contact — gap 14 */}
           <div className="flex flex-col gap-3.5">
             <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[2px] text-gold uppercase">
               Contact
@@ -74,7 +73,7 @@ export function Footer() {
             </span>
           </div>
 
-          {/* Previous Conferences */}
+          {/* Previous Conferences — gap 14 */}
           <div className="flex flex-col gap-3.5">
             <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[2px] text-gold uppercase">
               Previous Conferences
@@ -91,42 +90,42 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
+        {/* Divider — #FFFFFF15 */}
         <div className="w-full h-px bg-white/[0.08]" />
 
-        {/* Bottom row */}
+        {/* Bottom row — space-between */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-[family-name:var(--font-body)] text-[12px] text-white/30">
             &copy; 2026 Asian Bankers Association. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
+          <p className="font-[family-name:var(--font-body)] text-[12px] text-white/30">
             <a
               href="https://www.linkedin.com/company/asian-bankers-association"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-[family-name:var(--font-body)] text-[12px] text-white/30 hover:text-white/60 transition-colors"
+              className="hover:text-white/60 transition-colors"
             >
               LinkedIn
             </a>
-            <span className="text-white/20">&middot;</span>
+            {"  \u00B7  "}
+            <a
+              href="https://twitter.com/ABASecretariat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white/60 transition-colors"
+            >
+              Twitter
+            </a>
+            {"  \u00B7  "}
             <a
               href="https://www.facebook.com/ABASecretariat"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-[family-name:var(--font-body)] text-[12px] text-white/30 hover:text-white/60 transition-colors"
+              className="hover:text-white/60 transition-colors"
             >
               Facebook
             </a>
-            <span className="text-white/20">&middot;</span>
-            <a
-              href="https://www.youtube.com/@AsianBankersAssociation"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-[family-name:var(--font-body)] text-[12px] text-white/30 hover:text-white/60 transition-colors"
-            >
-              YouTube
-            </a>
-          </div>
+          </p>
         </div>
       </div>
     </footer>
