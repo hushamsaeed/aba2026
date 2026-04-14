@@ -1,5 +1,4 @@
 import { prisma } from "@/lib/db";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -8,16 +7,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
 import {
   Users,
-  CreditCard,
-  Clock,
   DollarSign,
+  Clock,
   Calendar,
-  UserCheck,
-  UserX,
 } from "lucide-react";
+import Link from "next/link";
 
 function formatCurrency(amount: number | string) {
   return new Intl.NumberFormat("en-US", {
@@ -30,24 +26,18 @@ function formatDate(date: Date) {
   return new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "numeric",
-    year: "numeric",
   }).format(new Date(date));
 }
 
 export default async function AdminDashboardPage() {
   const [
     totalRegistrations,
-    paidRegistrations,
     pendingRegistrations,
     revenueResult,
     recentRegistrations,
-    individualCount,
-    groupCount,
-    memberCount,
-    nonMemberCount,
+    weekAgoCount,
   ] = await Promise.all([
     prisma.registration.count(),
-    prisma.registration.count({ where: { status: "PAID" } }),
     prisma.registration.count({ where: { status: "PENDING" } }),
     prisma.registration.aggregate({ _sum: { totalAmount: true } }),
     prisma.registration.findMany({
@@ -59,21 +49,22 @@ export default async function AdminDashboardPage() {
         contactName: true,
         contactEmail: true,
         type: true,
-        membershipType: true,
         status: true,
         totalAmount: true,
         createdAt: true,
       },
     }),
-    prisma.registration.count({ where: { type: "INDIVIDUAL" } }),
-    prisma.registration.count({ where: { type: "GROUP" } }),
-    prisma.registration.count({ where: { membershipType: "MEMBER" } }),
-    prisma.registration.count({ where: { membershipType: "NON_MEMBER" } }),
+    prisma.registration.count({
+      where: {
+        createdAt: {
+          gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+        },
+      },
+    }),
   ]);
 
   const totalRevenue = Number(revenueResult._sum.totalAmount ?? 0);
 
-  // Conference date: September 1, 2026
   const conferenceDate = new Date("2026-09-01");
   const today = new Date();
   const daysUntil = Math.ceil(
@@ -81,209 +72,136 @@ export default async function AdminDashboardPage() {
   );
 
   const statusColor: Record<string, string> = {
-    PENDING: "bg-amber-500/10 text-amber-600 border-amber-500/20",
-    PAYMENT_SENT: "bg-blue-500/10 text-blue-600 border-blue-500/20",
-    PAID: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
-    CONFIRMED: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
-    CANCELLED: "bg-red-500/10 text-red-600 border-red-500/20",
+    PENDING: "bg-amber-500/20 text-amber-400",
+    PAYMENT_SENT: "bg-blue-500/20 text-blue-400",
+    PAID: "bg-emerald-500/20 text-emerald-400",
+    CONFIRMED: "bg-emerald-500/20 text-emerald-400",
+    CANCELLED: "bg-red-500/20 text-red-400",
   };
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="font-heading text-2xl font-bold">Dashboard</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          42nd ABA General Meeting &amp; Conference overview
-        </p>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+          <p className="mt-1 text-sm text-white/40">
+            42nd ABA General Meeting &amp; Conference
+          </p>
+        </div>
+        <Link
+          href="/api/admin/registrations/export"
+          target="_blank"
+          className="rounded-md bg-[#1a1a1a] px-4 py-2 text-sm text-white/60 hover:text-white border border-white/10 transition-colors"
+        >
+          Export CSV
+        </Link>
       </div>
 
-      {/* Stats Cards */}
+      {/* 4 KPI Cards — matching Pencil design */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Total Registrations
-            </CardTitle>
-            <Users className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{totalRegistrations}</div>
-          </CardContent>
-        </Card>
+        <div className="rounded-lg bg-[#1a1a1a] p-5 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-white/50">Total Registrations</span>
+            <Users className="size-4 text-white/20" />
+          </div>
+          <div className="text-3xl font-bold text-white">{totalRegistrations}</div>
+          <div className="text-xs text-emerald-400">
+            +{weekAgoCount} this week
+          </div>
+        </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Paid
-            </CardTitle>
-            <CreditCard className="size-4 text-emerald-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-emerald-600">
-              {paidRegistrations}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="rounded-lg bg-[#1a1a1a] p-5 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-white/50">Total Revenue</span>
+            <DollarSign className="size-4 text-white/20" />
+          </div>
+          <div className="text-3xl font-bold text-white">
+            {formatCurrency(totalRevenue)}
+          </div>
+          <div className="text-xs text-white/30">USD · Bank Transfer</div>
+        </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Pending
-            </CardTitle>
-            <Clock className="size-4 text-amber-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-amber-600">
-              {pendingRegistrations}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="rounded-lg bg-[#1a1a1a] p-5 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-white/50">Pending Payments</span>
+            <Clock className="size-4 text-white/20" />
+          </div>
+          <div className="text-3xl font-bold text-white">{pendingRegistrations}</div>
+          <div className="text-xs text-amber-400">Awaiting confirmation</div>
+        </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Total Revenue
-            </CardTitle>
-            <DollarSign className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {formatCurrency(totalRevenue)}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="rounded-lg bg-[#1a1a1a] p-5 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-white/50">Days Until Conference</span>
+            <Calendar className="size-4 text-white/20" />
+          </div>
+          <div className="text-3xl font-bold text-white">
+            {daysUntil > 0 ? daysUntil : 0}
+          </div>
+          <div className="text-xs text-white/30">1 Sep 2026</div>
+        </div>
       </div>
 
-      {/* Quick Stats Row */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Conference Countdown
-            </CardTitle>
-            <Calendar className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-deep-blue">
-              {daysUntil > 0 ? daysUntil : 0}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              days until September 1, 2026
-            </p>
-          </CardContent>
-        </Card>
+      {/* Recent Registrations Table */}
+      <div className="rounded-lg bg-[#1a1a1a]">
+        <div className="flex items-center justify-between px-5 py-4">
+          <h2 className="text-base font-semibold text-white">
+            Recent Registrations
+          </h2>
+          <Link
+            href="/admin/registrations"
+            className="text-sm text-[#C5A55A] hover:text-[#D4B86A] transition-colors"
+          >
+            View All →
+          </Link>
+        </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Registration Type
-            </CardTitle>
-            <Users className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-baseline gap-4">
-              <div>
-                <span className="text-2xl font-bold">{individualCount}</span>
-                <span className="ml-1 text-xs text-muted-foreground">
-                  Individual
-                </span>
-              </div>
-              <div>
-                <span className="text-2xl font-bold">{groupCount}</span>
-                <span className="ml-1 text-xs text-muted-foreground">
-                  Group
-                </span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Membership
-            </CardTitle>
-            <UserCheck className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-baseline gap-4">
-              <div className="flex items-baseline gap-1">
-                <UserCheck className="size-3.5 text-emerald-500" />
-                <span className="text-2xl font-bold">{memberCount}</span>
-                <span className="text-xs text-muted-foreground">Member</span>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <UserX className="size-3.5 text-muted-foreground" />
-                <span className="text-2xl font-bold">{nonMemberCount}</span>
-                <span className="text-xs text-muted-foreground">
-                  Non-Member
-                </span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Recent Registrations */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Registrations</CardTitle>
-        </CardHeader>
-        <CardContent>
-          {recentRegistrations.length === 0 ? (
-            <p className="py-8 text-center text-sm text-muted-foreground">
-              No registrations yet.
-            </p>
-          ) : (
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Reference</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Type</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
-                    <TableHead>Date</TableHead>
+        {recentRegistrations.length === 0 ? (
+          <p className="px-5 pb-8 text-center text-sm text-white/30">
+            No registrations yet.
+          </p>
+        ) : (
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow className="border-white/5 hover:bg-transparent">
+                  <TableHead className="text-xs font-semibold text-white/40">Reference</TableHead>
+                  <TableHead className="text-xs font-semibold text-white/40">Contact</TableHead>
+                  <TableHead className="text-xs font-semibold text-white/40">Type</TableHead>
+                  <TableHead className="text-xs font-semibold text-white/40">Amount</TableHead>
+                  <TableHead className="text-xs font-semibold text-white/40">Status</TableHead>
+                  <TableHead className="text-xs font-semibold text-white/40">Date</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {recentRegistrations.map((reg) => (
+                  <TableRow key={reg.id} className="border-white/5">
+                    <TableCell className="font-mono text-xs text-white/50">
+                      {reg.referenceNumber.slice(0, 12)}
+                    </TableCell>
+                    <TableCell>
+                      <div className="text-sm font-medium text-white">{reg.contactName}</div>
+                    </TableCell>
+                    <TableCell className="text-sm text-white/50">{reg.type}</TableCell>
+                    <TableCell className="text-sm font-medium text-white">
+                      {formatCurrency(Number(reg.totalAmount))}
+                    </TableCell>
+                    <TableCell>
+                      <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusColor[reg.status] || ""}`}>
+                        {reg.status}
+                      </span>
+                    </TableCell>
+                    <TableCell className="text-sm text-white/30">
+                      {formatDate(reg.createdAt)}
+                    </TableCell>
                   </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {recentRegistrations.map((reg) => (
-                    <TableRow key={reg.id}>
-                      <TableCell className="font-mono text-xs">
-                        {reg.referenceNumber.slice(0, 12)}
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        {reg.contactName}
-                      </TableCell>
-                      <TableCell className="text-muted-foreground">
-                        {reg.contactEmail}
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="secondary">{reg.type}</Badge>
-                      </TableCell>
-                      <TableCell>
-                        <span
-                          className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${statusColor[reg.status] || ""}`}
-                        >
-                          {reg.status}
-                        </span>
-                      </TableCell>
-                      <TableCell className="text-right font-medium">
-                        {formatCurrency(Number(reg.totalAmount))}
-                      </TableCell>
-                      <TableCell className="text-muted-foreground">
-                        {formatDate(reg.createdAt)}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
