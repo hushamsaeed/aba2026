@@ -5,6 +5,7 @@ const days = [
   {
     date: "Day 1 — September 1",
     title: "Opening & Host Bank",
+    culturalImage: "/images/kasabu-embroidery.jpg",
     highlights: [
       "Opening Ceremony",
       "Host Bank Session by Bank of Maldives",
@@ -16,6 +17,7 @@ const days = [
   {
     date: "Day 2 — September 2",
     title: "Conference & Plenaries",
+    culturalImage: "/images/coral-stone-pattern.jpg",
     highlights: [
       "Plenary 1: Digital First for the Digital Era",
       "Plenary 2: Sustainability — Building Resilience",
@@ -26,6 +28,7 @@ const days = [
   {
     date: "Day 3 — September 3",
     title: "Risk, Governance & Farewell",
+    culturalImage: "/images/coir-rope-border.jpg",
     highlights: [
       "Plenary 3: Technology for Risk Management",
       "Plenary 4: Governors' Roundtable",
@@ -54,8 +57,13 @@ export function ProgramPreview() {
           {days.map((day) => (
             <div
               key={day.date}
-              className="flex flex-col gap-5 flex-1 bg-white p-8 border border-border-light"
+              className="flex flex-col flex-1 bg-white border border-border-light overflow-hidden"
             >
+              {/* Cultural pattern strip — each day has a different Maldivian craft */}
+              <div className="relative w-full h-2 shrink-0">
+                <Image src={day.culturalImage} alt="" fill className="object-cover" sizes="400px" />
+              </div>
+              <div className="flex flex-col gap-5 p-8">
               <span className="font-[family-name:var(--font-body)] text-[12px] font-semibold tracking-[2px] text-gold uppercase">
                 {day.date}
               </span>
@@ -73,6 +81,7 @@ export function ProgramPreview() {
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
           ))}
         </div>

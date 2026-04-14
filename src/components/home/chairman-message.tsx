@@ -53,13 +53,13 @@ export function ChairmanMessage() {
             </div>
           </div>
 
-          {/* Chairman photo — 380x460, object-cover */}
-          <div className="relative w-full lg:w-[380px] h-[300px] lg:h-[460px] shrink-0 overflow-hidden">
+          {/* Chairman photo — 380x460, object-cover, face positioned at 30% from top */}
+          <div className="relative w-full lg:w-[380px] h-[380px] lg:h-[460px] shrink-0 overflow-hidden">
             <Image
               src="/images/speakers/thinley-namgyel.png"
               alt="Thinley Namgyel — Chairman, ABA"
               fill
-              className="object-cover"
+              className="object-cover object-[center_25%]"
               sizes="380px"
             />
           </div>
