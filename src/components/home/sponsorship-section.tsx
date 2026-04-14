@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ButtonPrimary } from "@/components/shared/button-primary";
 
 const tiers = [
@@ -58,20 +59,27 @@ export function SponsorshipSection() {
               key={tier.name}
               className="flex flex-col flex-1 bg-white border border-border-light"
             >
-              {/* Card header — navy gradient, padding 36 32, gap 12 */}
+              {/* Kasabu embroidery accent strip */}
+              <div className="relative w-full h-1.5 overflow-hidden">
+                <Image src="/images/kasabu-embroidery.jpg" alt="" fill className="object-cover opacity-50" sizes="420px" />
+              </div>
+              {/* Card header — navy gradient with coral texture */}
               <div
-                className="flex flex-col gap-3 px-8 py-9"
+                className="relative flex flex-col gap-3 px-8 py-9 overflow-hidden"
                 style={{
                   background: "linear-gradient(180deg, #1B2A4A 0%, #243556 100%)",
                 }}
               >
-                <span className="font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[3px] text-gold uppercase">
+                <div className="absolute inset-0 opacity-[0.04]">
+                  <Image src="/images/coral-stone-pattern.jpg" alt="" fill className="object-cover" sizes="420px" />
+                </div>
+                <span className="relative font-[family-name:var(--font-body)] text-[11px] font-bold tracking-[3px] text-gold uppercase">
                   {tier.name}
                 </span>
-                <span className="font-[family-name:var(--font-heading)] text-[36px] font-bold text-white">
+                <span className="relative font-[family-name:var(--font-heading)] text-[36px] font-bold text-white">
                   {tier.price}
                 </span>
-                <span className="font-[family-name:var(--font-body)] text-[14px] text-white/60">
+                <span className="relative font-[family-name:var(--font-body)] text-[14px] text-white/60">
                   {tier.seats}
                 </span>
               </div>

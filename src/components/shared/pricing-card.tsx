@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ButtonPrimary } from "./button-primary";
 
@@ -30,12 +31,19 @@ export function PricingCard({
         className,
       )}
     >
-      {/* Header */}
-      <div className="flex flex-col gap-2 bg-navy p-8 px-7">
-        <span className="font-[family-name:var(--font-body)] text-[12px] font-semibold tracking-[2px] text-gold">
+      {/* Kasabu accent strip */}
+      <div className="relative w-full h-1 overflow-hidden">
+        <Image src="/images/kasabu-embroidery.jpg" alt="" fill className="object-cover opacity-40" sizes="340px" />
+      </div>
+      {/* Header with subtle coral texture */}
+      <div className="relative flex flex-col gap-2 bg-navy p-8 px-7 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]">
+          <Image src="/images/coral-stone-pattern.jpg" alt="" fill className="object-cover" sizes="340px" />
+        </div>
+        <span className="relative font-[family-name:var(--font-body)] text-[12px] font-semibold tracking-[2px] text-gold">
           {tierLabel}
         </span>
-        <div className="flex items-end gap-1">
+        <div className="relative flex items-end gap-1">
           <span className="font-[family-name:var(--font-heading)] text-[42px] font-bold text-white">
             {price}
           </span>
@@ -45,7 +53,7 @@ export function PricingCard({
             </span>
           )}
         </div>
-        <div className="flex items-center bg-gold/20 px-3.5 py-1.5 w-fit">
+        <div className="relative flex items-center bg-gold/20 px-3.5 py-1.5 w-fit">
           <span className="font-[family-name:var(--font-body)] text-[13px] font-semibold text-gold">
             Early Bird: {earlyBirdPrice}
           </span>

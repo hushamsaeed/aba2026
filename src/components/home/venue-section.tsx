@@ -74,6 +74,11 @@ export function VenueSection() {
           </div>
         </div>
 
+        {/* Coir rope cultural divider */}
+        <div className="relative w-full h-3 mx-auto max-w-[300px] overflow-hidden opacity-20">
+          <Image src="/images/coir-rope-border.jpg" alt="" fill className="object-cover" sizes="300px" />
+        </div>
+
         {/* Features — 3 columns */}
         <div data-stagger className="flex flex-col lg:flex-row gap-10 px-6 lg:px-30 py-12">
           {features.map((feat) => (
