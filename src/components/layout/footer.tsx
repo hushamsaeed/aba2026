@@ -16,9 +16,9 @@ const prevConferences = [
 export function Footer() {
   return (
     <footer className="w-full bg-navy text-white">
-      {/* Kasabu embroidery cultural border */}
-      <div className="relative w-full h-1.5 overflow-hidden">
-        <Image src="/images/kasabu-embroidery.jpg" alt="" fill className="object-cover opacity-40" sizes="1440px" />
+      {/* Cultural strip border */}
+      <div className="relative w-full h-3 overflow-hidden">
+        <Image src="/images/cultural/cultural-strip.jpg" alt="" fill className="object-cover" sizes="1440px" />
       </div>
       {/* Padding 60 80, gap 48 — matches design */}
       <div className="max-w-[1440px] mx-auto px-6 lg:px-20 py-10 lg:py-15 flex flex-col gap-10 lg:gap-12">

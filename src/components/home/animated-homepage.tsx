@@ -103,6 +103,35 @@ export function AnimatedHomepage({ children }: { children: React.ReactNode }) {
       });
     });
 
+    // Cultural background textures fade in on scroll
+    const culturalBgs = document.querySelectorAll("[data-cultural-bg]");
+    culturalBgs.forEach((bg) => {
+      gsap.set(bg, { opacity: 0 });
+      ScrollTrigger.create({
+        trigger: bg.parentElement,
+        start: "top 80%",
+        onEnter: () => {
+          gsap.to(bg, { opacity: parseFloat((bg as HTMLElement).dataset.culturalBg || "0.03"), duration: 1.5, ease: "power2.out" });
+        },
+        once: true,
+      });
+    });
+
+    // Slow parallax for decorative cultural elements
+    const slowParallax = document.querySelectorAll("[data-parallax-slow]");
+    slowParallax.forEach((el) => {
+      gsap.to(el, {
+        y: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: el.parentElement,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    });
+
     return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 

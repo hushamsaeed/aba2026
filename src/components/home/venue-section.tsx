@@ -46,8 +46,12 @@ const accommodations = [
 
 export function VenueSection() {
   return (
-    <section className="w-full bg-navy overflow-hidden">
-      <div className="max-w-[1440px] mx-auto py-12 lg:py-25 flex flex-col">
+    <section className="relative w-full bg-navy overflow-hidden">
+      {/* Fish motif cultural background */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <Image src="/images/cultural/fish-motif.jpg" alt="" fill className="object-cover" sizes="1440px" />
+      </div>
+      <div className="relative max-w-[1440px] mx-auto py-12 lg:py-25 flex flex-col">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 px-6 lg:px-30">
           <span data-animate className="section-label">CONFERENCE VENUE</span>

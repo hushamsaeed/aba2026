@@ -3,6 +3,10 @@ import Image from "next/image";
 export function ChairmanMessage() {
   return (
     <section className="w-full bg-parchment">
+      {/* Cultural strip border */}
+      <div className="relative w-full h-3 overflow-hidden">
+        <Image src="/images/cultural/cultural-strip.jpg" alt="" fill className="object-cover" sizes="1440px" />
+      </div>
       <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Section header */}
         <span className="section-label" data-animate>MESSAGE FROM THE CHAIRMAN</span>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Timer } from "lucide-react";
 import { PricingCard } from "@/components/shared/pricing-card";
 
@@ -38,8 +39,12 @@ const features = [
 
 export function RegistrationSection() {
   return (
-    <section className="w-full bg-parchment">
-      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
+    <section className="relative w-full bg-parchment overflow-hidden">
+      {/* Reed mat woven texture */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+        <Image src="/images/cultural/reed-mat-texture.jpg" alt="" fill className="object-cover" sizes="1440px" />
+      </div>
+      <div className="relative max-w-[1440px] mx-auto px-6 py-12 lg:px-30 lg:py-25 flex flex-col items-center gap-12">
         {/* Header */}
         <span data-animate className="section-label">REGISTRATION</span>
         <h2 data-animate className="font-[family-name:var(--font-heading)] text-[32px] lg:text-[48px] font-bold text-text text-center">
