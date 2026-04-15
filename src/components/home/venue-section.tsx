@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Trees, Plane, Globe } from "lucide-react";
 
 const features = [
@@ -7,18 +8,21 @@ const features = [
     title: "Activities & Experiences",
     description:
       "Snorkelling, diving, water sports, spa treatments, sunset cruises, and cultural activities across the island.",
+    href: "/venue#resort-activities",
   },
   {
     icon: Plane,
     title: "Travel & Accessibility",
     description:
       "Just 10 minutes by speedboat from Velana International Airport. 24-hour transfers ensure effortless arrival.",
+    href: "/venue/travel",
   },
   {
     icon: Globe,
     title: "About the Maldives",
     description:
       "An island nation of coral atolls renowned for turquoise lagoons, white-sand beaches, and warm hospitality.",
+    href: "/venue/maldives",
   },
 ];
 
@@ -38,17 +42,20 @@ const accommodations = [
     description:
       "Beachfront rooms, private bungalows, and villas set amid tropical gardens with onsite meeting facilities.",
     image: "/images/accom-kurumba.jpg",
+    website: "https://www.kurumba.com",
   },
   {
     name: "dusitD2 Feydhoo Maldives",
     description:
       "Contemporary island resort with modern beach and overwater villas, bold design and premium all-inclusive offering.",
     image: "/images/accom-dusit.jpg",
+    website: "https://www.dusit.com",
   },
   {
     name: "Villa Nautica Maldives",
     description:
       "Spacious beachfront and overwater villas with dining, wellness, and recreational facilities near Malé.",
+    website: "https://www.villaresorts.com",
     image: "/images/accom-villa.jpg",
   },
 ];
@@ -92,22 +99,26 @@ export function VenueSection() {
           <Image src="/images/coir-rope-border.jpg" alt="" fill className="object-cover" sizes="300px" />
         </div>
 
-        {/* Features — 3 columns */}
+        {/* Features — 3 columns, clickable */}
         <div data-stagger className="flex flex-col lg:flex-row gap-10 px-6 lg:px-30 py-12">
           {features.map((feat) => (
-            <div key={feat.title} className="flex flex-col gap-3 flex-1">
+            <Link key={feat.title} href={feat.href} className="flex flex-col gap-3 flex-1 group">
               <feat.icon className="w-7 h-7 text-gold" />
-              <h3 className="font-[family-name:var(--font-heading)] text-[22px] font-bold text-white">
+              <h3 className="font-[family-name:var(--font-heading)] text-[22px] font-bold text-white group-hover:text-gold transition-colors">
                 {feat.title}
               </h3>
               <p className="font-[family-name:var(--font-body)] text-[14px] text-white/50 leading-[1.7]">
                 {feat.description}
               </p>
-            </div>
+              <span className="font-[family-name:var(--font-body)] text-[13px] font-semibold text-gold opacity-0 group-hover:opacity-100 transition-opacity">
+                Learn more →
+              </span>
+            </Link>
           ))}
         </div>
 
-        {/* Resort Activities — merged from standalone activities page */}
+        {/* Resort Activities — with anchor */}
+        <div id="resort-activities"></div>
         <div className="flex flex-col gap-8 px-6 lg:px-30 py-12">
           <span data-animate className="section-label">RESORT ACTIVITIES</span>
           <div data-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -134,9 +145,12 @@ export function VenueSection() {
           <span data-animate className="section-label">ACCOMMODATION</span>
           <div data-stagger className="flex flex-col lg:flex-row gap-6">
             {accommodations.map((accom) => (
-              <div
+              <a
                 key={accom.name}
-                className="flex flex-col flex-1 bg-white/[0.03] overflow-hidden"
+                href={accom.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col flex-1 bg-white/[0.03] overflow-hidden group hover:bg-white/[0.06] transition-colors"
               >
                 {/* Card image — 180px */}
                 <div className="relative w-full h-[180px]">
@@ -161,8 +175,11 @@ export function VenueSection() {
                   <p className="font-[family-name:var(--font-body)] text-[13px] text-white/50 leading-[1.6]">
                     {accom.description}
                   </p>
+                  <span className="font-[family-name:var(--font-body)] text-[12px] font-semibold text-gold group-hover:underline">
+                    Visit website →
+                  </span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
