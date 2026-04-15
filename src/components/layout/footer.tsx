@@ -25,7 +25,7 @@ export function Footer() {
         {/* Top row — 4 columns, gap 60, space-between */}
         <div className="flex flex-col md:flex-row gap-15 justify-between">
           {/* Brand column — width 360 */}
-          <div className="flex flex-col gap-4 max-w-[360px]">
+          <div className="flex flex-col items-start gap-4 max-w-[360px]">
             <p className="font-[family-name:var(--font-body)] text-[14px] text-white/60 leading-[1.7] whitespace-pre-line">
               {"42nd ABA General Meeting & Conference\n1–3 September 2026\nKurumba Maldives"}
             </p>
