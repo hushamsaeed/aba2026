@@ -47,6 +47,7 @@ export default buildConfig({
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || process.env.JWT_SECRET || "aba-maldives-payload-secret",
   db: postgresAdapter({
+    push: true,
     pool: {
       connectionString: process.env.DATABASE_URL || "",
     },

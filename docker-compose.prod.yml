@@ -16,6 +16,7 @@ services:
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - JWT_SECRET=${JWT_SECRET}
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
     depends_on:
@@ -23,6 +24,7 @@ services:
         condition: service_healthy
     volumes:
       - generated-images:/app/public/generated
+      - media-uploads:/app/media
 
   db:
     image: postgres:16-alpine
@@ -46,3 +48,4 @@ networks:
 volumes:
   pgdata:
   generated-images:
+  media-uploads:
