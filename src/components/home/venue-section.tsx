@@ -22,6 +22,15 @@ const features = [
   },
 ];
 
+const activities = [
+  { title: "Snorkelling & Diving", description: "Explore Kurumba's vibrant house reef with guided snorkelling and PADI-certified diving excursions among tropical marine life.", image: "/images/act-snorkel.jpg" },
+  { title: "Water Sports", description: "Kayaking, paddleboarding, jet skiing, and parasailing — the Indian Ocean is your playground with activities for all skill levels.", image: "/images/act-watersports.jpg" },
+  { title: "Spa & Wellness", description: "Rejuvenate with traditional Maldivian treatments, aromatherapy, and wellness rituals in an oceanfront spa setting.", image: "/images/act-spa.jpg" },
+  { title: "Cultural Activities", description: "Discover Maldivian heritage through coconut palm weaving, traditional music, Bodu Beru drumming, and island village visits.", image: "/images/act-culture.jpg" },
+  { title: "Sunset Cruises", description: "Sail across the Indian Ocean at golden hour aboard a traditional Maldivian dhoni, with dolphin-watching opportunities.", image: "/images/act-sunset.jpg" },
+  { title: "Dining Experiences", description: "Eight restaurants and bars serve international and Maldivian cuisine, from beachfront grills to fine dining.", image: "/images/act-dining.jpg" },
+];
+
 const accommodations = [
   {
     name: "Kurumba Maldives",
@@ -96,6 +105,28 @@ export function VenueSection() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Resort Activities — merged from standalone activities page */}
+        <div className="flex flex-col gap-8 px-6 lg:px-30 py-12">
+          <span data-animate className="section-label">RESORT ACTIVITIES</span>
+          <div data-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {activities.map((activity) => (
+              <div key={activity.title} className="flex flex-col bg-white/[0.03] overflow-hidden">
+                <div className="relative w-full h-[180px]">
+                  <Image src={activity.image} alt={activity.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" />
+                </div>
+                <div className="flex flex-col gap-2 p-5">
+                  <h4 className="font-[family-name:var(--font-heading)] text-[18px] font-bold text-white">
+                    {activity.title}
+                  </h4>
+                  <p className="font-[family-name:var(--font-body)] text-[13px] text-white/50 leading-[1.6]">
+                    {activity.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Accommodation — cards with images matching design */}
